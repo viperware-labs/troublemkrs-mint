@@ -1,5 +1,5 @@
 :root {
-  --primary: #000000;
+  /* --primary: #000000; */
   --primary-text: #ffffff;
   --secondary: #ff1dec;
   --secondary-text: #ffffff;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "customfont";
-  src: url("./assets/CodePro.ttf") format("truetype");
+  src: url("./assets/Creepster-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -21,6 +21,15 @@
   display: flex;
   flex-flow: row wrap;
   width: 85%;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -100;
 }
 
 .flexbox-item {
@@ -37,22 +46,68 @@
 
 .typing-gm {
   width: 100%;
-  animation: typing 2s steps(10), blink 0.5s step-end infinite alternate;
+  animation: typing 3s steps(23), blink .5s step-end infinite alternate;
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid;
-  font-size: 72px;
+  font-size: 64px;
 }
 
-@media (max-width: 500px) {
-  .typing-gm {
-    font-size: 32px;
+.zombified {
+  text-align: center;
+  color: #bd0707;
+  font-weight: bold;
+  font-family: "customfont";
+  font-size: 220px;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  z-index: 10;
+}
+
+.description {
+  text-align: center;
+  color: #fff;
+  padding: 0 20%;
+  font-weight: bold;
+  font-family: "customfont";
+  font-size: 34px;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  z-index: 10;
+}
+
+@media (max-width: 1100px) {
+
+  .zombified {
+    margin: 100px 0 0 0;
+    font-size: 80px;
   }
+
+  .description {
+    padding: 0 40px;
+    margin: 100px 0;
+    font-size: 26px;
+  }
+
+  /* .typing-gm {
+    animation: none;
+    border: none;
+    white-space: pre-wrap;
+    font-size: 36px;
+  }
+
+  .verdyct {
+    width: 100%;
+    animation: blink .5s step-end infinite alternate;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 36px;
+  } */
+
   .jk {
     font-size: 18px;
     margin: 0px 20px 0px 20px;
   }
 }
+
 @keyframes typing {
   from {
     width: 0;
