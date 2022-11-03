@@ -477,7 +477,7 @@ function App() {
                                                         fontWeight: "700",
                                                     }}
                                                 >
-                                                    {claimingNft ? "PROCESSING" : "PUBLIC MINT"}
+                                                    {claimingNft ? "PROCESSING" : "PUBLIC DEPOSIT"}
                                                 </StyledButton>
                                             </s.Container>
 
@@ -499,7 +499,7 @@ function App() {
                                                         fontWeight: "700",
                                                     }}
                                                 >
-                                                    {claimingNft ? "PROCESSING" : "WHITELIST MINT"}
+                                                    {claimingNft ? "PROCESSING" : "WHITELIST DEPOSIT"}
                                                 </StyledButton>
                                             </s.Container>
 
