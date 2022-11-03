@@ -1,0 +1,19 @@
+{
+  "CONTRACT_ADDRESS": "0xb7A2595F5d43393Fc19CcE35DEe75C7e538595FE",
+  "SCAN_LINK": "https://etherscan.io/address/0xb7a2595f5d43393fc19cce35dee75c7e538595fe",
+  "NETWORK": {
+    "NAME": "Ethereum",
+    "SYMBOL": "ETH",
+    "ID": 1
+  },
+  "NFT_NAME": "Ungenuine Dead",
+  "SYMBOL": "UD",
+  "MAX_SUPPLY": 3333,
+  "PUBLIC_WEI_COST": 0,
+  "WL_WEI_COST": 0,
+  "DISPLAY_COST": 0,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opensea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/ungenuine-dead",
+  "SHOW_BACKGROUND": true
+}
