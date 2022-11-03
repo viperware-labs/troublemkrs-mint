@@ -6,14 +6,14 @@
     "SYMBOL": "ETH",
     "ID": 1
   },
-  "NFT_NAME": "Troublemkrs",
-  "SYMBOL": "TRBL",
-  "MAX_SUPPLY": 333,
+  "NFT_NAME": "Ungenuine Dead",
+  "SYMBOL": "UD",
+  "MAX_SUPPLY": 3333,
   "PUBLIC_WEI_COST": 0,
   "WL_WEI_COST": 0,
   "DISPLAY_COST": 0,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opensea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/ungenuine-dead",
   "SHOW_BACKGROUND": true
 }
