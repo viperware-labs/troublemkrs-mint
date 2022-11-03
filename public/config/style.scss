@@ -1,0 +1,111 @@
+:root {
+  --primary: #000000;
+  --primary-text: #ffffff;
+  --secondary: #ff1dec;
+  --secondary-text: #ffffff;
+  --accent: #505050;
+  --accent-text: #ffffff;
+}
+
+@font-face {
+  font-family: "customfont";
+  src: url("./assets/CodePro.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.image {
+  width: 100%;
+}
+
+.flexbox-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 85%;
+}
+
+.flexbox-item {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexbox-item-1 {
+  padding: 30px;
+}
+
+.typing-gm {
+  width: 100%;
+  animation: typing 2s steps(10), blink .5s step-end infinite alternate;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+  font-size: 72px;
+}
+
+@media (max-width: 500px) {
+  .typing-gm {
+    font-size: 32px;
+  }
+  .jk {
+    font-size: 18px;
+    margin: 0px 20px 0px 20px;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+.container {
+  margin: 2rem auto;
+}
+
+.portfolio-title {
+  color: white;
+  text-align: center;
+}
+
+.portfolio-subtitle {
+  color: white;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  max-width: 100%;
+  margin: 0 auto;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+}
+
+@media (max-width: 450px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, 100%);
+  }
+}
+
+.gallery-item {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  transition: all .3s;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+  }
+}
+
+.gallery-link {
+  text-decoration: none;
+}
