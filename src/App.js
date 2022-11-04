@@ -4,7 +4,23 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import { ENS } from '@ensdomains/ensjs'
+import {
+    BaseRegistrar,
+    BaseRegistrarImplementation,
+    BulkRenewal,
+    ENS,
+    ENSRegistry,
+    ENSRegistryWithFallback,
+    ETHRegistrarController,
+    FIFSRegistrar,
+    LinearPremiumPriceOracle,
+    PriceOracle,
+    PublicResolver,
+    Resolver,
+    ReverseRegistrar,
+    StablePriceOracle,
+    TestRegistrar
+  } from '@ensdomains/ens-contracts'
 import { ethers } from 'ethers'
 //import './App.css';
 
