@@ -191,10 +191,10 @@ const Home: NextPage = () => {
           <div className={styles.faqContainerQuestions}>
 
             <div className={styles.faqContainerColumn}>
-              <h1>
+              <div className={styles.faqHeader}>
                 1. What is the founders Crew Pass?
-              </h1>
-              <div>
+              </div>
+              <div className={styles.faqBody}>
                 The Founders Crew Pass is the key to our ecosystem and your early access to the
                 <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
                   color: "#ffcc00",
@@ -203,27 +203,27 @@ const Home: NextPage = () => {
               </div>
               <br/>
 
-              <h1>
+              <div className={styles.faqHeader}>
                 2. What is the cost of the presale? 
-              </h1>
-              <div>
+              </div>
+              <div className={styles.faqBody}>
                 Troublemakers that submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
               </div>
               <br/>
 
-              <h1>
+              <div className={styles.faqHeader}>
                 3. When will I get my Founders Crew Pass?
-              </h1>
-              <div>
+              </div>
+              <div className={styles.faqBody}>
                 TBA, within a week after presale.<br/>
               </div>
             </div>
 
             <div className={styles.faqContainerColumn}>
-              <h1>
+              <div className={styles.faqHeader}>
                 4. What will the holders get?
-              </h1>
-              <div>
+              </div>
+              <div className={styles.faqBody}>
                 - 1x Troublemakers Crew Pass<br/>
                 - 2x Troublemakers PFP (Future Airdrop)<br/>
                 - 1x Troublemakers PFP WL Nomination<br/>

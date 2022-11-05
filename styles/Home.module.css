@@ -69,7 +69,6 @@
 }
 
 .faqDiv {
-  width: 50%;
   display: flex;
   flex-direction: column;
 }
@@ -108,7 +107,7 @@
   width: 50%;
 }
 
-.faqContainerColumn h1 {
+.faqContainerColumn .faqHeader {
   text-transform: none;
   margin: 0 0 10px 0;
   font-size: 24px;
@@ -121,7 +120,7 @@
   font-weight: normal;
 }
 
-.faqContainerColumn div {
+.faqContainerColumn .faqBody {
   text-transform: none;
   margin: 0 0 10px 0;
   font-size: 18px;
@@ -206,6 +205,28 @@
   .mintcontainer .pass {
     width: 100%;
     font-size: 14px;
+  }
+
+  .faqContainer {
+    width: 100%;
+  }
+
+  .faqContainer h1 {
+    margin: 0 0 10px 0;
+    font-size: 60px;
+  }
+  
+  .faqContainer h2 {
+    padding: 0 0 0 10px;
+    font-size: 17px;
+  }
+
+  .faqContainer .faqHeader {
+    font-size: 22px;
+  }
+
+  .faqContainer .faqBody {
+    font-size: 16px;
   }
 }
 
