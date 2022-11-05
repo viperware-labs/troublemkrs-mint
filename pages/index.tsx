@@ -174,7 +174,7 @@ const Home: NextPage = () => {
                 Troublemakers are for visionaries, dreamers & doers looking for a like-minded community alive and kicking in
                 the bear—people who want high-quality content without all the noise.<br/>
                 <br/>
-                The above mentions are just the tip of the iceberg; we'll build and grow this together as a family.<br/>
+                The above mentions are just the tip of the iceberg; we&apos;ll build and grow this together as a family.<br/>
               </p>
               <br/>
             </div>
