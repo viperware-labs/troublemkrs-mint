@@ -168,9 +168,21 @@
 }
 
 @media (max-width: 630px) {
+
+  .mintcontainer {
+    width: 100%;
+  }
+
   .mintcontainer .pass {
     width: 100%;
     font-size: 14px;
+  }
+
+  .headerflex {
+    display: flex;
+    width: 100%;
+    margin: 0 0 40px 0;
+    /* border: 2px solid red; */
   }
 }
 
