@@ -39,7 +39,11 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
 
   const timerUpdate = setInterval( () => {
     let t = getRemainingTime(deadline);
-    if (el != null) el.innerHTML = `${t.remainDays}d:${t.remainHours}h:${t.remainMinutes}m:${t.remainSeconds}s`;
+    if (el != null) el.innerHTML =
+    ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
+    + ((Number(t.remainHours) != 0) ? `${t.remainHours}H` : ``) + ` `
+    + ((Number(t.remainMinutes) != 0) ? `${t.remainMinutes}M` : ``) + ` `;
+    // ${t.remainSeconds}s
 
     if(t.remainTime <= 1) {
       clearInterval(timerUpdate);
@@ -49,7 +53,7 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
   }, 1000)
 };
 
-countdown('Nov 4 2022 23:59:59 GMT-0700', 'clock', 'LIVE ●');
+countdown('Nov 8 2022 23:59:59 GMT-0700', 'clock', 'LIVE ●');
 
 
 const Home: NextPage = () => {
