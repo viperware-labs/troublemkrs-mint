@@ -39,11 +39,12 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
 
   const timerUpdate = setInterval( () => {
     let t = getRemainingTime(deadline);
-    if (el != null) el.innerHTML =
+    // if (el != null) el.innerHTML = `${t.remainDays}D ${t.remainDays}H ${t.remainMinutes}M`;
+
+    if (el != null) el.innerHTML = 
     ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
     + ((Number(t.remainHours) != 0) ? `${t.remainHours}H` : ``) + ` `
     + ((Number(t.remainMinutes) != 0) ? `${t.remainMinutes}M` : ``) + ` `;
-    // ${t.remainSeconds}s
 
     if(t.remainTime <= 1) {
       clearInterval(timerUpdate);
@@ -53,7 +54,7 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
   }, 1000)
 };
 
-countdown('Nov 8 2022 23:59:59 GMT-0700', 'clock', 'LIVE ●');
+countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
 
 
 const Home: NextPage = () => {
@@ -104,18 +105,8 @@ const Home: NextPage = () => {
         </h1>
 
         <h1 className={styles.title}>
-          Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{' '}
-          <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <h1 className={styles.title}>
           PRESALE FAQ // faq
         </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
 
         <div className={styles.grid}>
           <a href="https://rainbowkit.com" className={styles.card}>
@@ -127,43 +118,12 @@ const Home: NextPage = () => {
             <h2>wagmi Documentation &rarr;</h2>
             <p>Learn how to interact with Ethereum.</p>
           </a>
-
-          <a
-            href="https://github.com/rainbow-me/rainbowkit/tree/main/examples"
-            className={styles.card}
-          >
-            <h2>RainbowKit Examples &rarr;</h2>
-            <p>Discover boilerplate example RainbowKit projects.</p>
-          </a>
-
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Next.js Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Next.js Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://rainbow.me" target="_blank" rel="noopener noreferrer">
-          Made with ❤️ by your frens at 🌈
+        <a href="https://viperware.xyz" target="_blank" rel="noopener noreferrer">
+          Made with ❤️ by Viperware Labs
         </a>
       </footer>
     </div>
