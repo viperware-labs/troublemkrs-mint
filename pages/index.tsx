@@ -147,11 +147,12 @@ const Home: NextPage = () => {
                   margin: "auto 25px",
                   fontWeight: "900",
                   padding: "0 0 6px 0",
-                  fontSize: "22px",
+                  fontSize: "20px",
                 }} className={styles.roundButton}>—</button>
 
               <div style={{
                 // border: "1px solid red",
+                margin: "auto 0",
               }}>
                 {mintAmount}
               </div>
