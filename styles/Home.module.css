@@ -30,6 +30,13 @@
 
 /* Start Custom Styling */
 
+.headerflex {
+  display: flex;
+  width: 85%;
+  margin: 50px 0;
+  /* border: 2px solid red; */
+}
+
 .faqContainer {
   width: 90%;
   margin-bottom: 40px;
@@ -102,13 +109,6 @@
 
 .passimg {
   border-radius: 10px;
-}
-
-.headerflex {
-  display: flex;
-  width: 85%;
-  margin: 0 0 40px 0;
-  /* border: 2px solid red; */
 }
 
 .logo {
@@ -214,7 +214,7 @@
 
 .mintButton {
   background-color: #ffcc00;
-  border-radius: 10px;
+  border-radius: 13px;
   color: black;
   font-family: outfit;
   font-size: 16px;
