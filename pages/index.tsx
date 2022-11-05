@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import React, { useEffect, useState } from "react";
 
 import logo from './assets/LOGO.png';
 import pass from './assets/pass.png';
@@ -57,6 +58,28 @@ countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
 
 
 const Home: NextPage = () => {
+
+  const [mintAmount, setMintAmount] = useState(1);
+
+  const decrementMintAmount = () => {
+      let newMintAmount = mintAmount - 1;
+      if (newMintAmount < 1) {
+          newMintAmount = 1;
+      }
+      setMintAmount(newMintAmount);
+  };
+
+  const incrementMintAmount = () => {
+      let newMintAmount = mintAmount + 1;
+      if (newMintAmount > 3) {
+          newMintAmount = 3;
+      }
+      setMintAmount(newMintAmount);
+  };
+
+  useEffect(() => {
+
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -75,14 +98,17 @@ const Home: NextPage = () => {
       <main className={styles.main}>
 
         <div className={styles.headerflex}>
+
           <div className={styles.logo}>
             <Image
               src={logo}
             />
           </div>
+
           <div className={styles.connect}>
             <ConnectButton />
           </div>
+
         </div>
 
         <h1 className={styles.mintcontainer}>
@@ -102,19 +128,52 @@ const Home: NextPage = () => {
           </div>
 
           <div className={styles.mint}>
-            {/* <p className={styles.yellow}>Ahoy, been waiting for months to mint!</p> */}
-            <p style={{
+            {/* <div className={styles.yellow}>Ahoy, been waiting for months to mint!</div> */}
+            <div style={{
               color: "#eee",
               textTransform: "uppercase",
+              display: "flex",
+              fontSize: "20px",
+              alignContent: "center",
+            }}>
+              
+              Select Quantity:
 
-            }}>Select Quantity</p>
+              <button 
+                onClick={() => {
+                  decrementMintAmount()
+                }}
+                style={{
+                  margin: "auto 25px",
+                  fontWeight: "900",
+                  padding: "0 0 6px 0",
+                  fontSize: "22px",
+                }} className={styles.roundButton}>—</button>
+
+              <div style={{
+                // border: "1px solid red",
+              }}>
+                {mintAmount}
+              </div>
+
+              <button 
+                onClick={() => {
+                  incrementMintAmount()
+                }}
+                style={{
+                  margin: "auto 25px",
+                  fontSize: "32px",
+                  padding: "0 0 2px 0",
+                }} className={styles.roundButton}>+</button>
+
+            </div>
             <br/>
             <br/>
             <button className={styles.mintButton}>Reserve Your Pass</button>
             <br/>
-            <p style={{
+            <div style={{
               color: "#a0a0a0",
-            }}>Only 1 will be available for the guaranteed round and will cost a total of .2E/ea</p>
+            }}>Only 1 will be available for the guaranteed round and will cost a total of .2E/ea</div>
 
           </div>
 
@@ -134,33 +193,36 @@ const Home: NextPage = () => {
               <h1>
                 1. What is the founders Crew Pass?
               </h1>
-              <p>
-                The Founders Crew Pass is the key to our ecosystem and your early access to the @TroubleMkrsNFT community. 
-                Pass holders will benefit greatly from everything we drop now and in perpetuity. + bonus utility involving our upcoming PFPs.
-              </p>
+              <div>
+                The Founders Crew Pass is the key to our ecosystem and your early access to the
+                <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
+                  color: "#ffcc00",
+                }}> @TroubleMkrsNFT</a> community. 
+                Pass holders will benefit greatly from everything we drop now and in perpetuity + bonus utility involving our upcoming PFPs.
+              </div>
               <br/>
 
               <h1>
                 2. What is the cost of the presale? 
               </h1>
-              <p>
-                Troublemakers and submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
-              </p>
+              <div>
+                Troublemakers that submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
+              </div>
               <br/>
 
               <h1>
                 3. When will I get my Founders Crew Pass?
               </h1>
-              <p>
+              <div>
                 TBA, within a week after presale.<br/>
-              </p>
+              </div>
             </div>
 
             <div className={styles.faqContainerColumn}>
               <h1>
                 4. What will the holders get?
               </h1>
-              <p>
+              <div>
                 - 1x Troublemakers Crew Pass<br/>
                 - 2x Troublemakers PFP (Future Airdrop)<br/>
                 - 1x Troublemakers PFP WL Nomination<br/>
@@ -177,7 +239,7 @@ const Home: NextPage = () => {
                 the bear—people who want high-quality content without all the noise.<br/>
                 <br/>
                 The above mentions are just the tip of the iceberg; we&apos;ll build and grow this together as a family.<br/>
-              </p>
+              </div>
               <br/>
             </div>
 
@@ -213,12 +275,12 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <a href="https://rainbowkit.com" className={styles.card}>
             <h2>RainbowKit Documentation &rarr;</h2>
-            <p>Troublemakers Troublemakers Troublemakers</p>
+            <div>Troublemakers Troublemakers Troublemakers</div>
           </a>
 
           <a href="https://wagmi.sh" className={styles.card}>
             <h2>wagmi Documentation &rarr;</h2>
-            <p>Learn how to interact with Ethereum.</p>
+            <div>Learn how to interact with Ethereum.</div>
           </a>
         </div> */}
       </main>
@@ -233,3 +295,4 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+

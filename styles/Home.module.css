@@ -34,8 +34,34 @@
   display: flex;
   width: 85%;
   margin: 50px 0;
-  /* border: 2px solid red; */
 }
+
+.logo {
+  display: flex;
+  margin: 0 10px;
+}
+
+.connect {
+  display: flex;
+  margin: 0 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .headerflex {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .logo {
+    margin: 20px 10px;
+  }
+  
+  .connect {
+    display: flex;
+    margin: 0;
+  }
+}
+
 
 .faqContainer {
   width: 90%;
@@ -95,7 +121,7 @@
   font-weight: normal;
 }
 
-.faqContainerColumn p {
+.faqContainerColumn div {
   text-transform: none;
   margin: 0 0 10px 0;
   font-size: 18px;
@@ -109,15 +135,6 @@
 
 .passimg {
   border-radius: 10px;
-}
-
-.logo {
-  margin: 0 10px;
-}
-
-.connect {
-  display: flex;
-  margin: 0 0 0 auto;
 }
 
 .mintcontainer {
@@ -160,7 +177,7 @@
 
 @media (max-width: 1000px) {
   .mintcontainer {
-    max-width: 400px;
+    max-width: 540px;
   }
 
   .mintcontainer .pass {
@@ -190,12 +207,6 @@
     width: 100%;
     font-size: 14px;
   }
-
-  .headerflex {
-    display: flex;
-    width: 100%;
-    /* border: 2px solid red; */
-  }
 }
 
 .mintcontainer .salestatus {
@@ -209,7 +220,7 @@
   margin: 0 10px;
 }
 
-.mintcontainer .mint p {
+.mintcontainer .mint div { 
   text-align: center;
   overflow: wrap;
   margin: 0 auto;
@@ -232,4 +243,27 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+/* Round Button */
+
+.roundButton {
+  border-radius: 100%;
+  border: none;
+  background-color: #383838;
+  font-size: 38px;
+  font-family: "outfit";
+  color: black;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roundButton:active {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
 }
