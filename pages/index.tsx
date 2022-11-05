@@ -13,8 +13,6 @@ const getRemainingTime = (_deadline: Date) => {
 
   let deadline = new Date(_deadline).getTime();
 
-  console.log(now);
-
   let remainTime = (Number(deadline) - Number(now) + 1000) / 1000,
   remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2),
   remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2),
@@ -67,7 +65,11 @@ const Home: NextPage = () => {
           name="description"
           content="A Place to Connect, a Space to Empower."
         />
-        <link rel="icon" href="./assets/favicon.ico" />
+        <link rel="shortcut icon" href="./assets/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png"/>
+
       </Head>
 
       <main className={styles.main}>
