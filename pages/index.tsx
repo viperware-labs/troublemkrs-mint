@@ -86,6 +86,7 @@ const Home: NextPage = () => {
 
           <div className={styles.pass}>
             <Image
+              className={styles.passimg}
               src={pass}
             />
             <div className={styles.salestatus}>
@@ -98,13 +99,90 @@ const Home: NextPage = () => {
           </div>
 
           <div className={styles.mint}>
-            <p className={styles.yellow}>Ahoy, been waiting for months to mint!</p>
-            <p>Troublemakers Troublemakers Troublemakers</p>
+            {/* <p className={styles.yellow}>Ahoy, been waiting for months to mint!</p> */}
+            <p style={{
+              color: "#eee",
+              textTransform: "uppercase",
+
+            }}>Select Quantity</p>
+            <br/>
+            <br/>
+            <button className={styles.mintButton}>Reserve Your Pass</button>
+            <br/>
+            <p style={{
+              color: "#a0a0a0",
+            }}>Only 1 will be available for the guaranteed round and will cost a total of .2E/ea</p>
+
           </div>
 
         </h1>
 
-        <h1 className={styles.title}>
+        <div className={styles.faqContainer}>
+          <h1>
+            PRESALE FAQ //
+          </h1>
+          <h2>
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+          
+          <div className={styles.faqContainerQuestions}>
+
+            <div className={styles.faqContainerColumn}>
+              <h1>
+                1. What is the founders Crew Pass?
+              </h1>
+              <p>
+                The Founders Crew Pass is the key to our ecosystem and your early access to the @TroubleMkrsNFT community. 
+                Pass holders will benefit greatly from everything we drop now and in perpetuity. + bonus utility involving our upcoming PFPs.
+              </p>
+              <br/>
+
+              <h1>
+                2. What is the cost of the presale? 
+              </h1>
+              <p>
+                Troublemakers and submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
+              </p>
+              <br/>
+
+              <h1>
+                3. When will I get my Founders Crew Pass?
+              </h1>
+              <p>
+                TBA, within a week after presale.
+              </p>
+              <br/>
+            </div>
+
+            <div className={styles.faqContainerColumn}>
+              <h1>
+                4. What will the holders get?
+              </h1>
+              <p>
+                1x Troublemakers Crew Pass<br/>
+                2x Troublemakers PFP (Future Airdrop)<br/>
+                1x Troublemakers PFP WL Nomination<br/>
+                1x Troublemakers PFP WL<br/>
+                Top-Tier NFT & Crypto Alpha Calls<br/>
+                Exclusive Weekly Classes & Community Events<br/>
+                Exclusive AMAs & Educational Content<br/>
+                Daily Market Updates(Everything you need to know daily in 1 post)<br/>
+                Daily Curated WL Raffles(not random bs, higher quality WLs)<br/>
+                Troublemakers Networking Group(Meet founders, collab managers, get connected!)<br/>
+                Team/Job Opportunities<br/>
+                <br/>
+                Troublemakers are for visionaries, dreamers & doers looking for a like-minded community alive and kicking in
+                the bear—people who want high-quality content without all the noise.<br/>
+                <br/>
+                The above mentions are just the tip of the iceberg; we'll build and grow this together as a family.<br/>
+              </p>
+              <br/>
+            </div>
+
+          </div>
+        </div>
+
+        {/* <h1 className={styles.title}>
           PRESALE FAQ // faq
         </h1>
 
@@ -118,7 +196,7 @@ const Home: NextPage = () => {
             <h2>wagmi Documentation &rarr;</h2>
             <p>Learn how to interact with Ethereum.</p>
           </a>
-        </div>
+        </div> */}
       </main>
 
       <footer className={styles.footer}>

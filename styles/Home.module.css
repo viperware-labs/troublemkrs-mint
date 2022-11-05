@@ -3,8 +3,6 @@
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -28,72 +26,82 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0d76fc;
-  text-decoration: none;
+/* End Rainbow Kit */
+
+/* Start Custom Styling */
+
+.faqContainer {
+  width: 90%;
+  margin-bottom: 40px;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.faqDiv {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
-.title {
-  margin: 3rem 0;
-  line-height: 1;
-  font-size: 60px;
+.faqContainer h1 {
+  padding: 0 0 0 10px;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  font-size: 96px;
+  color: #ffcc00;
   font-family: "judge";
   font-weight: normal;
 }
 
-.title,
-.description {
-  text-align: center;
+.faqContainer h2 {
+  padding: 0 0 0 10px;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+  font-size: 20px;
+  color: #eee;
+  font-family: "outfit";
+  font-weight: normal;
+  font-weight: 500;
 }
 
-.description {
-  margin: 0 0 2rem;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.faqTab {
+  width: 50%;
 }
 
-.grid {
+.faqContainerQuestions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 350px;
+.faqContainerColumn {
+  padding: 10px;
+  width: 50%;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0d76fc;
-  border-color: #0d76fc;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.2rem;
-}
-
-.card p {
+.faqContainerColumn h1 {
+  text-transform: none;
+  margin: 0 0 10px 0;
+  font-size: 24px;
   margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.5;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: #1e1e1e;
+  color: #eee;
+  font-family: "outfit";
+  font-weight: normal;
+}
+
+.faqContainerColumn p {
+  text-transform: none;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  margin: 0;
+  padding: 20px;
+  background-color: #171717;
+  color: #979797;
+  font-family: "outfit";
+  font-weight: normal;
+}
+
+.passimg {
+  border-radius: 10px;
 }
 
 .headerflex {
@@ -114,9 +122,9 @@
 
 .mintcontainer {
   display: flex;
-  border: 1px solid white;
-  width: 80%;
+  flex-direction: column;
   font-weight: 100;
+  max-width: 600px;
 }
 
 .mintcontainer div {
@@ -125,45 +133,47 @@
 
 .mintcontainer .pass {
   display: flex;
-  width: 50%;
-  font-size: 20px;
+  width: 100%;
+  font-size: 16px;
+  /* border: 2px solid red; */
 }
 
 .mintcontainer .mint {
-  padding: 50px;
+  padding: 50px 0;
   flex-direction: column;
-  font-size: 17px;
+  font-size: 15px;
   /* border: 2px solid red; */
-  width: 50%;
+  width: 100%;
 }
 
 @media (max-width: 1150px) {
+
   .mintcontainer .pass {
-    width: 50%;
-    font-size: 17px;
+    /* width: 50%; */
+    max-width: 550px;
   }
   
   .mintcontainer .mint {
-    width: 50%;
-    font-size: 17px;
+    /* width: 50%; */
   }
 }
 
 @media (max-width: 1000px) {
+  .mintcontainer {
+    max-width: 400px;
+  }
+
   .mintcontainer .pass {
     width: 100%;
-    font-size: 17px;
   }
   
   .mintcontainer .mint {
     width: 100%;
-    font-size: 17px;
   }
 
   .mintcontainer {
     display: flex;
     flex-direction: column;
-    width: 70%;
   }
 }
 
@@ -181,7 +191,6 @@
   .headerflex {
     display: flex;
     width: 100%;
-    margin: 0 0 40px 0;
     /* border: 2px solid red; */
   }
 }
@@ -189,7 +198,7 @@
 .mintcontainer .salestatus {
   display: flex;
   position: absolute;
-  margin: 10px;
+  margin: 30px;
 }
 
 .mintcontainer .live {
@@ -203,8 +212,16 @@
   margin: 0 auto;
 }
 
-.mintcontainer .mint .yellow {
-  color: yellow;
+.mintButton {
+  background-color: #ffcc00;
+  border-radius: 10px;
+  color: black;
+  font-family: outfit;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 60px;
+  margin: auto;
 }
 
 @media (max-width: 600px) {
