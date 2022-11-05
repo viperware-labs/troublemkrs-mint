@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css';
 
 import logo from './assets/LOGO.png';
 import pass from './assets/pass.png';
+import twitter from './assets/twitterLogo.png';
 
 const getRemainingTime = (_deadline: Date) => {
   let now = new Date().getTime();
@@ -181,6 +182,28 @@ const Home: NextPage = () => {
 
           </div>
         </div>
+        <div style={{
+          display: "flex",
+          width: "90%",
+          margin: "30px 0",
+        }}>
+          <div style={{
+            textTransform: "uppercase",
+          }}>
+            A place to connect, a space to empower.
+          </div>
+          <div style={{
+            margin: "0 0 0 auto",
+          }}>
+            <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer">
+              <Image
+                width="39px"
+                height="32px"
+                src={twitter}
+              />
+            </a>
+          </div>
+        </div>
 
         {/* <h1 className={styles.title}>
           PRESALE FAQ // faq
@@ -200,7 +223,7 @@ const Home: NextPage = () => {
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://viperware.xyz" target="_blank" rel="noopener noreferrer">
+        <a href="https://twitter.com/ViperwareLabs" target="_blank" rel="noopener noreferrer">
           Made with ❤️ by Viperware Labs
         </a>
       </footer>
