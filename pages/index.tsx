@@ -152,9 +152,8 @@ const Home: NextPage = () => {
                 3. When will I get my Founders Crew Pass?
               </h1>
               <p>
-                TBA, within a week after presale.
+                TBA, within a week after presale.<br/>
               </p>
-              <br/>
             </div>
 
             <div className={styles.faqContainerColumn}>
@@ -162,17 +161,17 @@ const Home: NextPage = () => {
                 4. What will the holders get?
               </h1>
               <p>
-                1x Troublemakers Crew Pass<br/>
-                2x Troublemakers PFP (Future Airdrop)<br/>
-                1x Troublemakers PFP WL Nomination<br/>
-                1x Troublemakers PFP WL<br/>
-                Top-Tier NFT & Crypto Alpha Calls<br/>
-                Exclusive Weekly Classes & Community Events<br/>
-                Exclusive AMAs & Educational Content<br/>
-                Daily Market Updates(Everything you need to know daily in 1 post)<br/>
-                Daily Curated WL Raffles(not random bs, higher quality WLs)<br/>
-                Troublemakers Networking Group(Meet founders, collab managers, get connected!)<br/>
-                Team/Job Opportunities<br/>
+                - 1x Troublemakers Crew Pass<br/>
+                - 2x Troublemakers PFP (Future Airdrop)<br/>
+                - 1x Troublemakers PFP WL Nomination<br/>
+                - 1x Troublemakers PFP WL<br/>
+                - Top-Tier NFT & Crypto Alpha Calls<br/>
+                - Exclusive Weekly Classes & Community Events<br/>
+                - Exclusive AMAs & Educational Content<br/>
+                - Daily Market Updates (Everything you need to know daily in 1 post)<br/>
+                - Daily Curated WL Raffles (Not random bs, higher quality WLs)<br/>
+                - Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
+                - Team/Job Opportunities<br/>
                 <br/>
                 Troublemakers are for visionaries, dreamers & doers looking for a like-minded community alive and kicking in
                 the bear—people who want high-quality content without all the noise.<br/>
