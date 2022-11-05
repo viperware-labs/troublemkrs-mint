@@ -1,7 +1,56 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+
+import logo from './assets/LOGO.png';
+import pass from './assets/pass.png';
+
+const getRemainingTime = (_deadline: Date) => {
+  let now = new Date().getTime();
+
+  let deadline = new Date(_deadline).getTime();
+
+  console.log(now);
+
+  let remainTime = (Number(deadline) - Number(now) + 1000) / 1000,
+  remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2),
+  remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2),
+  remainHours = ('0' + Math.floor(remainTime / 3600 % 24)).slice(-2),
+  remainDays = Math.floor(remainTime / (3600 * 24));
+
+  return {
+    remainSeconds,
+    remainMinutes,
+    remainHours,
+    remainDays,
+    remainTime
+  }
+};
+
+const countdown = (deadline: any,elem: string,finalMessage: string) => {
+  let el: HTMLElement | null | undefined = undefined;
+  try {
+    el = document.getElementById(elem);
+  } catch (e) {
+    
+  }
+
+  const timerUpdate = setInterval( () => {
+    let t = getRemainingTime(deadline);
+    if (el != null) el.innerHTML = `${t.remainDays}d:${t.remainHours}h:${t.remainMinutes}m:${t.remainSeconds}s`;
+
+    if(t.remainTime <= 1) {
+      clearInterval(timerUpdate);
+      if (el != null) el.innerHTML = finalMessage;
+    }
+
+  }, 1000)
+};
+
+countdown('Nov 4 2022 23:59:59 GMT-0700', 'clock', 'LIVE ●');
+
 
 const Home: NextPage = () => {
   return (
@@ -16,11 +65,47 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <ConnectButton />
+
+        <div className={styles.headerflex}>
+          <div className={styles.logo}>
+            <Image
+              src={logo}
+            />
+          </div>
+          <div className={styles.connect}>
+            <ConnectButton />
+          </div>
+        </div>
+
+        <h1 className={styles.mintcontainer}>
+
+          <div className={styles.pass}>
+            <Image
+              src={pass}
+            />
+            <div className={styles.salestatus}>
+              <div className={styles.left}>
+                GUARANTEED PRESALE IS:
+                <div className={styles.live}><div id="clock"></div></div>
+              </div>
+            </div>
+            
+          </div>
+
+          <div className={styles.mint}>
+            <p className={styles.yellow}>Ahoy, been waiting for months to mint!</p>
+            <p>Troublemakers Troublemakers Troublemakers</p>
+          </div>
+
+        </h1>
 
         <h1 className={styles.title}>
           Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{' '}
           <a href="https://nextjs.org">Next.js!</a>
+        </h1>
+
+        <h1 className={styles.title}>
+          PRESALE FAQ // faq
         </h1>
 
         <p className={styles.description}>
@@ -31,7 +116,7 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <a href="https://rainbowkit.com" className={styles.card}>
             <h2>RainbowKit Documentation &rarr;</h2>
-            <p>Learn how to customize your wallet connection flow.</p>
+            <p>Troublemakers Troublemakers Troublemakers</p>
           </a>
 
           <a href="https://wagmi.sh" className={styles.card}>

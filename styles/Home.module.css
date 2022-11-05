@@ -2,10 +2,6 @@
   padding: 0 2rem;
 }
 
-.connect {
-  color: black;
-}
-
 .main {
   min-height: 100vh;
   padding: 4rem 0;
@@ -46,7 +42,9 @@
 .title {
   margin: 3rem 0;
   line-height: 1;
-  font-size: 2.5rem;
+  font-size: 60px;
+  font-family: "judge";
+  font-weight: normal;
 }
 
 .title,
@@ -96,6 +94,105 @@
   margin: 0;
   font-size: 1.2rem;
   line-height: 1.5;
+}
+
+.headerflex {
+  display: flex;
+  width: 85%;
+  margin: 0 0 40px 0;
+  /* border: 2px solid red; */
+}
+
+.logo {
+  margin: 0 10px;
+}
+
+.connect {
+  display: flex;
+  margin: 0 0 0 auto;
+}
+
+.mintcontainer {
+  display: flex;
+  border: 1px solid white;
+  width: 80%;
+  font-weight: 100;
+}
+
+.mintcontainer div {
+  display: flex;
+}
+
+.mintcontainer .pass {
+  display: flex;
+  width: 50%;
+  font-size: 20px;
+}
+
+.mintcontainer .mint {
+  padding: 50px;
+  flex-direction: column;
+  font-size: 17px;
+  /* border: 2px solid red; */
+  width: 50%;
+}
+
+@media (max-width: 1150px) {
+  .mintcontainer .pass {
+    width: 50%;
+    font-size: 17px;
+  }
+  
+  .mintcontainer .mint {
+    width: 50%;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .mintcontainer .pass {
+    width: 100%;
+    font-size: 17px;
+  }
+  
+  .mintcontainer .mint {
+    width: 100%;
+    font-size: 17px;
+  }
+
+  .mintcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+}
+
+@media (max-width: 630px) {
+  .mintcontainer .pass {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+.mintcontainer .salestatus {
+  display: flex;
+  position: absolute;
+  margin: 10px;
+}
+
+.mintcontainer .live {
+  color: #33cc33;
+  margin: 0 10px;
+}
+
+.mintcontainer .mint p {
+  text-align: center;
+  overflow: wrap;
+  margin: 0 auto;
+}
+
+.mintcontainer .mint .yellow {
+  color: yellow;
 }
 
 @media (max-width: 600px) {
