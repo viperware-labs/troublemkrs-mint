@@ -275,22 +275,20 @@ const Home: NextPage = () => {
                   4. What will the holders get?
                 </div>
                 <div className={styles.faqBody}>
-                  - 1x Troublemakers Crew Pass<br/>
-                  - 2x Troublemakers PFP (Future Airdrop)<br/>
-                  - 1x Troublemakers PFP WL Nomination<br/>
-                  - 1x Troublemakers PFP WL<br/>
-                  - Top-Tier NFT & Crypto Alpha Calls<br/>
-                  - Exclusive Weekly Classes & Community Events<br/>
-                  - Exclusive AMAs & Educational Content<br/>
-                  - Daily Market Updates (Everything you need to know daily in 1 post)<br/>
-                  - Daily Curated WL Raffles (Not random bs, higher quality WLs)<br/>
-                  - Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
-                  - Team/Job Opportunities<br/>
+                  As a Crew Pass holder, you are guaranteed:<br/>
                   <br/>
-                  Troublemakers are for visionaries, dreamers & doers looking for a like-minded community alive and kicking in
-                  the bear—people who want high-quality content without all the noise.<br/>
+                  •  Troublemakers Crew Pass<br/>
+                  •  2x Free Troublemakers PFP (Future Airdrop) <br/>
+                  •  Troublemakers PFP WL Nomination<br/>
+                  •  Top-Tier NFT & Crypto Alpha Calls<br/>
+                  •  Exclusive Weekly Classes & Community Events<br/>
+                  •  Exclusive AMAs & Educational Content<br/>
+                  •  Daily Market Updates (Everything you need to know daily in 1 post)<br/>
+                  •  Daily Curated WL Raffles (Such as Homa games, MitsubishiNFT and Owange)<br/>
+                  •  Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
+                  •  Team/Job Opportunities<br/>
                   <br/>
-                  The above mentions are just the tip of the iceberg; we&apos;ll build and grow this together as a family.<br/>
+                  For more information, refers to the Troublemakers discord.<br/>
                 </div>
                 <br/>
               </div>
