@@ -36,26 +36,28 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
   let el: HTMLElement | null | undefined = undefined;
   try {
     el = document.getElementById(elem);
+
+    const timerUpdate = setInterval( () => {
+      let t = getRemainingTime(deadline);
+      // if (el != null) el.innerHTML = `${t.remainDays}D ${t.remainDays}H ${t.remainMinutes}M`;
+  
+      if (el != null) el.innerHTML = 
+      ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
+      + ((Number(t.remainHours) != 0) ? `${t.remainHours}H` : ``) + ` `
+      + ((Number(t.remainMinutes) != 0) ? `${t.remainMinutes}M` : ``) + ` `;
+  
+      if(t.remainTime <= 1) {
+        clearInterval(timerUpdate);
+        if (el != null) el.innerHTML = finalMessage;
+      }
+  
+    }, 1000)
   } catch (e) {
-    
+    console.log("error");
   }
-
-  const timerUpdate = setInterval( () => {
-    let t = getRemainingTime(deadline);
-    // if (el != null) el.innerHTML = `${t.remainDays}D ${t.remainDays}H ${t.remainMinutes}M`;
-
-    if (el != null) el.innerHTML = 
-    ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
-    + ((Number(t.remainHours) != 0) ? `${t.remainHours}H` : ``) + ` `
-    + ((Number(t.remainMinutes) != 0) ? `${t.remainMinutes}M` : ``) + ` `;
-
-    if(t.remainTime <= 1) {
-      clearInterval(timerUpdate);
-      if (el != null) el.innerHTML = finalMessage;
-    }
-
-  }, 1000)
 };
+
+countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
 
 const Home: NextPage = () => {
 
@@ -82,18 +84,22 @@ const Home: NextPage = () => {
     setTimeout( () => {
       setLoaded(true);
       console.log("true");
-      countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
     }, 4000)
   }, []);
+
+
   return (
     <>
-    {!loaded ? 
-      <div className={styles.loading}>
+      <div
+      style={ loaded ? { display:'none'} : {display : ''} }
+      className={styles.loading}>
           <Image
             src={loading}
           />
-      </div> :
-      <div className={styles.container}>
+      </div>
+      <div 
+      style={ loaded ? { display:''} : {display : 'none'} }
+      className={styles.container}>
         <Head>
           <title>Troublemkrs Mint</title>
           <meta
@@ -340,7 +346,7 @@ const Home: NextPage = () => {
             Made with ❤️ by Viperware Labs
           </a>
         </footer>
-      </div>}
+      </div>
     </>
   );
 };
