@@ -266,6 +266,39 @@
   }
 }
 
+/* Reservations */
+
+.reservationsContainer {
+  overflow: hidden;
+  display: flex;
+  background-color: #1a1a1a;
+  width: 90%;
+  height: 60px;
+  border-radius: 15px;
+  align-items: center;
+}
+
+.reservation {
+  /* border: 2px solid red; */
+  display: flex;
+  text-transform: uppercase;
+  width: 25%;
+  height: 65%;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #afafaf;
+}
+
+.reservationName {
+  margin: 0 0 0 10px;
+}
+
+.reservePfp {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 100%;
+}
+
 /* Round Button */
 
 .roundButton {
@@ -287,4 +320,17 @@
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
+}
+
+/* Loading Screen */
+
+.loading {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #101010;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
 }

@@ -6,8 +6,11 @@ import styles from '../styles/Home.module.css';
 import React, { useEffect, useState } from "react";
 
 import logo from './assets/LOGO.png';
-import pass from './assets/pass.png';
+// import pass from './assets/pass.png';
+import pass from './assets/PassGif.gif';
 import twitter from './assets/twitterLogo.png';
+import pfp from './assets/trbl.png';
+import loading from './assets/LoadingGifFinal.gif';
 
 const getRemainingTime = (_deadline: Date) => {
   let now = new Date().getTime();
@@ -54,11 +57,9 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
   }, 1000)
 };
 
-countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
-
-
 const Home: NextPage = () => {
 
+  const [loaded, setLoaded] = useState(false);
   const [mintAmount, setMintAmount] = useState(1);
 
   const decrementMintAmount = () => {
@@ -78,220 +79,271 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-
+    setTimeout( () => {
+      setLoaded(true);
+      console.log("true");
+      countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
+    }, 4000)
   }, []);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Troublemkrs Mint</title>
-        <meta
-          name="description"
-          content="A Place to Connect, a Space to Empower."
-        />
-        <link rel="shortcut icon" href="./assets/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png"/>
+    <>
+    {!loaded ? 
+      <div className={styles.loading}>
+          <Image
+            src={loading}
+          />
+      </div> :
+      <div className={styles.container}>
+        <Head>
+          <title>Troublemkrs Mint</title>
+          <meta
+            name="description"
+            content="A Place to Connect, a Space to Empower."
+          />
+          <link rel="shortcut icon" href="./assets/favicon.ico" />
+          <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png"/>
+          <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png"/>
 
-      </Head>
+        </Head>
 
-      <main className={styles.main}>
+        <main className={styles.main}>
 
-        <div className={styles.headerflex}>
+          <div className={styles.headerflex}>
 
-          <div className={styles.logo}>
-            <Image
-              src={logo}
-            />
-          </div>
-
-          <div className={styles.connect}>
-            <ConnectButton />
-          </div>
-
-        </div>
-
-        <h1 className={styles.mintcontainer}>
-
-          <div className={styles.pass}>
-            <Image
-              className={styles.passimg}
-              src={pass}
-            />
-            <div className={styles.salestatus}>
-              <div className={styles.left}>
-                GUARANTEED PRESALE IS:
-                <div className={styles.live}><div id="clock"></div></div>
-              </div>
-            </div>
-            
-          </div>
-
-          <div className={styles.mint}>
-            {/* <div className={styles.yellow}>Ahoy, been waiting for months to mint!</div> */}
-            <div style={{
-              color: "#eee",
-              textTransform: "uppercase",
-              display: "flex",
-              fontSize: "20px",
-              alignContent: "center",
-            }}>
-              
-              Select Quantity:
-
-              <button 
-                onClick={() => {
-                  decrementMintAmount()
-                }}
-                style={{
-                  margin: "auto 25px",
-                  fontWeight: "900",
-                  padding: "0 0 6px 0",
-                  fontSize: "20px",
-                }} className={styles.roundButton}>—</button>
-
-              <div style={{
-                // border: "1px solid red",
-                margin: "auto 0",
-              }}>
-                {mintAmount}
-              </div>
-
-              <button 
-                onClick={() => {
-                  incrementMintAmount()
-                }}
-                style={{
-                  margin: "auto 25px",
-                  fontSize: "32px",
-                  padding: "0 0 2px 0",
-                }} className={styles.roundButton}>+</button>
-
-            </div>
-            <br/>
-            <br/>
-            <button className={styles.mintButton}>Reserve Your Pass</button>
-            <br/>
-            <div style={{
-              color: "#a0a0a0",
-            }}>Only 1 will be available for the guaranteed round and will cost a total of .2E/ea</div>
-
-          </div>
-
-        </h1>
-
-        <div className={styles.faqContainer}>
-          <h1>
-            PRESALE FAQ //
-          </h1>
-          <h2>
-            FREQUENTLY ASKED QUESTIONS
-          </h2>
-          
-          <div className={styles.faqContainerQuestions}>
-
-            <div className={styles.faqContainerColumn}>
-              <div className={styles.faqHeader}>
-                1. What is the founders Crew Pass?
-              </div>
-              <div className={styles.faqBody}>
-                The Founders Crew Pass is the key to our ecosystem and your early access to the
-                <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
-                  color: "#ffcc00",
-                }}> @TroubleMkrsNFT</a> community. 
-                Pass holders will benefit greatly from everything we drop now and in perpetuity + bonus utility involving our upcoming PFPs.
-              </div>
-              <br/>
-
-              <div className={styles.faqHeader}>
-                2. What is the cost of the presale? 
-              </div>
-              <div className={styles.faqBody}>
-                Troublemakers that submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
-              </div>
-              <br/>
-
-              <div className={styles.faqHeader}>
-                3. When will I get my Founders Crew Pass?
-              </div>
-              <div className={styles.faqBody}>
-                TBA, within a week after presale.<br/>
-              </div>
-            </div>
-
-            <div className={styles.faqContainerColumn}>
-              <div className={styles.faqHeader}>
-                4. What will the holders get?
-              </div>
-              <div className={styles.faqBody}>
-                - 1x Troublemakers Crew Pass<br/>
-                - 2x Troublemakers PFP (Future Airdrop)<br/>
-                - 1x Troublemakers PFP WL Nomination<br/>
-                - 1x Troublemakers PFP WL<br/>
-                - Top-Tier NFT & Crypto Alpha Calls<br/>
-                - Exclusive Weekly Classes & Community Events<br/>
-                - Exclusive AMAs & Educational Content<br/>
-                - Daily Market Updates (Everything you need to know daily in 1 post)<br/>
-                - Daily Curated WL Raffles (Not random bs, higher quality WLs)<br/>
-                - Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
-                - Team/Job Opportunities<br/>
-                <br/>
-                Troublemakers are for visionaries, dreamers & doers looking for a like-minded community alive and kicking in
-                the bear—people who want high-quality content without all the noise.<br/>
-                <br/>
-                The above mentions are just the tip of the iceberg; we&apos;ll build and grow this together as a family.<br/>
-              </div>
-              <br/>
-            </div>
-
-          </div>
-        </div>
-        <div style={{
-          display: "flex",
-          width: "90%",
-          margin: "30px 0",
-        }}>
-          <div style={{
-            textTransform: "uppercase",
-          }}>
-            A place to connect, a space to empower.
-          </div>
-          <div style={{
-            margin: "0 0 0 auto",
-          }}>
-            <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer">
+            <div className={styles.logo}>
               <Image
-                width="39px"
-                height="32px"
-                src={twitter}
+                src={logo}
               />
-            </a>
+            </div>
+
+            <div className={styles.connect}>
+              <ConnectButton />
+            </div>
+
           </div>
-        </div>
 
-        {/* <h1 className={styles.title}>
-          PRESALE FAQ // faq
-        </h1>
+          <h1 className={styles.mintcontainer}>
 
-        <div className={styles.grid}>
-          <a href="https://rainbowkit.com" className={styles.card}>
-            <h2>RainbowKit Documentation &rarr;</h2>
-            <div>Troublemakers Troublemakers Troublemakers</div>
+            <div className={styles.pass}>
+              <Image
+                className={styles.passimg}
+                src={pass}
+              />
+              <div className={styles.salestatus}>
+                <div className={styles.left}>
+                  GUARANTEED PRESALE IS:
+                  <div className={styles.live}><div id="clock"></div></div>
+                </div>
+              </div>
+              
+            </div>
+
+            <div className={styles.mint}>
+              {/* <div className={styles.yellow}>Ahoy, been waiting for months to mint!</div> */}
+              <div style={{
+                color: "#eee",
+                textTransform: "uppercase",
+                display: "flex",
+                fontSize: "20px",
+                alignContent: "center",
+              }}>
+                
+                Select Quantity:
+
+                <button 
+                  onClick={() => {
+                    decrementMintAmount()
+                  }}
+                  style={{
+                    margin: "auto 25px",
+                    fontWeight: "900",
+                    padding: "0 0 6px 0",
+                    fontSize: "20px",
+                  }} className={styles.roundButton}>—</button>
+
+                <div style={{
+                  // border: "1px solid red",
+                  margin: "auto 0",
+                }}>
+                  {mintAmount}
+                </div>
+
+                <button 
+                  onClick={() => {
+                    incrementMintAmount()
+                  }}
+                  style={{
+                    margin: "auto 25px",
+                    fontSize: "32px",
+                    padding: "0 0 2px 0",
+                  }} className={styles.roundButton}>+</button>
+
+              </div>
+              <br/>
+              <br/>
+              <button className={styles.mintButton}>Reserve Your Pass</button>
+              <br/>
+              <div style={{
+                color: "#a0a0a0",
+              }}>Only 1 will be available for the guaranteed round and will cost a total of .2E/ea</div>
+
+            </div>
+
+          </h1>
+
+          <div className={styles.reservationsContainer}>
+            <div className={styles.reservation}>
+              <Image
+                className={styles.reservePfp}
+                width="32"
+                height="32"
+                src={pfp}
+                />
+              <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+            </div>
+            <div className={styles.reservation}>
+              <Image
+                className={styles.reservePfp}
+                width="32"
+                height="32"
+                src={pfp}
+                />
+                <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+            </div>
+            <div className={styles.reservation}>
+              <Image
+                className={styles.reservePfp}
+                width="32"
+                height="32"
+                src={pfp}
+                />
+                <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+            </div>
+            <div className={styles.reservation}>
+              <Image
+                className={styles.reservePfp}
+                width="32"
+                height="32"
+                src={pfp}
+                />
+                <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+            </div>
+          </div>
+
+          <div className={styles.faqContainer}>
+            <h1>
+              PRESALE FAQ //
+            </h1>
+            <h2>
+              FREQUENTLY ASKED QUESTIONS
+            </h2>
+            
+            <div className={styles.faqContainerQuestions}>
+
+              <div className={styles.faqContainerColumn}>
+                <div className={styles.faqHeader}>
+                  1. What is the founders Crew Pass?
+                </div>
+                <div className={styles.faqBody}>
+                  The Founders Crew Pass is the key to our ecosystem and your early access to the
+                  <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
+                    color: "#ffcc00",
+                  }}> @TroubleMkrsNFT</a> community. 
+                  Pass holders will benefit greatly from everything we drop now and in perpetuity + bonus utility involving our upcoming PFPs.
+                </div>
+                <br/>
+
+                <div className={styles.faqHeader}>
+                  2. What is the cost of the presale? 
+                </div>
+                <div className={styles.faqBody}>
+                  Troublemakers that submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
+                </div>
+                <br/>
+
+                <div className={styles.faqHeader}>
+                  3. When will I get my Founders Crew Pass?
+                </div>
+                <div className={styles.faqBody}>
+                  TBA, within a week after presale.<br/>
+                </div>
+              </div>
+
+              <div className={styles.faqContainerColumn}>
+                <div className={styles.faqHeader}>
+                  4. What will the holders get?
+                </div>
+                <div className={styles.faqBody}>
+                  - 1x Troublemakers Crew Pass<br/>
+                  - 2x Troublemakers PFP (Future Airdrop)<br/>
+                  - 1x Troublemakers PFP WL Nomination<br/>
+                  - 1x Troublemakers PFP WL<br/>
+                  - Top-Tier NFT & Crypto Alpha Calls<br/>
+                  - Exclusive Weekly Classes & Community Events<br/>
+                  - Exclusive AMAs & Educational Content<br/>
+                  - Daily Market Updates (Everything you need to know daily in 1 post)<br/>
+                  - Daily Curated WL Raffles (Not random bs, higher quality WLs)<br/>
+                  - Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
+                  - Team/Job Opportunities<br/>
+                  <br/>
+                  Troublemakers are for visionaries, dreamers & doers looking for a like-minded community alive and kicking in
+                  the bear—people who want high-quality content without all the noise.<br/>
+                  <br/>
+                  The above mentions are just the tip of the iceberg; we&apos;ll build and grow this together as a family.<br/>
+                </div>
+                <br/>
+              </div>
+
+            </div>
+          </div>
+          <div style={{
+            display: "flex",
+            width: "90%",
+            margin: "30px 0",
+          }}>
+            <div style={{
+              textTransform: "uppercase",
+            }}>
+              A place to connect, a space to empower.
+            </div>
+            <div style={{
+              margin: "0 0 0 auto",
+            }}>
+              <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer">
+                <Image
+                  width="39px"
+                  height="32px"
+                  src={twitter}
+                />
+              </a>
+            </div>
+          </div>
+
+          {/* <h1 className={styles.title}>
+            PRESALE FAQ // faq
+          </h1>
+
+          <div className={styles.grid}>
+            <a href="https://rainbowkit.com" className={styles.card}>
+              <h2>RainbowKit Documentation &rarr;</h2>
+              <div>Troublemakers Troublemakers Troublemakers</div>
+            </a>
+
+            <a href="https://wagmi.sh" className={styles.card}>
+              <h2>wagmi Documentation &rarr;</h2>
+              <div>Learn how to interact with Ethereum.</div>
+            </a>
+          </div> */}
+        </main>
+
+        <footer className={styles.footer}>
+          <a href="https://twitter.com/ViperwareLabs" target="_blank" rel="noopener noreferrer">
+            Made with ❤️ by Viperware Labs
           </a>
-
-          <a href="https://wagmi.sh" className={styles.card}>
-            <h2>wagmi Documentation &rarr;</h2>
-            <div>Learn how to interact with Ethereum.</div>
-          </a>
-        </div> */}
-      </main>
-
-      <footer className={styles.footer}>
-        <a href="https://twitter.com/ViperwareLabs" target="_blank" rel="noopener noreferrer">
-          Made with ❤️ by Viperware Labs
-        </a>
-      </footer>
-    </div>
+        </footer>
+      </div>}
+    </>
   );
 };
 
