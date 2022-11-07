@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import ENS from "@ensdomains/ensjs";
 
 import logo from './assets/LOGO.png';
 // import pass from './assets/pass.png';
@@ -57,12 +59,52 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
   }
 };
 
-countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
+async function getNames() {
+  let address = "0x05da517b1bf9999b7762eaefa8372341a1a47559";
+  let etherscanProvider = new ethers.providers.EtherscanProvider();
+  let list: string[] = [];
+
+  let fromBlock = 15914250;
+
+  etherscanProvider.getHistory(address, fromBlock).then((history) => {
+    console.log(history.length);
+    let i = 0;
+    const listLength = 4;
+
+    // history.forEach((tx) => {
+    history.slice().reverse().slice(0, listLength).forEach(async (tx) => {
+      if (i < listLength) {
+        i++
+        let item = document.getElementById("item" + i);
+
+        let setTo = await handleAddress(tx.from);
+        
+        if (item != null) item.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '">' + setTo + '</a>';
+      }
+    })
+
+  });
+}
+
+async function handleAddress(address: string) {
+  let provider = new ethers.providers.InfuraProvider();
+  const ensName = await provider.lookupAddress(address);
+  
+  if (ensName != null) {
+    console.log(ensName);
+    return ensName;
+  } else {
+    console.log((address.slice(0, 6) + "..." + address.slice(address.length - 4, address.length)));
+    return((address.slice(0, 6) + "..." + address.slice(address.length - 4, address.length)));
+  }
+}
 
 const Home: NextPage = () => {
 
   const [loaded, setLoaded] = useState(false);
   const [mintAmount, setMintAmount] = useState(1);
+
+  const [depositList, setDepositList] = useState<string[]>([]);
 
   const decrementMintAmount = () => {
       let newMintAmount = mintAmount - 1;
@@ -81,12 +123,12 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
+    if (!loaded) getNames();
     setTimeout( () => {
       setLoaded(true);
       console.log("true");
     }, 4000)
   }, []);
-
 
   return (
     <>
@@ -206,7 +248,7 @@ const Home: NextPage = () => {
                 height="32"
                 src={pfp}
                 />
-              <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+                  <div id="item1" className={styles.reservationName}>...</div>
             </div>
             <div className={styles.reservation}>
               <Image
@@ -215,7 +257,7 @@ const Home: NextPage = () => {
                 height="32"
                 src={pfp}
                 />
-                <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+                  <div id="item2" className={styles.reservationName}>...</div>
             </div>
             <div className={styles.reservation}>
               <Image
@@ -224,7 +266,7 @@ const Home: NextPage = () => {
                 height="32"
                 src={pfp}
                 />
-                <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+                  <div id="item3" className={styles.reservationName}>...</div>
             </div>
             <div className={styles.reservation}>
               <Image
@@ -233,7 +275,7 @@ const Home: NextPage = () => {
                 height="32"
                 src={pfp}
                 />
-                <div className={styles.reservationName}>0x0000069 reserved 1x pass</div>
+                  <div id="item4" className={styles.reservationName}>...</div>
             </div>
           </div>
 
@@ -350,6 +392,8 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
 
 export default Home;
 

@@ -287,6 +287,8 @@
   align-items: center;
   justify-content: center;
   border-right: 1px solid #afafaf;
+  overflow-wrap: unset;
+  overflow: hidden;
 }
 
 .reservationName {
