@@ -12,6 +12,7 @@
     "@ensdomains/ensjs": "^3.0.0-alpha.33",
     "@rainbow-me/rainbowkit": "^0.7.4",
     "ethers": "^5.7.2",
+    "fs": "^0.0.1-security",
     "lodash.merge": "^4.6.2",
     "next": "^12.1.6",
     "next-videos": "1.5.0",

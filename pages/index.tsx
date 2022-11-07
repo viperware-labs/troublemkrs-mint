@@ -77,6 +77,17 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
   }
 };
 
+const callAPI = async (address: string) => {
+	try {
+		const res = await fetch(`https://api.opensea.io/user/` + address);
+		const data = await res.json();
+		console.log(data);
+    return data;
+	} catch (err) {
+		console.log(err);
+	}
+};
+
 async function getNames() {
   let address = "0x05da517b1bf9999b7762eaefa8372341a1a47559";
   let etherscanProvider = new ethers.providers.EtherscanProvider();
@@ -93,11 +104,25 @@ async function getNames() {
     history.slice().reverse().slice(0, listLength).forEach(async (tx) => {
       if (i < listLength) {
         i++
+
+        let pfp = document.getElementById("pfp" + i);
         let item = document.getElementById("item" + i);
+
+        // let pfpUrl = "https://i.seadn.io/gae/tNnkm9SWrFFYdC9VczshcGIUPZv0An-gnPSqnv10AM1HlwN_JRbOzcJvr1-gGxXzWoHxPQzeFb6Z8ITK08P7fjjj_ChrtHMfdpo21w?w=500&auto=format";
+        
+        // let contents = await fs.readFile("https://api.opensea.io/user/0x844a4641a3fbf2235da99667568140370d72fd45", 'utf8');
+
+        let contents = await callAPI(tx.from);
+
+        if (pfp != null) pfp.innerHTML = `<img
+            width="48"
+            height="48"
+            src="` + contents.account.profile_img_url + `"
+            />`;
 
         let setTo = await handleAddress(tx.from);
         
-        if (item != null) item.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '">' + setTo + '</a>';
+        if (item != null) item.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '">' + setTo + '<br/>RESERVED 1X CREW PASS</a>';
       }
     })
 
@@ -284,39 +309,44 @@ const Home: NextPage = () => {
 
           <div className={styles.reservationsContainer}>
             <div className={styles.reservationBorder}>
-              <Image
-                className={styles.reservePfp}
-                width="48"
-                height="48"
-                src={pfp1}
-                />
+              <div className={styles.reservePfp} id="pfp1">
+                {/* <Image
+                  className={styles.reservePfp}
+                  width="48"
+                  height="48"
+                  src={pfp1}
+                  /> */}
+              </div>
                   <div id="item1" className={styles.reservationName}>Loading...</div>
             </div>
             <div className={styles.reservationBorder}>
-              <Image
-                className={styles.reservePfp}
-                width="48"
-                height="48"
-                src={pfp2}
-                />
+              <div className={styles.reservePfp} id="pfp2">
+                {/* <Image
+                  width="48"
+                  height="48"
+                  src={pfp2}
+                  /> */}
+              </div>
                   <div id="item2" className={styles.reservationName}>Loading...</div>
             </div>
             <div className={styles.reservationBorder}>
-              <Image
-                className={styles.reservePfp}
-                width="48"
-                height="48"
-                src={pfp3}
-                />
+              <div className={styles.reservePfp} id="pfp3">
+                {/* <Image
+                  width="48"
+                  height="48"
+                  src={pfp4}
+                  /> */}
+              </div>
                   <div id="item3" className={styles.reservationName}>Loading...</div>
             </div>
             <div className={styles.reservation}>
-              <Image
-                className={styles.reservePfp}
-                width="48"
-                height="48"
-                src={pfp4}
-                />
+              <div className={styles.reservePfp} id="pfp4">
+                {/* <Image
+                  width="48"
+                  height="48"
+                  src={pfp4}
+                  /> */}
+              </div>
                   <div id="item4" className={styles.reservationName}>Loading...</div>
             </div>
           </div>
