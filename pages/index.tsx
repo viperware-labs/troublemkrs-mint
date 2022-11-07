@@ -6,6 +6,8 @@ import styles from '../styles/Home.module.css';
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import ENS from "@ensdomains/ensjs";
+import cors from 'cors';
+import express from 'express';
 // import withVideos from 'next-videos';
 
 import logo from '../public/LOGO.png';
@@ -17,20 +19,6 @@ import pfp2 from '../public/trbl2.png';
 import pfp3 from '../public/trbl3.png';
 import pfp4 from '../public/trbl4.png';
 import loading from '../public/LoadingGifFinal.gif';
-// import loadingvid from '../public/PassMP4';
-
-function fade(element: any) {
-  var op = 1;  // initial opacity
-  var timer = setInterval(function () {
-      if (op <= 0.1){
-          clearInterval(timer);
-          element.style.display = 'none';
-      }
-      element.style.opacity = op;
-      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-      op -= op * 0.1;
-  }, 50);
-}
 
 const getRemainingTime = (_deadline: Date) => {
   let now = new Date().getTime();
@@ -76,6 +64,31 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
     console.log("error");
   }
 };
+
+
+
+// function onGet(address: string) {
+//   const url = "http://localhost:8000/api/" + address + "/messages";
+//   var headers = {}
+  
+//   fetch(url, {
+//       method : "GET",
+//       mode: 'cors',
+//       headers: headers
+//   })
+//   .then((response) => {
+//       if (!response.ok) {
+//           throw new Error(response.error)
+//       }
+//       return response.json();
+//   })
+//   .then(data => {
+//       document.getElementById('messages').value = data.messages;
+//   })
+//   .catch(function(error) {
+//       document.getElementById('messages').value = error;
+//   });
+// }
 
 const callAPI = async (address: string) => {
 	try {
