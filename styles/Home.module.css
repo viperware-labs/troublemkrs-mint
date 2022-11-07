@@ -62,7 +62,6 @@
   }
 }
 
-
 .faqContainer {
   width: 90%;
   margin-bottom: 40px;
@@ -266,7 +265,23 @@
   }
 }
 
-/* Reservations */
+/* Reservations Title */
+
+.reservationsTitleContainer {
+  width: 90%;
+}
+
+.reservationsTitle {
+  padding: 0 0 0 10px;
+  text-transform: uppercase;
+  margin: 0 auto 10px 0;
+  font-size: 96px;
+  color: #ffcc00;
+  font-family: "judge";
+  font-weight: normal;
+}
+
+/* Reservations Container */
 
 .reservationsContainer {
   overflow: hidden;
@@ -276,9 +291,11 @@
   height: 60px;
   border-radius: 15px;
   align-items: center;
+  margin-bottom: 60px;
 }
 
-.reservation {
+.reservation,
+.reservationBorder {
   /* border: 2px solid red; */
   display: flex;
   text-transform: uppercase;
@@ -286,13 +303,36 @@
   height: 65%;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid #afafaf;
   overflow-wrap: unset;
   overflow: hidden;
 }
 
+.reservationBorder {
+  border-right: 1px solid #afafaf;
+}
+
+@media (max-width: 1050px) {
+  .reservationsContainer {
+    height: 350px;
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .reservation,
+  .reservationBorder {
+    width: 75%;
+  }
+
+  .reservationBorder {
+    border-right: none;
+    border-bottom: 1px solid #afafaf;
+  }
+}
+
 .reservationName {
-  margin: 0 0 0 10px;
+  margin: 0 10px 0 10px;
+  max-width: 180px;
+  overflow-wrap:initial;
 }
 
 .reservePfp {

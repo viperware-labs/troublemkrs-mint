@@ -94,8 +94,8 @@ async function handleAddress(address: string) {
     console.log(ensName);
     return ensName;
   } else {
-    console.log((address.slice(0, 6) + "..." + address.slice(address.length - 4, address.length)));
-    return((address.slice(0, 6) + "..." + address.slice(address.length - 4, address.length)));
+    console.log((address.slice(0, 6) + "...." + address.slice(address.length - 4, address.length)));
+    return((address.slice(0, 6) + "...." + address.slice(address.length - 4, address.length)));
   }
 }
 
@@ -239,16 +239,39 @@ const Home: NextPage = () => {
             </div>
 
           </h1>
+              <div className={styles.reservationsTitleContainer}>
+                <h1 className={styles.reservationsTitle}>
+                  RECENT RESERVATIONS
+                </h1>
+              </div>
 
           <div className={styles.reservationsContainer}>
-            <div className={styles.reservation}>
+            <div className={styles.reservationBorder}>
               <Image
                 className={styles.reservePfp}
                 width="32"
                 height="32"
                 src={pfp}
                 />
-                  <div id="item1" className={styles.reservationName}>...</div>
+                  <div id="item1" className={styles.reservationName}>Loading...</div>
+            </div>
+            <div className={styles.reservationBorder}>
+              <Image
+                className={styles.reservePfp}
+                width="32"
+                height="32"
+                src={pfp}
+                />
+                  <div id="item2" className={styles.reservationName}>Loading...</div>
+            </div>
+            <div className={styles.reservationBorder}>
+              <Image
+                className={styles.reservePfp}
+                width="32"
+                height="32"
+                src={pfp}
+                />
+                  <div id="item3" className={styles.reservationName}>Loading...</div>
             </div>
             <div className={styles.reservation}>
               <Image
@@ -257,25 +280,7 @@ const Home: NextPage = () => {
                 height="32"
                 src={pfp}
                 />
-                  <div id="item2" className={styles.reservationName}>...</div>
-            </div>
-            <div className={styles.reservation}>
-              <Image
-                className={styles.reservePfp}
-                width="32"
-                height="32"
-                src={pfp}
-                />
-                  <div id="item3" className={styles.reservationName}>...</div>
-            </div>
-            <div className={styles.reservation}>
-              <Image
-                className={styles.reservePfp}
-                width="32"
-                height="32"
-                src={pfp}
-                />
-                  <div id="item4" className={styles.reservationName}>...</div>
+                  <div id="item4" className={styles.reservationName}>Loading...</div>
             </div>
           </div>
 
