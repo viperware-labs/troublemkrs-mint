@@ -226,7 +226,7 @@ const Home: NextPage = () => {
 
             <div className={styles.mint}>
               {/* <div className={styles.yellow}>Ahoy, been waiting for months to mint!</div> */}
-              <div style={{
+              {/* <div style={{
                 color: "#eee",
                 textTransform: "uppercase",
                 display: "flex",
@@ -266,7 +266,7 @@ const Home: NextPage = () => {
 
               </div>
               <br/>
-              <br/>
+              <br/> */}
               <button className={styles.mintButton}>Reserve Your Pass</button>
               <br/>
               <div style={{
@@ -286,8 +286,8 @@ const Home: NextPage = () => {
             <div className={styles.reservationBorder}>
               <Image
                 className={styles.reservePfp}
-                width="32"
-                height="32"
+                width="48"
+                height="48"
                 src={pfp1}
                 />
                   <div id="item1" className={styles.reservationName}>Loading...</div>
@@ -295,8 +295,8 @@ const Home: NextPage = () => {
             <div className={styles.reservationBorder}>
               <Image
                 className={styles.reservePfp}
-                width="32"
-                height="32"
+                width="48"
+                height="48"
                 src={pfp2}
                 />
                   <div id="item2" className={styles.reservationName}>Loading...</div>
@@ -304,8 +304,8 @@ const Home: NextPage = () => {
             <div className={styles.reservationBorder}>
               <Image
                 className={styles.reservePfp}
-                width="32"
-                height="32"
+                width="48"
+                height="48"
                 src={pfp3}
                 />
                   <div id="item3" className={styles.reservationName}>Loading...</div>
@@ -313,8 +313,8 @@ const Home: NextPage = () => {
             <div className={styles.reservation}>
               <Image
                 className={styles.reservePfp}
-                width="32"
-                height="32"
+                width="48"
+                height="48"
                 src={pfp4}
                 />
                   <div id="item4" className={styles.reservationName}>Loading...</div>
@@ -395,7 +395,7 @@ const Home: NextPage = () => {
           </div>
           <div style={{
             display: "flex",
-            width: "90%",
+            width: "89%",
             margin: "30px 0",
           }}>
             <div style={{
