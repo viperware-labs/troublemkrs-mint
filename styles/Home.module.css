@@ -44,6 +44,7 @@
 .connect {
   display: flex;
   margin: 0 0 0 auto;
+  text-transform: uppercase;
 }
 
 @media (max-width: 900px) {
@@ -102,24 +103,27 @@
 }
 
 .faqContainerColumn {
-  padding: 10px;
+  margin: 10px;
   width: 50%;
 }
 
-.faqContainerColumn .faqHeader {
+.faqHeader {
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
   text-transform: none;
   margin: 0 0 10px 0;
   font-size: 24px;
   margin: 0;
   padding: 20px;
-  border-radius: 3px;
   background-color: #1e1e1e;
   color: #eee;
   font-family: "outfit";
   font-weight: normal;
 }
 
-.faqContainerColumn .faqBody {
+.faqBody {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   text-transform: none;
   margin: 0 0 10px 0;
   font-size: 18px;
@@ -129,6 +133,7 @@
   color: #979797;
   font-family: "outfit";
   font-weight: normal;
+  height: 100%;
 }
 
 .passimg {
@@ -167,9 +172,9 @@
     /* width: 50%; */
     max-width: 550px;
   }
-  
-  .mintcontainer .mint {
-    /* width: 50%; */
+
+  .passimg {
+    width: 550px;
   }
 }
 
@@ -288,7 +293,7 @@
   display: flex;
   background-color: #1a1a1a;
   width: 90%;
-  height: 60px;
+  height: 80px;
   border-radius: 15px;
   align-items: center;
   margin-bottom: 60px;
@@ -337,7 +342,7 @@
 
 .reservePfp {
   display: flex;
-  border: 1px solid white;
+  border: 1px solid #444444 ;
   border-radius: 100%;
 }
 

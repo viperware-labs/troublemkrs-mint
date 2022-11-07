@@ -6,13 +6,31 @@ import styles from '../styles/Home.module.css';
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import ENS from "@ensdomains/ensjs";
+// import withVideos from 'next-videos';
 
-import logo from './assets/LOGO.png';
-// import pass from './assets/pass.png';
-import pass from './assets/PassGif.gif';
-import twitter from './assets/twitterLogo.png';
-import pfp from './assets/trbl.png';
-import loading from './assets/LoadingGifFinal.gif';
+import logo from '../public/LOGO.png';
+// import pass from '/pass.png';
+import pass from '../public/PassGif.gif';
+import twitter from '../public/twitterLogo.png';
+import pfp1 from '../public/trbl1.png';
+import pfp2 from '../public/trbl2.png';
+import pfp3 from '../public/trbl3.png';
+import pfp4 from '../public/trbl4.png';
+import loading from '../public/LoadingGifFinal.gif';
+// import loadingvid from '../public/PassMP4';
+
+function fade(element: any) {
+  var op = 1;  // initial opacity
+  var timer = setInterval(function () {
+      if (op <= 0.1){
+          clearInterval(timer);
+          element.style.display = 'none';
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= op * 0.1;
+  }, 50);
+}
 
 const getRemainingTime = (_deadline: Date) => {
   let now = new Date().getTime();
@@ -106,6 +124,16 @@ const Home: NextPage = () => {
 
   const [depositList, setDepositList] = useState<string[]>([]);
 
+  function loaderListen() {
+    let loader = document.getElementById('loader');
+  
+    if (loader != null) loader.addEventListener('ended', handleLoader, false);
+  }
+  
+  function handleLoader() {
+    setLoaded(true);
+  }
+
   const decrementMintAmount = () => {
       let newMintAmount = mintAmount - 1;
       if (newMintAmount < 1) {
@@ -124,10 +152,13 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (!loaded) getNames();
-    setTimeout( () => {
-      setLoaded(true);
-      console.log("true");
-    }, 4000)
+
+    loaderListen();
+    
+    // setTimeout( () => {
+    //   setLoaded(true);
+    //   console.log("true");
+    // }, 4500)
   }, []);
 
   return (
@@ -135,9 +166,12 @@ const Home: NextPage = () => {
       <div
       style={ loaded ? { display:'none'} : {display : ''} }
       className={styles.loading}>
-          <Image
+        <video id="loader" autoPlay muted height="60%" width="60%">
+          <source src="/Loading.mp4" type="video/mp4"/>
+       </video>
+          {/* <Image
             src={loading}
-          />
+          /> */}
       </div>
       <div 
       style={ loaded ? { display:''} : {display : 'none'} }
@@ -148,10 +182,10 @@ const Home: NextPage = () => {
             name="description"
             content="A Place to Connect, a Space to Empower."
           />
-          <link rel="shortcut icon" href="./assets/favicon.ico" />
-          <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png"/>
-          <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png"/>
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 
         </Head>
 
@@ -174,6 +208,9 @@ const Home: NextPage = () => {
           <h1 className={styles.mintcontainer}>
 
             <div className={styles.pass}>
+              {/* <video className={styles.passimg} autoPlay muted width="100%">
+                  <source src="/Pass.mp4" type="video/mp4"/>
+              </video> */}
               <Image
                 className={styles.passimg}
                 src={pass}
@@ -251,7 +288,7 @@ const Home: NextPage = () => {
                 className={styles.reservePfp}
                 width="32"
                 height="32"
-                src={pfp}
+                src={pfp1}
                 />
                   <div id="item1" className={styles.reservationName}>Loading...</div>
             </div>
@@ -260,7 +297,7 @@ const Home: NextPage = () => {
                 className={styles.reservePfp}
                 width="32"
                 height="32"
-                src={pfp}
+                src={pfp2}
                 />
                   <div id="item2" className={styles.reservationName}>Loading...</div>
             </div>
@@ -269,7 +306,7 @@ const Home: NextPage = () => {
                 className={styles.reservePfp}
                 width="32"
                 height="32"
-                src={pfp}
+                src={pfp3}
                 />
                   <div id="item3" className={styles.reservationName}>Loading...</div>
             </div>
@@ -278,7 +315,7 @@ const Home: NextPage = () => {
                 className={styles.reservePfp}
                 width="32"
                 height="32"
-                src={pfp}
+                src={pfp4}
                 />
                   <div id="item4" className={styles.reservationName}>Loading...</div>
             </div>
@@ -295,53 +332,61 @@ const Home: NextPage = () => {
             <div className={styles.faqContainerQuestions}>
 
               <div className={styles.faqContainerColumn}>
-                <div className={styles.faqHeader}>
-                  1. What is the founders Crew Pass?
-                </div>
-                <div className={styles.faqBody}>
-                  The Founders Crew Pass is the key to our ecosystem and your early access to the
-                  <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
-                    color: "#ffcc00",
-                  }}> @TroubleMkrsNFT</a> community. 
-                  Pass holders will benefit greatly from everything we drop now and in perpetuity + bonus utility involving our upcoming PFPs.
-                </div>
-                <br/>
-
-                <div className={styles.faqHeader}>
-                  2. What is the cost of the presale? 
-                </div>
-                <div className={styles.faqBody}>
-                  Troublemakers that submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
+                <div className={styles.faqQuestionCorner}>
+                  <div className={styles.faqHeader}>
+                    1. What is the founders Crew Pass?
+                  </div>
+                  <div className={styles.faqBody}>
+                    The Founders Crew Pass is the key to our ecosystem and your early access to the
+                    <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
+                      color: "#ffcc00",
+                    }}> @TroubleMkrsNFT</a> community. 
+                    Pass holders will benefit greatly from everything we drop now and in perpetuity + bonus utility involving our upcoming PFPs.
+                  </div>
                 </div>
                 <br/>
 
-                <div className={styles.faqHeader}>
-                  3. When will I get my Founders Crew Pass?
+                <div className={styles.faqQuestionCorner}>
+                  <div className={styles.faqHeader}>
+                    2. What is the cost of the presale? 
+                  </div>
+                  <div className={styles.faqBody}>
+                    Troublemakers that submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
+                  </div>
                 </div>
-                <div className={styles.faqBody}>
-                  TBA, within a week after presale.<br/>
+                <br/>
+
+                <div className={styles.faqQuestionCorner}>
+                  <div className={styles.faqHeader}>
+                    3. When will I get my Founders Crew Pass?
+                  </div>
+                  <div className={styles.faqBody}>
+                    TBA, within a week after presale.<br/>
+                  </div>
                 </div>
               </div>
 
               <div className={styles.faqContainerColumn}>
-                <div className={styles.faqHeader}>
-                  4. What will the holders get?
-                </div>
-                <div className={styles.faqBody}>
-                  As a Crew Pass holder, you are guaranteed:<br/>
-                  <br/>
-                  •  Troublemakers Crew Pass<br/>
-                  •  2x Free Troublemakers PFP (Future Airdrop) <br/>
-                  •  Troublemakers PFP WL Nomination<br/>
-                  •  Top-Tier NFT & Crypto Alpha Calls<br/>
-                  •  Exclusive Weekly Classes & Community Events<br/>
-                  •  Exclusive AMAs & Educational Content<br/>
-                  •  Daily Market Updates (Everything you need to know daily in 1 post)<br/>
-                  •  Daily Curated WL Raffles (Such as Homa games, MitsubishiNFT and Owange)<br/>
-                  •  Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
-                  •  Team/Job Opportunities<br/>
-                  <br/>
-                  For more information, refers to the Troublemakers discord.<br/>
+                <div className={styles.faqQuestionCorner}>
+                  <div className={styles.faqHeader}>
+                    4. What will the holders get?
+                  </div>
+                  <div className={styles.faqBody}>
+                    As a Crew Pass holder, you are guaranteed:<br/>
+                    <br/>
+                    •  Troublemakers Crew Pass<br/>
+                    •  2x Free Troublemakers PFP (Future Airdrop) <br/>
+                    •  Troublemakers PFP WL Nomination<br/>
+                    •  Top-Tier NFT & Crypto Alpha Calls<br/>
+                    •  Exclusive Weekly Classes & Community Events<br/>
+                    •  Exclusive AMAs & Educational Content<br/>
+                    •  Daily Market Updates (Everything you need to know daily in 1 post)<br/>
+                    •  Daily Curated WL Raffles (Such as Homa games, MitsubishiNFT and Owange)<br/>
+                    •  Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
+                    •  Team/Job Opportunities<br/>
+                    <br/>
+                    For more information, refers to the Troublemakers discord.<br/>
+                  </div>
                 </div>
                 <br/>
               </div>
