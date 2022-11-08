@@ -92,7 +92,13 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
 
 const callAPI = async (address: string) => {
 	try {
-		const res = await fetch(`https://api.opensea.io/user/` + address);
+		const res = await fetch(`https://api.opensea.io/user/` + address, {
+      headers : {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+      }
+    });
 		const data = await res.json();
 		console.log(data);
     return data;
