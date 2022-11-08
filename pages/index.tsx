@@ -96,7 +96,7 @@ const callAPI = async (address: string) => {
       headers : {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'mode': 'no-cors'
+        'Access-Control-Allow-Origin': 'https://troublemkrs-mint.vercel.app/',
       }
     });
 		const data = await res.json();
