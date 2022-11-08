@@ -96,7 +96,8 @@ const callAPI = async (address: string) => {
       headers : {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Access-Control-Allow-Origin': 'https://troublemkrs-mint.vercel.app/',
+        'Access-Control-Allow-Origin': `https://api.opensea.io/user/${address}` ,
+        
       }
     });
 		const data = await res.json();
