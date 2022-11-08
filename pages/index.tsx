@@ -96,7 +96,7 @@ const callAPI = async (address: string) => {
       headers : {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        "Access-Control-Allow-Origin": "*",
+        'mode': 'no-cors'
       }
     });
 		const data = await res.json();
