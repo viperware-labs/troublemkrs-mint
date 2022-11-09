@@ -6,8 +6,6 @@ import styles from '../styles/Home.module.css';
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import ENS from "@ensdomains/ensjs";
-import cors from 'cors';
-import express from 'express';
 // import withVideos from 'next-videos';
 
 import logo from '../public/LOGO.png';
