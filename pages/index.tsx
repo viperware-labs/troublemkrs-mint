@@ -500,7 +500,7 @@ const Home: NextPage = () => {
                     <p><span>4. How does Phase 1/2/3 works?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                       Phase 1 will be guaranteed reserve for all our WL members.<br/>
-                      Phase 2 will be FCFS for whatever that's leftover.<br/>
+                      Phase 2 will be FCFS for whatever that&apos;s leftover.<br/>
                       Phase 3 will be for 100 selected public applicants.
                     </div>
                   </div>
