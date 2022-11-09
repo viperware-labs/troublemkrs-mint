@@ -29,9 +29,7 @@
 }
 
 /* End Rainbow Kit */
-
 /* Start Custom Styling */
-
 .headerflex {
   display: flex;
   width: 85%;
@@ -54,20 +52,17 @@
     flex-direction: column;
     width: 100%;
   }
-
   .logo {
     margin: 20px 10px;
   }
-  
   .connect {
     display: flex;
     margin: 0;
   }
 }
-
 .faqContainer {
   width: 90%;
-  margin-bottom: 40px;
+  margin: 0 10px 40px;
 }
 
 .faqDiv {
@@ -76,7 +71,6 @@
 }
 
 .faqContainer h1 {
-  padding: 0 0 0 10px;
   text-transform: uppercase;
   margin: 0 0 10px 0;
   font-size: 96px;
@@ -86,7 +80,6 @@
 }
 
 .faqContainer h2 {
-  padding: 0 0 0 10px;
   text-transform: uppercase;
   margin: 0 0 40px 0;
   font-size: 20px;
@@ -105,22 +98,55 @@
 }
 
 .faqContainerColumn {
-  margin: 10px;
-  width: 50%;
+  width: 49%;
+}
+.faqContainerColumn:last-of-type {
+  margin: 0 0 0 auto;
+}
+.faqContainerColumn .faqQuestionCorner {
+  margin: 0 0 10px;
+  cursor: pointer;
+  transition: padding 0.6s ease;
+}
+.faqContainerColumn .faqQuestionCorner#faqQuestionActive {
+  padding-bottom: 200px;
+}
+.faqContainerColumn .faqQuestionCorner#faqQuestionActive .faqHeader {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.faqContainerColumn .faqQuestionCorner#faqQuestionActive .faqHeader p span:last-of-type svg {
+  transform: rotate(0);
+}
+.faqContainerColumn .faqQuestionCorner#faqQuestionActive .faqHeader .faqBody {
+  opacity: 1;
+  top: 100%;
+}
+.faqContainerColumn:last-of-type .faqQuestionCorner:last-of-type {
+  transition: padding 0.8s ease;
 }
 
 .faqHeader {
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
+  border-radius: 6px;
   text-transform: none;
   margin: 0 0 10px 0;
-  font-size: 24px;
+  font-size: 18px;
   margin: 0;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #1e1e1e;
   color: #eee;
   font-family: "outfit";
   font-weight: normal;
+  position: relative;
+  z-index: 1;
+}
+.faqHeader p {
+  display: flex;
+  justify-content: space-between;
+}
+.faqHeader p span:last-of-type svg {
+  transform: rotate(180deg);
+  transition: transform 0.6s ease;
 }
 
 .faqBody {
@@ -135,7 +161,14 @@
   color: #979797;
   font-family: "outfit";
   font-weight: normal;
-  height: 100%;
+  height: max-content;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: all 0.6s ease;
 }
 
 .passimg {
@@ -146,108 +179,271 @@
   display: flex;
   flex-direction: column;
   font-weight: 100;
-  max-width: 600px;
-}
-
-.mintcontainer div {
-  display: flex;
+  width: 100%;
 }
 
 .mintcontainer .pass {
   display: flex;
   width: 100%;
   font-size: 16px;
-  /* border: 2px solid red; */
+  max-width: 450px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-.mintcontainer .mint {
-  padding: 50px 0;
-  flex-direction: column;
-  font-size: 15px;
-  /* border: 2px solid red; */
+.mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
+  color: #ffcc00;
+  font-family: "judge";
+  font-weight: normal;
+  font-size: clamp(16px, 15vw, 105px);
+  line-height: 1;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.mintcontainer .mint .reservationHolder .reservationHolderTexts p {
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type {
+  background: #1e1e1e;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type .reservationHeader span.reservationPhase {
+  color: #ffcc00;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type .reservationHeader span.reservationActive {
+  background: #33cc33;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type .reservationDesc {
+  color: #fff;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type .reservationEnd {
+  color: #33cc33;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(1) .reservationEnd {
+  color: #ff0000;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) {
+  background: #1e1e1e;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationHeader span.reservationPhase {
+  color: #ffcc00;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationHeader span.reservationActive {
+  background: #33cc33;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationDesc {
+  color: #fff;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationEnd {
+  color: #33cc33;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(1) .reservationEnd, .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationEnd {
+  color: #ff0000;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) {
+  background: #1e1e1e;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationHeader span.reservationPhase {
+  color: #ffcc00;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationHeader span.reservationActive {
+  background: #33cc33;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationDesc {
+  color: #fff;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationEnd {
+  color: #33cc33;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases {
+  margin: 30px 0 0;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox {
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(30, 30, 30, 0.2);
+  margin: 0 auto 10px;
+  text-align: center;
+  color: #383838;
+  transition: background 0.35s ease;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader span.reservationPhase {
+  font-size: 22px;
+  margin: 0 15px 0 0;
+  transition: color 0.35s ease;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader span.reservationActive {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #383838;
+  transition: background 0.35s ease;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationDesc {
+  font-size: 16px;
+  margin: 6px 0;
+  transition: color 0.35s ease;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnd, .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnded {
+  font-size: 16px;
+  margin: 0;
+  transition: color 0.35s ease;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnd #phase1End, .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnd #phase2End, .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnd #phase3End, .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnded #phase1End, .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnded #phase2End, .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationEnded #phase3End {
+  user-select: none;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox {
+  background: #1e1e1e;
+  border-radius: 20px;
+  padding: 20px;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox p {
+  font-size: 14px;
+  margin: 0;
+  color: #fff;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox p span#reservedPrice {
+  color: #ffcc00;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox button {
   width: 100%;
+  padding: 14px 0;
+  margin: 10px 0 0;
 }
 
-@media (max-width: 1150px) {
-
-  .mintcontainer .pass {
-    /* width: 50%; */
-    max-width: 550px;
+@media (min-width: 520px) {
+  .mintcontainer .mint {
+    padding: 0 22px;
   }
-
-  .passimg {
-    width: 550px;
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationReserveBox {
+    border-top-left-radius: 0;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationReserveBox {
+    border-top-right-radius: 0;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases {
+    display: flex;
+    justify-content: space-between;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: transparent;
+    text-align: left;
+    margin: 0;
+    width: 33%;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader {
+    justify-content: flex-start;
   }
 }
-
-@media (max-width: 1000px) {
+@media (min-width: 715px) {
   .mintcontainer {
-    max-width: 540px;
+    margin: 0;
   }
-
+  .mintcontainer .mint .reservationHolder .reservationHolderTexts p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 820px) {
+  .mintcontainer {
+    flex-direction: row;
+  }
   .mintcontainer .pass {
-    width: 100%;
+    margin: 0;
   }
-  
+  .mintcontainer .pass .passimg {
+    height: auto !important;
+    max-width: auto !important;
+    max-height: auto !important;
+    min-height: auto !important;
+  }
+  .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
+    font-size: clamp(16px, 9vw, 88px);
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox {
+    flex: initial;
+    width: 170px;
+  }
+}
+@media (min-width: 901px) {
+  .mintcontainer {
+    justify-content: center;
+  }
+  .mintcontainer .mint {
+    max-width: 600px;
+  }
+}
+@media (min-width: 1060px) {
+  .mintcontainer {
+    width: 85%;
+  }
+  .mintcontainer .mint {
+    box-sizing: border-box;
+    margin: 0 0 0 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .mintcontainer .mint {
+    margin: 0 0 0 10vw;
+  }
+}
+@media (max-width: 1000px) {
   .mintcontainer .mint {
     width: 100%;
   }
-
   .faqContainerQuestions {
     flex-direction: column;
   }
-
   .faqContainerColumn {
     width: 100%;
   }
 }
-
 @media (max-width: 630px) {
-
-  .mintcontainer {
-    width: 100%;
-  }
-
-  .mintcontainer .pass {
-    width: 100%;
-    font-size: 14px;
-  }
-
   .faqContainer {
     width: 100%;
   }
-
   .faqContainer h1 {
     margin: 0 0 10px 0;
     font-size: 60px;
   }
-  
   .faqContainer h2 {
-    padding: 0 0 0 10px;
     font-size: 17px;
   }
-
   .faqContainer .faqHeader {
-    font-size: 22px;
+    font-size: 18px;
   }
-
   .faqContainer .faqBody {
     font-size: 16px;
   }
 }
-
 .mintcontainer .salestatus {
   display: flex;
   position: absolute;
-  margin: 30px;
+  margin: 40px 0;
+  width: 100%;
+}
+.mintcontainer .salestatus div.left {
+  width: 100%;
+  display: flex;
+  padding: 0 20px;
+  justify-content: space-between;
 }
 
 .mintcontainer .live {
   color: #33cc33;
-  margin: 0 10px;
 }
 
-.mintcontainer .mint div { 
+.mintcontainer .mint div {
   text-align: center;
   overflow: wrap;
   margin: 0 auto;
@@ -262,7 +458,7 @@
   font-weight: 700;
   text-transform: uppercase;
   padding: 14px 60px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 @media (max-width: 600px) {
@@ -271,15 +467,13 @@
     flex-direction: column;
   }
 }
-
 /* Reservations Title */
-
 .reservationsTitleContainer {
   width: 90%;
+  margin: 40px 0 0;
 }
 
 .reservationsTitle {
-  padding: 0 0 0 10px;
   text-transform: uppercase;
   margin: 0 auto 10px 0;
   font-size: 96px;
@@ -289,7 +483,6 @@
 }
 
 /* Reservations Container */
-
 .reservationsContainer {
   overflow: hidden;
   display: flex;
@@ -324,18 +517,15 @@
     width: 90%;
     flex-direction: column;
   }
-
   .reservation,
-  .reservationBorder {
+.reservationBorder {
     width: 75%;
   }
-
   .reservationBorder {
     border-right: none;
     border-bottom: 1px solid #afafaf;
   }
 }
-
 .reservationName {
   font-size: 20px;
   margin: 0 10px 0 10px;
@@ -350,7 +540,6 @@
 }
 
 /* Round Button */
-
 .roundButton {
   border-radius: 100%;
   border: none;
@@ -373,7 +562,6 @@
 }
 
 /* Loading Screen */
-
 .loading {
   display: flex;
   position: absolute;
@@ -384,3 +572,90 @@
   justify-content: center;
   align-items: center;
 }
+
+/* Ticker */
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.tickerwrapwrap {
+  width: 90%;
+  overflow: hidden;
+  border-radius: 15px;
+  height: 4rem;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.tickerwrap {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: content-box;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  height: 5rem;
+}
+.tickerwrap .ticker {
+  display: flex;
+  align-content: center;
+  line-height: 4rem;
+  white-space: nowrap;
+  padding-right: 100%;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 25s;
+  animation-duration: 25s;
+}
+@media (max-width: 1050px) {
+  .tickerwrap .ticker {
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+  }
+}
+@media (max-width: 600px) {
+  .tickerwrap .ticker {
+    -webkit-animation-duration: 10s;
+    animation-duration: 10s;
+  }
+}
+.tickerwrap .tickerPfp {
+  border-radius: 100%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  font-size: 1rem;
+  color: white;
+}
+.tickerwrap .tickeritem {
+  display: flex;
+  padding: 0 1rem;
+  font-size: 1rem;
+  color: white;
+  height: 4rem;
+  border-right: 1px solid #afafaf;
+}/*# sourceMappingURL=Home.module.css.map */

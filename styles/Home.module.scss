@@ -1,0 +1,779 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #444444;
+  justify-content: center;
+  align-items: center;
+  width: 89%;
+  margin: auto;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* End Rainbow Kit */
+
+/* Start Custom Styling */
+
+.headerflex {
+  display: flex;
+  width: 85%;
+  margin: 50px 0;
+}
+
+.logo {
+  display: flex;
+  margin: 0 10px;
+}
+
+.connect {
+  display: flex;
+  margin: 0 0 0 auto;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .headerflex {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .logo {
+    margin: 20px 10px;
+  }
+  
+  .connect {
+    display: flex;
+    margin: 0;
+  }
+}
+
+.faqContainer {
+  width: 90%;
+  margin: 0 10px 40px;
+}
+
+.faqDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqContainer h1 {
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  font-size: 96px;
+  color: #ffcc00;
+  font-family: "judge";
+  font-weight: normal;
+}
+
+.faqContainer h2 {
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+  font-size: 20px;
+  color: #eee;
+  font-family: "outfit";
+  font-weight: normal;
+  font-weight: 500;
+}
+
+.faqTab {
+  width: 50%;
+}
+
+.faqContainerQuestions {
+  display: flex;
+}
+
+.faqContainerColumn {
+  width: 49%;
+  &:last-of-type{
+    margin: 0 0 0 auto;
+  }
+  .faqQuestionCorner{
+    margin: 0 0 10px;
+    cursor: pointer;
+    transition: padding 0.6s ease;
+    &#faqQuestionActive{
+      padding-bottom: 200px;
+      .faqHeader{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        p span:last-of-type svg{
+          transform: rotate(0);
+        }
+        & .faqBody{
+          opacity: 1;
+          top: 100%;
+        }
+      }
+    }
+  }
+  &:last-of-type .faqQuestionCorner:last-of-type{
+    transition: padding .8s ease;
+  }
+}
+
+.faqHeader{
+  border-radius: 6px;
+  text-transform: none;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  margin: 0;
+  padding: 10px 20px;
+  background-color: #1e1e1e;
+  color: #eee;
+  font-family: "outfit";
+  font-weight: normal;
+  position: relative;
+  z-index: 1;
+  p{
+    display: flex;
+    justify-content: space-between;
+    span:last-of-type svg{
+      transform: rotate(180deg);
+      transition: transform .6s ease;
+    }
+  }
+}
+
+.faqBody{
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  text-transform: none;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  margin: 0;
+  padding: 20px;
+  background-color: #171717;
+  color: #979797;
+  font-family: "outfit";
+  font-weight: normal;
+  height: max-content;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: all 0.6s ease;
+}
+
+.passimg {
+  border-radius: 10px;
+}
+
+.mintcontainer {
+  display: flex;
+  flex-direction: column;
+  font-weight: 100;
+  width: 100%;
+}
+
+.mintcontainer .pass {
+  display: flex;
+  width: 100%;
+  font-size: 16px;
+  max-width: 450px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.mintcontainer .mint {
+  .reservationHolder{
+    .reservationHolderTexts{
+      h2{
+        color: #ffcc00;
+        font-family: "judge";
+        font-weight: normal;
+        font-size: clamp(16px, 15vw, 105px);
+        line-height: 1;
+        letter-spacing: 2px;
+        margin: 0;
+      }
+      p{
+        font-size: 16px;
+        text-align: center;
+        color: #fff;
+      }
+    }
+    .reservationPhasesHolder{
+      &#phase1{
+        .reservationPhases{
+          .reservationPhaseBox:first-of-type{
+            background: #1e1e1e;
+            .reservationHeader{
+              span{
+                &.reservationPhase{
+                  color: #ffcc00;
+                }
+                &.reservationActive{
+                  background: #33cc33;
+                }
+              }
+            }
+            .reservationDesc{
+              color: #fff;
+            }
+            .reservationEnd{
+              color: #33cc33;
+            }
+          }
+        }
+      }
+      &#phase2{
+        .reservationPhases{
+          .reservationPhaseBox{
+            &:nth-of-type(1){
+              .reservationEnd{
+                color: #ff0000;
+              }
+            }
+            &:nth-of-type(2){
+              background: #1e1e1e;
+              .reservationHeader{
+                span{
+                  &.reservationPhase{
+                    color: #ffcc00;
+                  }
+                  &.reservationActive{
+                    background: #33cc33;
+                  }
+                }
+              }
+              .reservationDesc{
+                color: #fff;
+              }
+              .reservationEnd{
+                color: #33cc33;
+              }
+            }
+          }
+        }
+      }
+      &#phase3{
+        .reservationPhases{
+          .reservationPhaseBox{
+            &:nth-of-type(1), &:nth-of-type(2){
+              .reservationEnd{
+                color: #ff0000;
+              }
+            }
+            &:nth-of-type(3){
+              background: #1e1e1e;
+              .reservationHeader{
+                span{
+                  &.reservationPhase{
+                    color: #ffcc00;
+                  }
+                  &.reservationActive{
+                    background: #33cc33;
+                  }
+                }
+              }
+              .reservationDesc{
+                color: #fff;
+              }
+              .reservationEnd{
+                color: #33cc33;
+              }
+            }
+          }
+        }
+      }
+      .reservationPhases{
+        margin: 30px 0 0;
+        .reservationPhaseBox{
+          padding: 20px;
+          border-radius: 20px;
+          background: rgba(30, 30, 30, 0.2);
+          margin: 0 auto 10px;
+          text-align: center;
+          color: #383838;
+          transition: background .35s ease;
+          .reservationHeader{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            span{
+              &.reservationPhase{
+                font-size: 22px;
+                margin: 0 15px 0 0;
+                transition: color .35s ease;
+              }
+              &.reservationActive{
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #383838;
+                transition: background .35s ease;
+              }
+            }
+          }
+          .reservationDesc{
+            font-size: 16px;
+            margin: 6px 0;
+            transition: color .35s ease;
+          }
+          .reservationEnd, .reservationEnded{
+            font-size: 16px;
+            margin: 0;
+            transition: color .35s ease;
+            #phase1End, #phase2End, #phase3End{
+              user-select: none;
+            }
+          }
+        }
+      }
+      .reservationReserveBox{
+        background: #1e1e1e;
+        border-radius: 20px;
+        padding: 20px;
+        p{
+          font-size: 14px;
+          margin: 0;
+          color: #fff;
+          span#reservedPrice{
+            color: #ffcc00;
+          }
+        }
+        button{
+          width: 100%;
+          padding: 14px 0;
+          margin: 10px 0 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 520px) {
+  .mintcontainer .mint{
+    padding: 0 22px;
+    .reservationHolder{
+      .reservationPhasesHolder{
+        &#phase1{
+          .reservationReserveBox{
+            border-top-left-radius: 0;
+          }
+        }
+        &#phase3{
+          .reservationReserveBox{
+            border-top-right-radius: 0;
+          }
+        }
+        &
+        .reservationPhases{
+          display: flex;
+          justify-content: space-between;
+          .reservationPhaseBox{
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: transparent;
+            text-align: left;
+            margin: 0;
+            width: 33%;
+            .reservationHeader{
+              justify-content: flex-start;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 715px) {
+  .mintcontainer{
+    margin: 0;
+    .mint{
+      .reservationHolder{
+        .reservationHolderTexts{
+          p{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 820px) {
+  .mintcontainer{
+    flex-direction: row;
+    .pass{
+      margin: 0;
+      .passimg{
+        height: auto !important;
+        max-width: auto !important;
+        max-height: auto !important;
+        min-height: auto !important;
+      }
+    }
+    .mint{
+      .reservationHolder{
+        .reservationHolderTexts{
+          h2{
+            font-size: clamp(16px, 9vw, 88px);
+          }
+        }
+        .reservationPhasesHolder{
+          .reservationPhases{
+            .reservationPhaseBox{
+              flex: initial;
+              width: 170px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 901px){
+  .mintcontainer{
+    justify-content: center;
+    .mint{
+      max-width: 600px;
+    }
+  }
+}
+
+@media (min-width: 1060px){
+  .mintcontainer{
+    width: 85%;
+    .mint{
+      box-sizing: border-box;
+      margin: 0 0 0 40px;
+    }
+  }
+}
+
+@media (min-width: 1280px){
+  .mintcontainer{
+    .mint{
+      margin: 0 0 0 10vw;
+    }
+  }
+}
+
+
+
+@media (max-width: 1000px) {
+  .mintcontainer .mint {
+    width: 100%;
+  }
+
+  .faqContainerQuestions {
+    flex-direction: column;
+  }
+
+  .faqContainerColumn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 630px) {
+  .faqContainer {
+    width: 100%;
+  }
+
+  .faqContainer h1 {
+    margin: 0 0 10px 0;
+    font-size: 60px;
+  }
+  
+  .faqContainer h2 {
+    font-size: 17px;
+  }
+
+  .faqContainer .faqHeader {
+    font-size: 18px;
+  }
+
+  .faqContainer .faqBody {
+    font-size: 16px;
+  }
+}
+
+.mintcontainer .salestatus {
+  display: flex;
+  position: absolute;
+  margin: 40px 0;
+  width: 100%;
+  div.left{
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+}
+
+.mintcontainer .live {
+  color: #33cc33;
+}
+
+.mintcontainer .mint div { 
+  text-align: center;
+  overflow: wrap;
+  margin: 0 auto;
+}
+
+.mintButton {
+  background-color: #ffcc00;
+  border-radius: 13px;
+  color: black;
+  font-family: outfit;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 60px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+/* Reservations Title */
+
+.reservationsTitleContainer {
+  width: 90%;
+  margin: 40px 0 0;
+}
+
+.reservationsTitle {
+  text-transform: uppercase;
+  margin: 0 auto 10px 0;
+  font-size: 96px;
+  color: #ffcc00;
+  font-family: "judge";
+  font-weight: normal;
+}
+
+/* Reservations Container */
+
+.reservationsContainer {
+  overflow: hidden;
+  display: flex;
+  background-color: #1a1a1a;
+  width: 90%;
+  height: 80px;
+  border-radius: 15px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.reservation,
+.reservationBorder {
+  /* border: 2px solid red; */
+  display: flex;
+  text-transform: uppercase;
+  width: 25%;
+  height: 65%;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: unset;
+  overflow: hidden;
+}
+
+.reservationBorder {
+  border-right: 1px solid #afafaf;
+}
+
+@media (max-width: 1050px) {
+  .reservationsContainer {
+    height: 350px;
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .reservation,
+  .reservationBorder {
+    width: 75%;
+  }
+
+  .reservationBorder {
+    border-right: none;
+    border-bottom: 1px solid #afafaf;
+  }
+}
+
+.reservationName {
+  font-size: 20px;
+  margin: 0 10px 0 10px;
+  max-width: 260px;
+  overflow-wrap: initial;
+}
+
+.reservePfp {
+  display: flex;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+/* Round Button */
+
+.roundButton {
+  border-radius: 100%;
+  border: none;
+  background-color: #383838;
+  font-size: 38px;
+  font-family: "outfit";
+  color: black;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roundButton:active {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+/* Loading Screen */
+
+.loading {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #111111;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ticker */
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.tickerwrapwrap {
+  width: 90%;
+  overflow: hidden;
+  border-radius: 15px;
+  height: 4rem;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.tickerwrap {
+  
+  width: 100%;
+  overflow: hidden;
+  box-sizing: content-box;
+
+  overflow: hidden;
+  background-color: #1a1a1a;
+  height: 5rem;
+
+  .ticker {
+    display: flex;
+    align-content: center;
+    line-height: 4rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+   -webkit-animation-name: ticker;
+           animation-name: ticker;
+    -webkit-animation-duration: 25s;
+            animation-duration: 25s;
+
+  }
+  
+  @media (max-width: 1050px) {
+    .ticker {
+      -webkit-animation-duration: 20s;
+              animation-duration: 20s;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ticker {
+      -webkit-animation-duration: 10s;
+              animation-duration: 10s;
+    }
+  }
+
+  .tickerPfp {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+
+    font-size: 1rem;
+    color: white;   
+  }
+
+  .tickeritem {
+
+    display: flex;
+
+    padding: 0 1rem;
+    font-size: 1rem;
+    color: white;
+    height: 4rem;
+    border-right: 1px solid #afafaf;
+
+  }
+
+}

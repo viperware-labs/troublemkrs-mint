@@ -6,6 +6,8 @@ import styles from '../styles/Home.module.css';
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import ENS from "@ensdomains/ensjs";
+import cors from 'cors';
+import express from 'express';
 // import withVideos from 'next-videos';
 
 import logo from '../public/LOGO.png';
@@ -37,6 +39,30 @@ const getRemainingTime = (_deadline: Date) => {
     remainTime
   }
 };
+
+const faqResponsive = () => {
+  var questions = (document.querySelectorAll(".Home_faqQuestionCorner__I7Qh4") as unknown as HTMLCollectionOf<HTMLElement>);
+
+  console.log(questions.length);
+
+  for(let i=0; i<questions.length; i++){
+      questions[i].addEventListener("click", function() {
+          if(questions[i].id=="Home_faqQuestionActive__ejv6_"){
+            questions[i].id="";
+            questions[i].style.paddingBottom="0px";
+          } else{
+              if( document.querySelector(".Home_faqQuestionCorner__I7Qh4#Home_faqQuestionActive__ejv6_") ) {
+                let item = (document.querySelector(".Home_faqQuestionCorner__I7Qh4#Home_faqQuestionActive__ejv6_") as unknown as HTMLElement);
+                if (item != null) item.id="";
+                if (item != null) item.style.paddingBottom="0px";
+              }
+              questions[i].id="Home_faqQuestionActive__ejv6_";
+              let body = questions[i].querySelector(".Home_faqBody__AYoUh");
+              if (body != null) questions[i].style.paddingBottom = body.clientHeight + 15 +"px";
+          }
+      })
+  }
+}
 
 const countdown = (deadline: any,elem: string,finalMessage: string) => {
   let el: HTMLElement | null | undefined = undefined;
@@ -133,17 +159,30 @@ async function getNames() {
         
         // let contents = await fs.readFile("https://api.opensea.io/user/0x844a4641a3fbf2235da99667568140370d72fd45", 'utf8');
 
-        let contents = await callAPI(tx.from);
+        // let contents = await callAPI(tx.from);
 
-        if (pfp != null) pfp.innerHTML = `<img
-            width="48"
-            height="48"
-            src="` + contents.account.profile_img_url + `"
-            />`;
+        // if (pfp != null) pfp.innerHTML = `<img
+        //     width="48"
+        //     height="48"
+        //     src="` + pfp1 + `"
+        //     />`;
 
         let setTo = await handleAddress(tx.from);
         
         if (item != null) item.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '">' + setTo + '<br/>RESERVED 1X CREW PASS</a>';
+
+        let tickerbar = document.getElementById("tickerbar");
+
+        console.log(tickerbar);
+
+        let tickeritem = document.createElement('a');
+        tickeritem.className = styles.tickeritem;
+        tickeritem.target = "_blank";
+        tickeritem.rel = "noopener noreferrer";
+        tickeritem.href = "https://opensea.io/" + tx.from;
+        tickeritem.innerHTML = setTo + " RESERVED 1X CREW PASS";
+
+        tickerbar?.appendChild(tickeritem);
       }
     })
 
@@ -198,8 +237,8 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (!loaded) getNames();
-
     loaderListen();
+    faqResponsive();
     
     // setTimeout( () => {
     //   setLoaded(true);
@@ -271,7 +310,7 @@ const Home: NextPage = () => {
             </div>
 
             <div className={styles.mint}>
-              {/* <div className={styles.yellow}>Ahoy, been waiting for months to mint!</div> */}
+              <div>{/* <div className={styles.yellow}>Ahoy, been waiting for months to mint!</div> */}
               {/* <div style={{
                 color: "#eee",
                 textTransform: "uppercase",
@@ -312,12 +351,43 @@ const Home: NextPage = () => {
 
               </div>
               <br/>
-              <br/> */}
-              <button className={styles.mintButton}>Reserve Your Pass</button>
-              <br/>
-              <div style={{
-                color: "#a0a0a0",
-              }}>Only 1 will be available for the guaranteed round and will cost a total of .2E/ea</div>
+              <br/> */}</div>
+
+              <div className={styles.reservationHolder}>
+                <div className={styles.reservationHolderTexts}>
+                  <h2>TROUBLEMAKERS FOUNDERS CREW PASS</h2>
+                  <p>A pass to short description short description short description short description short description</p>
+                </div>
+                <div className={styles.reservationPhasesHolder} id={styles.phase1}>
+                  <div className={styles.reservationPhases}>
+                    <div className={styles.reservationPhaseBox}>
+                      <p className={styles.reservationHeader}>
+                        <span className={styles.reservationPhase}>PHASE 1</span><span className={styles.reservationActive}></span>
+                      </p>
+                      <p className={styles.reservationDesc}>Guaranteed Mint</p>
+                      <p className={styles.reservationEnd}>Ends in <span id={styles.phase1End}>6D 9H</span></p>
+                    </div>
+                    <div className={styles.reservationPhaseBox}>
+                      <p className={styles.reservationHeader}>
+                        <span className={styles.reservationPhase}>PHASE 2</span><span className={styles.reservationActive}></span>
+                      </p>
+                      <p className={styles.reservationDesc}>Leftover (FCFS)</p>
+                      <p className={styles.reservationEnd}>Ends in <span id={styles.phase1End}>6D 9H</span></p>
+                    </div>
+                    <div className={styles.reservationPhaseBox} id={styles.reservationActive}>
+                      <p className={styles.reservationHeader}>
+                        <span className={styles.reservationPhase}>PHASE 3</span><span className={styles.reservationActive}></span>
+                      </p>
+                      <p className={styles.reservationDesc}>Acceptence Mint</p>
+                      <p className={styles.reservationEnd}>Ends in <span id={styles.phase1End}>6D 9H</span></p>
+                    </div>
+                  </div>
+                  <div className={styles.reservationReserveBox}>
+                    <p>Reserved Price: <span id={styles.reservedPrice}>0.2 ETH</span></p>
+                    <button className={styles.mintButton}>Reserve Pass</button>
+                  </div>
+                </div>
+              </div>
 
             </div>
 
@@ -327,50 +397,61 @@ const Home: NextPage = () => {
                   RECENT RESERVATIONS
                 </h1>
               </div>
-
-          <div className={styles.reservationsContainer}>
+          
+          
+          <div className={styles.tickerwrapwrap}>
+            <div className={styles.tickerwrap}>
+              <div id="tickerbar" className={styles.ticker}>
+                {/* <a className={styles.tickeritem}>
+                  Loading...
+                </a> */}
+              </div>
+            </div>
+          </div>
+          
+          {/* <div className={styles.reservationsContainer}>
             <div className={styles.reservationBorder}>
               <div className={styles.reservePfp} id="pfp1">
-                {/* <Image
+                <Image
                   className={styles.reservePfp}
                   width="48"
                   height="48"
                   src={pfp1}
-                  /> */}
+                  />
               </div>
                   <div id="item1" className={styles.reservationName}>Loading...</div>
             </div>
             <div className={styles.reservationBorder}>
               <div className={styles.reservePfp} id="pfp2">
-                {/* <Image
+                <Image
                   width="48"
                   height="48"
                   src={pfp2}
-                  /> */}
+                  />
               </div>
                   <div id="item2" className={styles.reservationName}>Loading...</div>
             </div>
             <div className={styles.reservationBorder}>
               <div className={styles.reservePfp} id="pfp3">
-                {/* <Image
+                <Image
                   width="48"
                   height="48"
-                  src={pfp4}
-                  /> */}
+                  src={pfp3}
+                  />
               </div>
                   <div id="item3" className={styles.reservationName}>Loading...</div>
             </div>
             <div className={styles.reservation}>
               <div className={styles.reservePfp} id="pfp4">
-                {/* <Image
+                <Image
                   width="48"
                   height="48"
                   src={pfp4}
-                  /> */}
+                  />
               </div>
                   <div id="item4" className={styles.reservationName}>Loading...</div>
             </div>
-          </div>
+          </div> */}
 
           <div className={styles.faqContainer}>
             <h1>
@@ -385,61 +466,90 @@ const Home: NextPage = () => {
               <div className={styles.faqContainerColumn}>
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    1. What is the founders Crew Pass?
-                  </div>
-                  <div className={styles.faqBody}>
-                    The Founders Crew Pass is the key to our ecosystem and your early access to the
-                    <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
-                      color: "#ffcc00",
-                    }}> @TroubleMkrsNFT</a> community. 
-                    Pass holders will benefit greatly from everything we drop now and in perpetuity + bonus utility involving our upcoming PFPs.
+                    <p><span>1. What is the founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <div className={styles.faqBody}>
+                      The Founders Crew Pass is the key to our ecosystem and your early access to the
+                      <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
+                        color: "#ffcc00",
+                      }}> @TroubleMkrsNFT</a> community. 
+                      Pass holders will benefit greatly from everything we drop now and in perpetuity + bonus utility involving our upcoming PFPs.
+                    </div>
                   </div>
                 </div>
-                <br/>
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    2. What is the cost of the presale? 
-                  </div>
-                  <div className={styles.faqBody}>
-                    Troublemakers that submitted their wallet prior will be able to reserve their Troublemakers Founders Crew Pass at 0.2E/each.
+                    <p><span>2. What is the cost of the Presale?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <div className={styles.faqBody}>
+                      The cost to reserve a Founders Crew Pass is at 0.2E/each.
+                    </div>
                   </div>
                 </div>
-                <br/>
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    3. When will I get my Founders Crew Pass?
-                  </div>
-                  <div className={styles.faqBody}>
-                    TBA, within a week after presale.<br/>
+                    <p><span>3. Why a presale instead of the standard minting process?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <div className={styles.faqBody}>
+                      Based on various considerations, this is a better way than the traditional minting process, where everyone who reserved their Crew Pass will be airdropped simultaneously. 
+                    </div>
                   </div>
                 </div>
+
+                <div className={styles.faqQuestionCorner}>
+                  <div className={styles.faqHeader}>
+                    <p><span>4. How does Phase 1/2/3 works?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <div className={styles.faqBody}>
+                      Phase 1 will be guaranteed reserve for all our WL members.<br/>
+                      Phase 2 will be FCFS for whatever that's leftover.<br/>
+                      Phase 3 will be for 100 selected public applicants.
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
               <div className={styles.faqContainerColumn}>
+
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    4. What will the holders get?
-                  </div>
-                  <div className={styles.faqBody}>
-                    As a Crew Pass holder, you are guaranteed:<br/>
-                    <br/>
-                    •  Troublemakers Crew Pass<br/>
-                    •  2x Free Troublemakers PFP (Future Airdrop) <br/>
-                    •  Troublemakers PFP WL Nomination<br/>
-                    •  Top-Tier NFT & Crypto Alpha Calls<br/>
-                    •  Exclusive Weekly Classes & Community Events<br/>
-                    •  Exclusive AMAs & Educational Content<br/>
-                    •  Daily Market Updates (Everything you need to know daily in 1 post)<br/>
-                    •  Daily Curated WL Raffles (Such as Homa games, MitsubishiNFT and Owange)<br/>
-                    •  Troublemakers Networking Group (Meet founders, collab managers, get connected!)<br/>
-                    •  Team/Job Opportunities<br/>
-                    <br/>
-                    For more information, refers to the Troublemakers discord.<br/>
+                    <p><span>5. Who is eligible to reserve a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <div className={styles.faqBody}>
+                      The initial 200 invited to the Troublemakers discord are eligible to reserve their 1x Crew Pass. And another 100 will be selected via a Public Application shortly after.
+                    </div>
                   </div>
                 </div>
-                <br/>
+
+                <div className={styles.faqQuestionCorner}>
+                  <div className={styles.faqHeader}>
+                    <p><span>6. Is there a discord?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <div className={styles.faqBody}>
+                      Yes, the discord is closed strictly for handpicked members but will be opened up for new Crew Pass Holders after the end of the Presale.
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className={styles.faqQuestionCorner}>
+                  <div className={styles.faqHeader}>
+                    <p><span>7. What are some perks for holding a Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <div className={styles.faqBody}>
+                      As a Crew Pass holder, you are guaranteed:<br/>
+                      <br/>
+                      •  2x Free Troublemakers PFP (Airdrop) <br/>
+                      •  Troublemakers PFP WL Nomination<br/>
+                      •  Top-Tier NFT & Crypto Alpha Calls<br/>
+                      •  Exclusive Weekly Classes & Community Events<br/>
+                      •  Exclusive AMAs & Educational Content<br/>
+                      •  Daily Market Updates (Everything you need to know daily in 1 post)<br/>
+                      •  Daily Curated WL Raffles (Such as Homa games, MitsubishiNFT and Owange)<br/>
+                      •  Troublemakers Networking Group (Meet founders, Collab managers)<br/>
+                      •  Team/Job Opportunities<br/>
+                      <br/>
+                      For more information, refers to the Troublemakers discord.<br/>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -494,7 +604,7 @@ const Home: NextPage = () => {
   );
 };
 
-countdown('Nov 8 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
+countdown('Nov 12 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
 
 export default Home;
 
