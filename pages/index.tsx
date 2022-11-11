@@ -246,9 +246,6 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     getNames();
-
-    countdown('Nov 12 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
-    faqResponsive();
     // loaderListen();
 
     setTimeout( () => {
@@ -638,5 +635,8 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+countdown('Nov 12 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
+faqResponsive();
 
 export default Home;
