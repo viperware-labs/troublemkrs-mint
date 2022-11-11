@@ -62,7 +62,7 @@
 }
 .faqContainer {
   width: 90%;
-  margin: 0 10px 40px;
+  margin: 70px 10px 40px;
 }
 
 .faqDiv {
@@ -71,12 +71,12 @@
 }
 
 .faqContainer h1 {
-  text-transform: uppercase;
-  margin: 0 0 10px 0;
-  font-size: 96px;
+  text-align: center;
+  margin: 0 0 40px 0;
+  font-size: 47px;
   color: #ffcc00;
-  font-family: "judge";
-  font-weight: normal;
+  font-family: "sfpro";
+  font-weight: bold;
 }
 
 .faqContainer h2 {
@@ -84,7 +84,7 @@
   margin: 0 0 40px 0;
   font-size: 20px;
   color: #eee;
-  font-family: "outfit";
+  font-family: "sfpro";
   font-weight: normal;
   font-weight: 500;
 }
@@ -127,16 +127,16 @@
 }
 
 .faqHeader {
-  border-radius: 6px;
+  border-radius: 15px;
   text-transform: none;
   margin: 0 0 10px 0;
-  font-size: 18px;
+  font-size: 25px;
   margin: 0;
   padding: 10px 20px;
   background-color: #1e1e1e;
-  color: #eee;
-  font-family: "outfit";
-  font-weight: normal;
+  color: #ffcc00;
+  font-family: "sfpro";
+  font-weight: 600;
   position: relative;
   z-index: 1;
 }
@@ -150,8 +150,8 @@
 }
 
 .faqBody {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   text-transform: none;
   margin: 0 0 10px 0;
   font-size: 18px;
@@ -159,7 +159,7 @@
   padding: 20px;
   background-color: #171717;
   color: #979797;
-  font-family: "outfit";
+  font-family: "sfpro";
   font-weight: normal;
   height: max-content;
   width: 100%;
@@ -169,6 +169,8 @@
   pointer-events: none;
   position: absolute;
   transition: all 0.6s ease;
+  font-family: "sfpro";
+  font-weight: 400;
 }
 
 .passimg {
@@ -194,9 +196,9 @@
 
 .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
   color: #ffcc00;
-  font-family: "judge";
+  font-family: "marvin";
   font-weight: normal;
-  font-size: clamp(16px, 15vw, 105px);
+  font-size: 47px;
   line-height: 1;
   letter-spacing: 2px;
   margin: 0;
@@ -205,6 +207,7 @@
   font-size: 16px;
   text-align: center;
   color: #fff;
+  padding: 0 20%;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type {
   background: #1e1e1e;
@@ -261,6 +264,8 @@
   margin: 30px 0 0;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox {
+  position: relative;
+  z-index: 1;
   padding: 20px;
   border-radius: 20px;
   background: rgba(30, 30, 30, 0.2);
@@ -268,6 +273,9 @@
   text-align: center;
   color: #383838;
   transition: background 0.35s ease;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .cornerLeft, .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .cornerRight {
+  display: none;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader {
   display: flex;
@@ -327,8 +335,17 @@
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationReserveBox {
     border-top-left-radius: 0;
   }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type .cornerLeft {
+    display: block;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .cornerLeft, .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .cornerRight {
+    display: block;
+  }
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationReserveBox {
     border-top-right-radius: 0;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .cornerRight {
+    display: block;
   }
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases {
     display: flex;
@@ -344,6 +361,40 @@
   }
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader {
     justify-content: flex-start;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .cornerLeft {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    width: 20px;
+    height: 20px;
+    background: #1e1e1e;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .cornerLeft .cornerLeftInner {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom-left-radius: 100%;
+    background: #0c0c0c;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .cornerRight {
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    width: 20px;
+    height: 20px;
+    background: #1e1e1e;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .cornerRight .cornerRightInner {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom-right-radius: 100%;
+    background: #0c0c0c;
   }
 }
 @media (min-width: 715px) {
@@ -368,7 +419,7 @@
     min-height: auto !important;
   }
   .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
-    font-size: clamp(16px, 9vw, 88px);
+    font-size: 42px;
   }
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox {
     flex: initial;
@@ -453,7 +504,7 @@
   background-color: #ffcc00;
   border-radius: 13px;
   color: black;
-  font-family: outfit;
+  font-family: sfpro;
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
@@ -470,16 +521,16 @@
 /* Reservations Title */
 .reservationsTitleContainer {
   width: 90%;
-  margin: 40px 0 0;
+  margin: 100px 0 30px;
+  display: flex;
 }
 
 .reservationsTitle {
-  text-transform: uppercase;
-  margin: 0 auto 10px 0;
-  font-size: 96px;
+  margin: 0 auto;
+  font-size: 47px;
   color: #ffcc00;
-  font-family: "judge";
-  font-weight: normal;
+  font-family: "sfpro";
+  font-weight: bold;
 }
 
 /* Reservations Container */
@@ -545,7 +596,7 @@
   border: none;
   background-color: #383838;
   font-size: 38px;
-  font-family: "outfit";
+  font-family: "sfpro";
   color: black;
   width: 20px;
   height: 20px;
@@ -576,19 +627,19 @@
 /* Ticker */
 @-webkit-keyframes ticker {
   0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
   100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d-(100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
 }
 @keyframes ticker {
   0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
   100% {
@@ -614,33 +665,37 @@
   overflow: hidden;
   background-color: #1a1a1a;
   height: 5rem;
-  padding-left: 100%;
 }
 .tickerwrap .ticker {
   display: flex;
   align-content: center;
   line-height: 4rem;
   white-space: nowrap;
-  padding-right: 100%;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   -webkit-animation-name: ticker;
   animation-name: ticker;
-  -webkit-animation-duration: 25s;
-  animation-duration: 25s;
+  -webkit-animation-duration: 16s;
+  animation-duration: 16s;
 }
 @media (max-width: 1050px) {
   .tickerwrap .ticker {
-    -webkit-animation-duration: 20s;
-    animation-duration: 20s;
+    -webkit-animation-duration: 12s;
+    animation-duration: 12s;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .tickerwrap .ticker {
-    -webkit-animation-duration: 10s;
-    animation-duration: 10s;
+    -webkit-animation-duration: 8s;
+    animation-duration: 8s;
+  }
+}
+@media (max-width: 500px) {
+  .tickerwrap .ticker {
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
   }
 }
 .tickerwrap .tickerPfp {

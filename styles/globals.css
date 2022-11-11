@@ -8,6 +8,17 @@
   src: url("./fonts/Judge.ttf");
 }
 
+@font-face {
+  font-family: "sfpro";
+  src: url("./fonts/SF-Pro.ttf");
+}
+
+@font-face {
+  font-family: "marvin";
+  src: url("./fonts/Marvin W01 Regular.ttf");
+}
+
+
 html,
 body {
   background-color: #0C0C0C;

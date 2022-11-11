@@ -67,7 +67,7 @@
 
 .faqContainer {
   width: 90%;
-  margin: 0 10px 40px;
+  margin: 70px 10px 40px;
 }
 
 .faqDiv {
@@ -76,12 +76,12 @@
 }
 
 .faqContainer h1 {
-  text-transform: uppercase;
-  margin: 0 0 10px 0;
-  font-size: 96px;
+  text-align: center;
+  margin: 0 0 40px 0;
+  font-size: 47px;
   color: #ffcc00;
-  font-family: "judge";
-  font-weight: normal;
+  font-family: "sfpro";
+  font-weight: bold;
 }
 
 .faqContainer h2 {
@@ -89,7 +89,7 @@
   margin: 0 0 40px 0;
   font-size: 20px;
   color: #eee;
-  font-family: "outfit";
+  font-family: "sfpro";
   font-weight: normal;
   font-weight: 500;
 }
@@ -132,16 +132,16 @@
 }
 
 .faqHeader{
-  border-radius: 6px;
+  border-radius: 15px;
   text-transform: none;
   margin: 0 0 10px 0;
-  font-size: 18px;
+  font-size: 25px;
   margin: 0;
   padding: 10px 20px;
   background-color: #1e1e1e;
-  color: #eee;
-  font-family: "outfit";
-  font-weight: normal;
+  color: #ffcc00;
+  font-family: "sfpro";
+  font-weight: 600;
   position: relative;
   z-index: 1;
   p{
@@ -155,8 +155,8 @@
 }
 
 .faqBody{
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   text-transform: none;
   margin: 0 0 10px 0;
   font-size: 18px;
@@ -164,7 +164,7 @@
   padding: 20px;
   background-color: #171717;
   color: #979797;
-  font-family: "outfit";
+  font-family: "sfpro";
   font-weight: normal;
   height: max-content;
   width: 100%;
@@ -174,11 +174,14 @@
   pointer-events: none;
   position: absolute;
   transition: all 0.6s ease;
+  font-family: "sfpro";
+  font-weight: 400;
 }
 
 .passimg {
   border-radius: 10px;
 }
+
 
 .mintcontainer {
   display: flex;
@@ -202,9 +205,9 @@
     .reservationHolderTexts{
       h2{
         color: #ffcc00;
-        font-family: "judge";
+        font-family: "marvin";
         font-weight: normal;
-        font-size: clamp(16px, 15vw, 105px);
+        font-size: 47px;
         line-height: 1;
         letter-spacing: 2px;
         margin: 0;
@@ -213,28 +216,31 @@
         font-size: 16px;
         text-align: center;
         color: #fff;
+        padding: 0 20%;
       }
     }
     .reservationPhasesHolder{
       &#phase1{
         .reservationPhases{
-          .reservationPhaseBox:first-of-type{
-            background: #1e1e1e;
-            .reservationHeader{
-              span{
-                &.reservationPhase{
-                  color: #ffcc00;
-                }
-                &.reservationActive{
-                  background: #33cc33;
+          .reservationPhaseBox{
+            &:first-of-type{
+              background: #1e1e1e;
+              .reservationHeader{
+                span{
+                  &.reservationPhase{
+                    color: #ffcc00;
+                  }
+                  &.reservationActive{
+                    background: #33cc33;
+                  }
                 }
               }
-            }
-            .reservationDesc{
-              color: #fff;
-            }
-            .reservationEnd{
-              color: #33cc33;
+              .reservationDesc{
+                color: #fff;
+              }
+              .reservationEnd{
+                color: #33cc33;
+              }
             }
           }
         }
@@ -302,6 +308,11 @@
       .reservationPhases{
         margin: 30px 0 0;
         .reservationPhaseBox{
+          .cornerLeft, .cornerRight{
+            display: none;
+          }
+          position: relative;
+          z-index: 1;
           padding: 20px;
           border-radius: 20px;
           background: rgba(30, 30, 30, 0.2);
@@ -376,13 +387,35 @@
           .reservationReserveBox{
             border-top-left-radius: 0;
           }
+          .reservationPhases{
+            .reservationPhaseBox:first-of-type{
+              .cornerLeft{
+                display: block;
+              }
+            }
+          }
+        }
+        &#phase2{
+          .reservationPhases{
+            .reservationPhaseBox:nth-of-type(2){
+              .cornerLeft, .cornerRight{
+                display: block;
+              }
+            }
+          }
         }
         &#phase3{
           .reservationReserveBox{
-            border-top-right-radius: 0;
+            border-top-right-radius: 0; 
+          }
+          .reservationPhases{
+            .reservationPhaseBox:nth-of-type(3){
+              .cornerRight{
+                display: block;
+              }
+            }
           }
         }
-        &
         .reservationPhases{
           display: flex;
           justify-content: space-between;
@@ -395,6 +428,40 @@
             width: 33%;
             .reservationHeader{
               justify-content: flex-start;
+            }
+            .cornerLeft{
+              position: absolute;
+              bottom: 0;
+              left: 100%;
+              width: 20px;
+              height: 20px;
+              background: #1e1e1e;
+              .cornerLeftInner{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 20px;
+                height: 20px;
+                border-bottom-left-radius: 100%;
+                background: #0c0c0c;
+              }
+            }
+            .cornerRight{
+              position: absolute;
+              bottom: 0;
+              right: 100%;
+              width: 20px;
+              height: 20px;
+              background: #1e1e1e;
+              .cornerRightInner{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 20px;
+                height: 20px;
+                border-bottom-right-radius: 100%;
+                background: #0c0c0c;
+              }
             }
           }
         }
@@ -434,7 +501,7 @@
       .reservationHolder{
         .reservationHolderTexts{
           h2{
-            font-size: clamp(16px, 9vw, 88px);
+            font-size: 42px;
           }
         }
         .reservationPhasesHolder{
@@ -543,7 +610,7 @@
   background-color: #ffcc00;
   border-radius: 13px;
   color: black;
-  font-family: outfit;
+  font-family: sfpro;
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
@@ -562,16 +629,16 @@
 
 .reservationsTitleContainer {
   width: 90%;
-  margin: 40px 0 0;
+  margin: 100px 0 30px;
+  display: flex;
 }
 
 .reservationsTitle {
-  text-transform: uppercase;
-  margin: 0 auto 10px 0;
-  font-size: 96px;
+  margin: 0 auto;
+  font-size: 47px;
   color: #ffcc00;
-  font-family: "judge";
-  font-weight: normal;
+  font-family: "sfpro";
+  font-weight: bold;
 }
 
 /* Reservations Container */
@@ -642,7 +709,7 @@
   border: none;
   background-color: #383838;
   font-size: 38px;
-  font-family: "outfit";
+  font-family: "sfpro";
   color: black;
   width: 20px;
   height: 20px;
@@ -673,23 +740,29 @@
 
 /* Ticker */
 
+$duration1: 4s;
+$duration2: 8s;
+$duration3: 12s;
+$duration4: 16s;
+$duration5: 20s;
+
 @-webkit-keyframes ticker {
   0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
 
   100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d-(100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
 }
 
 @keyframes ticker {
   0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
 
@@ -698,6 +771,7 @@
     transform: translate3d(-100%, 0, 0);
   }
 }
+
 
 .tickerwrapwrap {
   width: 90%;
@@ -719,14 +793,14 @@
   overflow: hidden;
   background-color: #1a1a1a;
   height: 5rem;
-  padding-left: 100%;
+  // padding-left: 100%;
 
   .ticker {
     display: flex;
     align-content: center;
     line-height: 4rem;  
     white-space: nowrap;
-    padding-right: 100%;
+    // padding-right: 100%;
 
     -webkit-animation-iteration-count: infinite; 
             animation-iteration-count: infinite;
@@ -734,22 +808,28 @@
             animation-timing-function: linear;
    -webkit-animation-name: ticker;
            animation-name: ticker;
-    -webkit-animation-duration: 25s;
-            animation-duration: 25s;
-
+    -webkit-animation-duration: $duration4;
+            animation-duration: $duration4;
   }
   
   @media (max-width: 1050px) {
     .ticker {
-      -webkit-animation-duration: 20s;
-              animation-duration: 20s;
+      -webkit-animation-duration: $duration3;
+              animation-duration: $duration3;
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     .ticker {
-      -webkit-animation-duration: 10s;
-              animation-duration: 10s;
+      -webkit-animation-duration: $duration2;
+              animation-duration: $duration2;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .ticker {
+      -webkit-animation-duration: $duration1;
+              animation-duration: $duration1;
     }
   }
 

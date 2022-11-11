@@ -10,8 +10,9 @@ import merge from 'lodash.merge';
 
 const myTheme = merge(midnightTheme(), {
   colors: {
-    connectButtonBackground: '#0c0c0c',
-    actionButtonSecondaryBackground: '#0c0c0c',
+    accentColor: '#ffcc00',
+    accentColorForeground: '#000',
+    actionButtonSecondaryBackground: '#ffcc00',
   },
   fonts: {
     body: 'outfit',
