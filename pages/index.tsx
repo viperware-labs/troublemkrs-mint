@@ -387,7 +387,7 @@ const Home: NextPage = () => {
               <div className={styles.reservationHolder}>
                 <div className={styles.reservationHolderTexts}>
                   <h2>TROUBLEMAKERS FOUNDERS CREW PASS</h2>
-                  <p>Finally, it's officially time to join the Troublemakers! Come reserve your pass!</p>
+                  <p>Finally, it&apos;s officially time to join the Troublemakers! Come reserve your pass!</p>
                 </div>
                 <div className={styles.reservationPhasesHolder} id={styles.phase1}>
                   <div className={styles.reservationPhases}>
