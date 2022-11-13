@@ -75,7 +75,7 @@
   margin: 0 0 40px 0;
   font-size: 42px;
   color: #ffcc00;
-  font-family: "sfpro";
+  font-family: "outfit";
   font-weight: 700;
 }
 
@@ -125,7 +125,7 @@
   padding: 10px 20px;
   background-color: #1e1e1e;
   color: #ffcc00;
-  font-family: "sfpro";
+  font-family: "outfit";
   font-weight: 300;
   position: relative;
   z-index: 1;
@@ -149,7 +149,7 @@
   padding: 20px;
   background-color: #171717;
   color: #979797;
-  font-family: "sfpro";
+  font-family: "outfit";
   height: max-content;
   width: 100%;
   top: 100%;
@@ -158,7 +158,7 @@
   pointer-events: none;
   position: absolute;
   transition: all 0.6s ease;
-  font-family: "sfpro";
+  font-family: "outfit";
   font-weight: 400;
 }
 
@@ -186,7 +186,7 @@
 
 .mintcontainer .mint {
   margin: auto;
-  font-family: "sfpro";
+  font-family: "outfit";
   font-weight: 400;
 }
 .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
@@ -280,7 +280,7 @@
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader span.reservationPhase {
   font-size: 22px;
-  font-family: "sfpro";
+  font-family: "outfit";
   font-weight: 1000;
   margin: 0 15px 0 0;
   transition: color 0.35s ease;
@@ -313,12 +313,12 @@
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox p {
   font-size: 18px;
-  font-family: "sfpro";
+  font-family: "outfit";
   margin: 0;
   color: #fff;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox p span#reservedPrice {
-  font-family: "sfpro";
+  font-family: "outfit";
   color: #ffcc00;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox button {
@@ -499,7 +499,7 @@
   background-color: #ffcc00;
   border-radius: 13px;
   color: black;
-  font-family: "sfpro";
+  font-family: "outfit";
   font-weight: 1000;
   font-size: 28px;
   padding: 14px 60px;
@@ -522,7 +522,7 @@
 .reservationsTitle {
   margin: 0 auto;
   color: #ffcc00;
-  font-family: "sfpro";
+  font-family: "outfit";
   font-weight: 700;
   text-align: center;
   font-size: 42px;
@@ -634,7 +634,7 @@
   border: none;
   background-color: #383838;
   font-size: 38px;
-  font-family: "sfpro";
+  font-family: "outfit";
   color: black;
   width: 20px;
   height: 20px;

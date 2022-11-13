@@ -1,21 +1,6 @@
 @font-face {
-  font-family: "sfpro";
+  font-family: "outfit";
   src: url("./fonts/Outfit.ttf");
-}
-
-@font-face {
-  font-family: "sfpro-bold";
-  src: url("./fonts/HelveticaNeueBold.OTF");
-}
-
-@font-face {
-  font-family: "sfpro-med";
-  src: url("./fonts/HelveticaNeueMedium.otf");
-}
-
-@font-face {
-  font-family: "sfpro-reg";
-  src: url("./fonts/HelveticaNeueMedium.OTF");
 }
 
 @font-face {
