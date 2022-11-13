@@ -434,17 +434,6 @@
     width: 170px;
   }
 }
-@media (max-width: 715px) {
-  .mintcontainer {
-    margin: 0;
-  }
-  .mintcontainer .mint .reservationHolder .reservationHolderTexts p {
-    font-size: 16px;
-  }
-  .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
-    font-size: 24px;
-  }
-}
 @media (min-width: 901px) {
   .mintcontainer {
     justify-content: center;
@@ -571,13 +560,22 @@
 }
 @media (max-width: 715px) {
   .reservationsTitle {
-    font-size: 24px;
+    font-size: 32px;
   }
   .faqContainer h1 {
-    font-size: 24px;
+    font-size: 32px;
   }
   .faqContainer {
     margin: 0px 10px 40px;
+  }
+  .mintcontainer {
+    margin: 0;
+  }
+  .mintcontainer .mint .reservationHolder .reservationHolderTexts p {
+    font-size: 16px;
+  }
+  .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
+    font-size: 32px;
   }
 }
 .reservationsContainer {
