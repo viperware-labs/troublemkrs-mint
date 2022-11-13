@@ -4,6 +4,21 @@
 }
 
 @font-face {
+  font-family: "sfpro-bold";
+  src: url("./fonts/SFPRODISPLAYBOLD.OTF");
+}
+
+@font-face {
+  font-family: "sfpro-med";
+  src: url("./fonts/SFPRODISPLAYMEDIUM.OTF");
+}
+
+@font-face {
+  font-family: "sfpro-reg";
+  src: url("./fonts/SFPRODISPLAYREGULAR.OTF");
+}
+
+@font-face {
   font-family: "marvin";
   src: url("./fonts/Marvin W01 Regular.ttf");
 }

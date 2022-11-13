@@ -675,9 +675,10 @@ const Home: NextPage = () => {
             <div style={{
               textTransform: "uppercase",
               fontFamily: "marvin",
-              fontSize: "29px",
+              fontSize: "24px",
               margin: "auto",
               textAlign: "center",
+              lineHeight: "2.3rem",
             }}>
               A place to <span style={{
                 color: "#ffcc00",

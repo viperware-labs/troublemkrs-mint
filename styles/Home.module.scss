@@ -56,12 +56,12 @@
   }
 
   .logo {
-    margin: 20px 10px;
+    margin: 20px auto;
   }
   
   .connect {
     display: flex;
-    margin: 0;
+    margin: 0 auto;
   }
 }
 
@@ -80,8 +80,7 @@
   margin: 0 0 40px 0;
   font-size: 47px;
   color: #ffcc00;
-  font-family: "sfpro";
-  font-weight: bold;
+  font-family: "sfpro-bold";
 }
 
 .faqContainer h2 {
@@ -140,7 +139,7 @@
   padding: 10px 20px;
   background-color: #1e1e1e;
   color: #ffcc00;
-  font-family: "sfpro";
+  font-family: "sfpro-bold";
   font-weight: 600;
   position: relative;
   z-index: 1;
@@ -330,6 +329,7 @@
             span{
               &.reservationPhase{
                 font-size: 22px;
+                font-family: "sfpro-bold";
                 font-weight: 1000;
                 margin: 0 15px 0 0;
                 transition: color .35s ease;
@@ -365,10 +365,11 @@
         padding: 20px;
         p{
           font-size: 18px;
-          font-weight: 1000;
+          font-family: "sfpro-reg";
           margin: 0;
           color: #fff;
           span#reservedPrice{
+            font-family: "sfpro-bold";
             color: #ffcc00;
           }
         }
@@ -482,6 +483,7 @@
         .reservationHolderTexts{
           p{
             font-size: 20px;
+            padding: 0 10%;
           }
           h2{
             font-size: 36px;
@@ -576,8 +578,8 @@
   }
 
   .faqContainer h1 {
-    margin: 0 0 10px 0;
-    font-size: 60px;
+    margin: 0 0 20px 0;
+    font-size: 47px;
   }
   
   .faqContainer h2 {
@@ -620,9 +622,9 @@
   background-color: #ffcc00;
   border-radius: 13px;
   color: black;
-  font-family: "sfpro";
-  font-size: 24px;
+  font-family: "sfpro-bold";
   font-weight: 1000;
+  font-size: 28px;
   padding: 14px 60px;
   margin: 0 auto;
 }
@@ -646,8 +648,8 @@
   margin: 0 auto;
   font-size: 47px;
   color: #ffcc00;
-  font-family: "sfpro";
-  font-weight: bold;
+  font-family: "sfpro-bold";
+  text-align: center;
 }
 
 /* Reservations Container */
@@ -668,6 +670,12 @@
   border-radius: 15px;
   align-items: center;
   margin-bottom: 60px;
+}
+
+@media (max-width: 800px) {
+  .reservationsContainerHolder{
+    width: 100%;
+  }
 }
 
 .reservationsContainer {

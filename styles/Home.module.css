@@ -53,11 +53,11 @@
     width: 100%;
   }
   .logo {
-    margin: 20px 10px;
+    margin: 20px auto;
   }
   .connect {
     display: flex;
-    margin: 0;
+    margin: 0 auto;
   }
 }
 .faqContainer {
@@ -75,8 +75,7 @@
   margin: 0 0 40px 0;
   font-size: 47px;
   color: #ffcc00;
-  font-family: "sfpro";
-  font-weight: bold;
+  font-family: "sfpro-bold";
 }
 
 .faqContainer h2 {
@@ -135,7 +134,7 @@
   padding: 10px 20px;
   background-color: #1e1e1e;
   color: #ffcc00;
-  font-family: "sfpro";
+  font-family: "sfpro-bold";
   font-weight: 600;
   position: relative;
   z-index: 1;
@@ -289,6 +288,7 @@
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader span.reservationPhase {
   font-size: 22px;
+  font-family: "sfpro-bold";
   font-weight: 1000;
   margin: 0 15px 0 0;
   transition: color 0.35s ease;
@@ -321,11 +321,12 @@
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox p {
   font-size: 18px;
-  font-weight: 1000;
+  font-family: "sfpro-reg";
   margin: 0;
   color: #fff;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox p span#reservedPrice {
+  font-family: "sfpro-bold";
   color: #ffcc00;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox button {
@@ -409,6 +410,7 @@
   }
   .mintcontainer .mint .reservationHolder .reservationHolderTexts p {
     font-size: 20px;
+    padding: 0 10%;
   }
   .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
     font-size: 36px;
@@ -476,8 +478,8 @@
     width: 100%;
   }
   .faqContainer h1 {
-    margin: 0 0 10px 0;
-    font-size: 60px;
+    margin: 0 0 20px 0;
+    font-size: 47px;
   }
   .faqContainer h2 {
     font-size: 17px;
@@ -516,9 +518,9 @@
   background-color: #ffcc00;
   border-radius: 13px;
   color: black;
-  font-family: "sfpro";
-  font-size: 24px;
+  font-family: "sfpro-bold";
   font-weight: 1000;
+  font-size: 28px;
   padding: 14px 60px;
   margin: 0 auto;
 }
@@ -540,8 +542,8 @@
   margin: 0 auto;
   font-size: 47px;
   color: #ffcc00;
-  font-family: "sfpro";
-  font-weight: bold;
+  font-family: "sfpro-bold";
+  text-align: center;
 }
 
 /* Reservations Container */
@@ -562,6 +564,11 @@
   margin-bottom: 60px;
 }
 
+@media (max-width: 800px) {
+  .reservationsContainerHolder {
+    width: 100%;
+  }
+}
 .reservationsContainer {
   overflow: hidden;
   display: flex;
