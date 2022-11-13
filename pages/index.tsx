@@ -426,24 +426,103 @@ const Home: NextPage = () => {
 
             </div>
 
-          </h1>
+            </h1>
               <div className={styles.reservationsTitleContainer}>
                 <h1 className={styles.reservationsTitle}>
                   Recent Reservations
                 </h1>
               </div>
-          
-          
-          <div className={styles.tickerwrapwrap}>
-            <div className={styles.tickerwrap}>
-              <div id="tickerbar" className={styles.ticker}>
-                {/* <a className={styles.tickeritem}>
-                  Loading...
-                </a> */}
+
+          <div className={styles.reservationsContainerHolder}>
+            <div className={styles.reservationsContainer}>
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp1">
+                  <Image
+                    className={styles.reservePfp}
+                    width="48"
+                    height="48"
+                    src={pfp1}
+                    />
+                </div>
+                    <div id="item1" className={styles.reservationName}>1 Loading...</div>
+              </div>
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp2">
+                  <Image
+                    width="48"
+                    height="48"
+                    src={pfp2}
+                    />
+                </div>
+                    <div id="item2" className={styles.reservationName}>2 Loading...</div>
+              </div>
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp3">
+                  <Image
+                    width="48"
+                    height="48"
+                    src={pfp3}
+                    />
+                </div>
+                    <div id="item3" className={styles.reservationName}>3 Loading...</div>
+              </div>
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp4">
+                  <Image
+                    width="48"
+                    height="48"
+                    src={pfp4}
+                    />
+                </div>
+                    <div id="item4" className={styles.reservationName}>4 Loading...</div>
+              </div>
+
+              {/* LOOP */}
+
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp1">
+                  {/* <Image
+                    className={styles.reservePfp}
+                    width="48"
+                    height="48"
+                    src={pfp1}
+                    /> */}
+                </div>
+                    <div id="item1" className={styles.reservationName}>1 Loading...</div>
+              </div>
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp2">
+                  {/* <Image
+                    width="48"
+                    height="48"
+                    src={pfp2}
+                    /> */}
+                </div>
+                    <div id="item2" className={styles.reservationName}>2 Loading...</div>
+              </div>
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp3">
+                  {/* <Image
+                    width="48"
+                    height="48"
+                    src={pfp4}
+                    /> */}
+                </div>
+                    <div id="item3" className={styles.reservationName}>3 Loading...</div>
+              </div>
+              <div className={styles.reservationBorder}>
+                <div className={styles.reservePfp} id="pfp4">
+                  {/* <Image
+                    width="48"
+                    height="48"
+                    src={pfp4}
+                    /> */}
+                </div>
+                    <div id="item4" className={styles.reservationName}>4 Loading...</div>
               </div>
             </div>
           </div>
-          
+
           {/* <div className={styles.reservationsContainer}>
             <div className={styles.reservationBorder}>
               <div className={styles.reservePfp} id="pfp1">
@@ -514,7 +593,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>What is the cost of the Presale?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>What is the cost of the presale?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                       The cost to reserve a Troublemakers Founders Crew Pass is at 0.2E each.
                     </div>
@@ -547,7 +626,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>Is there a discord?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>Is there a Discord?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                       Yes, the Discord is closed strictly for handpicked members only, and will be opened up for new pass holders after the presale.
                     </div>

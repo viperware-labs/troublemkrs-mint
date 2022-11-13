@@ -236,7 +236,7 @@
                 }
               }
               .reservationDesc{
-                color: #fff;
+                color: #ffcc00;
               }
               .reservationEnd{
                 color: #33cc33;
@@ -266,7 +266,7 @@
                 }
               }
               .reservationDesc{
-                color: #fff;
+                color: #ffcc00;
               }
               .reservationEnd{
                 color: #33cc33;
@@ -296,7 +296,7 @@
                 }
               }
               .reservationDesc{
-                color: #fff;
+                color: #ffcc00;
               }
               .reservationEnd{
                 color: #33cc33;
@@ -328,6 +328,7 @@
             span{
               &.reservationPhase{
                 font-size: 22px;
+                font-weight: 1000;
                 margin: 0 15px 0 0;
                 transition: color .35s ease;
               }
@@ -361,7 +362,8 @@
         border-radius: 20px;
         padding: 20px;
         p{
-          font-size: 14px;
+          font-size: 18px;
+          font-weight: 1000;
           margin: 0;
           color: #fff;
           span#reservedPrice{
@@ -610,10 +612,9 @@
   background-color: #ffcc00;
   border-radius: 13px;
   color: black;
-  font-family: sfpro;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-family: "sfpro";
+  font-size: 24px;
+  font-weight: 1000;
   padding: 14px 60px;
   margin: 0 auto;
 }
@@ -643,9 +644,16 @@
 
 /* Reservations Container */
 
-.reservationsContainer {
+@keyframes scrollLeft{
+  to{
+    margin-left: -100%;
+  }
+}
+
+.reservationsContainerHolder{
+  width: 90%;
   overflow: hidden;
-  display: flex;
+  margin-bottom: 60px;
   background-color: #1a1a1a;
   width: 90%;
   height: 80px;
@@ -654,43 +662,55 @@
   margin-bottom: 60px;
 }
 
-.reservation,
+.reservationsContainer {
+  overflow: hidden;
+  display: flex;
+  background-color: #1a1a1a;
+  padding: 0 20px;
+  width: 200%;
+  height: 80px;
+  border-radius: 15px;
+  align-items: center;
+  animation-name: scrollLeft;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  animation-timing-function: linear;
+}
+
 .reservationBorder {
-  /* border: 2px solid red; */
   display: flex;
   text-transform: uppercase;
   width: 25%;
+  min-width: 300px;
   height: 65%;
   align-items: center;
   justify-content: center;
   overflow-wrap: unset;
   overflow: hidden;
-}
-
-.reservationBorder {
   border-right: 1px solid #afafaf;
 }
 
-@media (max-width: 1050px) {
-  .reservationsContainer {
-    height: 350px;
-    width: 90%;
-    flex-direction: column;
-  }
+// @media (max-width: 1050px) {
+//   .reservationsContainer {
+//     height: 350px;
+//     width: 90%;
+//     flex-direction: column;
+//   }
 
-  .reservation,
-  .reservationBorder {
-    width: 75%;
-  }
+//   .reservation,
+//   .reservationBorder {
+//     width: 75%;
+//   }
 
-  .reservationBorder {
-    border-right: none;
-    border-bottom: 1px solid #afafaf;
-  }
-}
+//   .reservationBorder {
+//     border-right: none;
+//     border-bottom: 1px solid #afafaf;
+//   }
+// }
 
 .reservationName {
-  font-size: 20px;
+  font-size: 16px;
   margin: 0 10px 0 10px;
   max-width: 260px;
   overflow-wrap: initial;
@@ -709,7 +729,7 @@
   border: none;
   background-color: #383838;
   font-size: 38px;
-  font-family: "sfpro";
+  font-family: "outfit";
   color: black;
   width: 20px;
   height: 20px;
@@ -736,125 +756,4 @@
   z-index: 100;
   justify-content: center;
   align-items: center;
-}
-
-/* Ticker */
-
-$duration1: 4s;
-$duration2: 8s;
-$duration3: 12s;
-$duration4: 16s;
-$duration5: 20s;
-
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d-(100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-
-.tickerwrapwrap {
-  width: 90%;
-  overflow: hidden;
-  border-radius: 15px;
-  height: 4rem;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  font-size: 10px;
-  text-transform: uppercase;
-}
-
-.tickerwrap {
-  
-  width: 100%;
-  overflow: hidden;
-  box-sizing: content-box;
-
-  overflow: hidden;
-  background-color: #1a1a1a;
-  height: 5rem;
-  // padding-left: 100%;
-
-  .ticker {
-    display: flex;
-    align-content: center;
-    line-height: 4rem;  
-    white-space: nowrap;
-    // padding-right: 100%;
-
-    -webkit-animation-iteration-count: infinite; 
-            animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-   -webkit-animation-name: ticker;
-           animation-name: ticker;
-    -webkit-animation-duration: $duration4;
-            animation-duration: $duration4;
-  }
-  
-  @media (max-width: 1050px) {
-    .ticker {
-      -webkit-animation-duration: $duration3;
-              animation-duration: $duration3;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .ticker {
-      -webkit-animation-duration: $duration2;
-              animation-duration: $duration2;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .ticker {
-      -webkit-animation-duration: $duration1;
-              animation-duration: $duration1;
-    }
-  }
-
-  .tickerPfp {
-    border-radius: 100%;
-    overflow: hidden;
-    width: 60px;
-    height: 60px;
-
-    display: flex;
-
-    font-size: 1rem;
-    color: white;   
-  }
-
-  .tickeritem {
-
-    display: flex;
-
-    padding: 0 1rem;
-    font-size: 1rem;
-    color: white;
-    height: 4rem;
-    border-right: 1px solid #afafaf;
-
-  }
-
 }
