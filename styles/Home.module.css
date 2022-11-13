@@ -182,6 +182,7 @@
   flex-direction: column;
   font-weight: 100;
   width: 100%;
+  max-width: 1400px;
 }
 
 .mintcontainer .pass {
@@ -429,7 +430,7 @@
     flex-direction: row;
   }
   .mintcontainer .pass {
-    margin: 0;
+    margin: 0 auto;
   }
   .mintcontainer .pass .passimg {
     height: auto !important;
