@@ -73,7 +73,7 @@
 .faqContainer h1 {
   text-align: center;
   margin: 0 0 40px 0;
-  font-size: 47px;
+  font-size: 42px;
   color: #ffcc00;
   font-family: "sfpro-bold";
 }
@@ -416,17 +416,6 @@
     font-size: 36px;
   }
 }
-@media (max-width: 715px) {
-  .mintcontainer {
-    margin: 0;
-  }
-  .mintcontainer .mint .reservationHolder .reservationHolderTexts p {
-    font-size: 16px;
-  }
-  .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
-    font-size: 24px;
-  }
-}
 @media (min-width: 1250px) {
   .mintcontainer {
     flex-direction: row;
@@ -443,6 +432,17 @@
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox {
     flex: initial;
     width: 170px;
+  }
+}
+@media (max-width: 715px) {
+  .mintcontainer {
+    margin: 0;
+  }
+  .mintcontainer .mint .reservationHolder .reservationHolderTexts p {
+    font-size: 16px;
+  }
+  .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
+    font-size: 24px;
   }
 }
 @media (min-width: 901px) {
@@ -479,7 +479,7 @@
   }
   .faqContainer h1 {
     margin: 0 0 20px 0;
-    font-size: 47px;
+    font-size: 42px;
   }
   .faqContainer h2 {
     font-size: 17px;
@@ -540,10 +540,10 @@
 
 .reservationsTitle {
   margin: 0 auto;
-  font-size: 47px;
   color: #ffcc00;
   font-family: "sfpro-bold";
   text-align: center;
+  font-size: 42px;
 }
 
 /* Reservations Container */
@@ -567,6 +567,17 @@
 @media (max-width: 800px) {
   .reservationsContainerHolder {
     width: 100%;
+  }
+}
+@media (max-width: 715px) {
+  .reservationsTitle {
+    font-size: 24px;
+  }
+  .faqContainer h1 {
+    font-size: 24px;
+  }
+  .faqContainer {
+    margin: 0px 10px 40px;
   }
 }
 .reservationsContainer {
