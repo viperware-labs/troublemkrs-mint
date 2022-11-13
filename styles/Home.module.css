@@ -194,6 +194,9 @@
   z-index: 1;
 }
 
+.mintcontainer .mint {
+  margin: auto;
+}
 .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
   color: #ffcc00;
   font-family: "marvin";
@@ -453,12 +456,7 @@
   }
   .mintcontainer .mint {
     box-sizing: border-box;
-    margin: 0 0 0 40px;
-  }
-}
-@media (min-width: 1280px) {
-  .mintcontainer .mint {
-    margin: 0 0 0 10vw;
+    margin: auto;
   }
 }
 @media (max-width: 1000px) {

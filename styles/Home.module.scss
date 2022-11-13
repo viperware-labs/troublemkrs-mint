@@ -201,6 +201,7 @@
 }
 
 .mintcontainer .mint {
+  margin: auto;
   .reservationHolder{
     .reservationHolderTexts{
       h2{
@@ -549,20 +550,10 @@
     width: 85%;
     .mint{
       box-sizing: border-box;
-      margin: 0 0 0 40px;
+      margin: auto;
     }
   }
 }
-
-@media (min-width: 1280px){
-  .mintcontainer{
-    .mint{
-      margin: 0 0 0 10vw;
-    }
-  }
-}
-
-
 
 @media (max-width: 1000px) {
   .mintcontainer .mint {
