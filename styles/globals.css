@@ -1,6 +1,11 @@
 @font-face {
   font-family: "sfpro";
-  src: url("./fonts/SF-Pro.ttf");
+  src: url("./fonts/SF-Pro.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "sfpro-black";
+  src: url("./fonts/SF-Pro-Display-Black.otf");
 }
 
 @font-face {
@@ -17,6 +22,7 @@
   font-family: "sfpro-reg";
   src: url("./fonts/SFPRODISPLAYREGULAR.OTF");
 }
+
 
 @font-face {
   font-family: "marvin";

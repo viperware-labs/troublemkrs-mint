@@ -75,7 +75,8 @@
   margin: 0 0 40px 0;
   font-size: 42px;
   color: #ffcc00;
-  font-family: "sfpro-bold";
+  font-family: "sfpro";
+  font-weight: bold;
 }
 
 .faqContainer h2 {
@@ -196,6 +197,8 @@
 
 .mintcontainer .mint {
   margin: auto;
+  font-family: "sfpro";
+  font-weight: 400;
 }
 .mintcontainer .mint .reservationHolder .reservationHolderTexts h2 {
   color: #ffcc00;
