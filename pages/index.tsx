@@ -81,7 +81,8 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
       // if (el != null) el.innerHTML = `${t.remainDays}D ${t.remainDays}H ${t.remainMinutes}M`;
   
       if (el != null) el.innerHTML = 
-      ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
+      `LIVE in <br/>`
+      + ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
       + ((Number(t.remainHours) != 0) ? `${t.remainHours}H` : ``) + ` `
       + ((Number(t.remainMinutes) != 0) ? `${t.remainMinutes}M` : ``) + ` `;
   
@@ -389,7 +390,7 @@ const Home: NextPage = () => {
                   <h2>TROUBLEMAKERS<br/>FOUNDERS CREW PASS</h2>
                   <p>Finally, it&apos;s officially time to join the Troublemakers! Come reserve your pass!</p>
                 </div>
-                <div className={styles.reservationPhasesHolder} id={styles.phase1}>
+                <div className={styles.reservationPhasesHolder} id={styles.phase2}>
                   <div className={styles.reservationPhases}>
                     <div className={styles.reservationPhaseBox}>
                       <div className={styles.cornerLeft}><div className={styles.cornerLeftInner}></div></div>
@@ -397,7 +398,7 @@ const Home: NextPage = () => {
                         <span className={styles.reservationPhase}>PHASE 1</span><span className={styles.reservationActive}></span>
                       </p>
                       <p className={styles.reservationDesc}>Guaranteed Mint</p>
-                      <p className={styles.reservationEnd}>Ends in <span id={styles.phase1End}><span id="clock"></span></span></p>
+                      <p className={styles.reservationEnd}>Ended<span id={styles.phase1End}><span id="clock1"></span></span></p>
                     </div>
                     <div className={styles.reservationPhaseBox}>
                       <div className={styles.cornerLeft}><div className={styles.cornerLeftInner}></div></div>
@@ -406,7 +407,7 @@ const Home: NextPage = () => {
                         <span className={styles.reservationPhase}>PHASE 2</span><span className={styles.reservationActive}></span>
                       </p>
                       <p className={styles.reservationDesc}>FCFS Mint</p>
-                      <p className={styles.reservationEnd}>Ends in <span id={styles.phase1End}><span id="clock"></span></span></p>
+                      <p className={styles.reservationEnd}><span id={styles.phase1End}><span id="clock2"></span></span></p>
                     </div>
                     <div className={styles.reservationPhaseBox} id={styles.reservationActive}>
                       <div className={styles.cornerRight}><div className={styles.cornerRightInner}></div></div>
@@ -414,7 +415,7 @@ const Home: NextPage = () => {
                         <span className={styles.reservationPhase}>PHASE 3</span><span className={styles.reservationActive}></span>
                       </p>
                       <p className={styles.reservationDesc}>Acceptance Mint</p>
-                      <p className={styles.reservationEnd}>Ends in <span id={styles.phase1End}><span id="clock"></span></span></p>
+                      <p className={styles.reservationEnd}>Not Started<span id={styles.phase1End}><span id="clock3"></span></span></p>
                     </div>
                   </div>
                   <div className={styles.reservationReserveBox}>
@@ -520,6 +521,7 @@ const Home: NextPage = () => {
                 </div>
                     <div id="item4" className={styles.reservationName}>4 Loading...</div>
               </div>
+              
             </div>
           </div>
 
@@ -569,7 +571,7 @@ const Home: NextPage = () => {
 
           <div className={styles.faqContainer}>
             <h1>
-              Presale F.A.Q.
+              Presale FAQ
             </h1>
             {/* <h2>
               FREQUENTLY ASKED QUESTIONS
@@ -716,7 +718,7 @@ const Home: NextPage = () => {
   );
 };
 
-countdown('Nov 12 2022 00:59:59 GMT-0700', 'clock', 'LIVE ●');
+countdown('Nov 28 2022 00:59:59 GMT-0700', 'clock2', 'Presale is LIVE');
 faqResponsive();
 
 export default Home;

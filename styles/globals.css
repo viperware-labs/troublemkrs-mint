@@ -1,28 +1,22 @@
 @font-face {
   font-family: "sfpro";
-  src: url("./fonts/SF-Pro.ttf") format('truetype');
-}
-
-@font-face {
-  font-family: "sfpro-black";
-  src: url("./fonts/SF-Pro-Display-Black.otf");
+  src: url("./fonts/HelveticaNeue.ttf");
 }
 
 @font-face {
   font-family: "sfpro-bold";
-  src: url("./fonts/SFPRODISPLAYBOLD.OTF");
+  src: url("./fonts/HelveticaNeueBold.OTF");
 }
 
 @font-face {
   font-family: "sfpro-med";
-  src: url("./fonts/SFPRODISPLAYMEDIUM.OTF");
+  src: url("./fonts/HelveticaNeueMedium.otf");
 }
 
 @font-face {
   font-family: "sfpro-reg";
-  src: url("./fonts/SFPRODISPLAYREGULAR.OTF");
+  src: url("./fonts/HelveticaNeueMedium.OTF");
 }
-
 
 @font-face {
   font-family: "marvin";

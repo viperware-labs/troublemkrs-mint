@@ -76,17 +76,7 @@
   font-size: 42px;
   color: #ffcc00;
   font-family: "sfpro";
-  font-weight: bold;
-}
-
-.faqContainer h2 {
-  text-transform: uppercase;
-  margin: 0 0 40px 0;
-  font-size: 20px;
-  color: #eee;
-  font-family: "sfpro";
-  font-weight: normal;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .faqTab {
@@ -135,8 +125,8 @@
   padding: 10px 20px;
   background-color: #1e1e1e;
   color: #ffcc00;
-  font-family: "sfpro-bold";
-  font-weight: 600;
+  font-family: "sfpro";
+  font-weight: 300;
   position: relative;
   z-index: 1;
 }
@@ -160,7 +150,6 @@
   background-color: #171717;
   color: #979797;
   font-family: "sfpro";
-  font-weight: normal;
   height: max-content;
   width: 100%;
   top: 100%;
@@ -231,7 +220,7 @@
   color: #33cc33;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(1) .reservationEnd {
-  color: #ff0000;
+  color: #383838;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) {
   background: #1e1e1e;
@@ -249,7 +238,7 @@
   color: #33cc33;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(1) .reservationEnd, .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationEnd {
-  color: #ff0000;
+  color: #1e1e1e;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) {
   background: #1e1e1e;
@@ -291,7 +280,7 @@
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .reservationHeader span.reservationPhase {
   font-size: 22px;
-  font-family: "sfpro-bold";
+  font-family: "sfpro";
   font-weight: 1000;
   margin: 0 15px 0 0;
   transition: color 0.35s ease;
@@ -329,7 +318,7 @@
   color: #fff;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox p span#reservedPrice {
-  font-family: "sfpro-bold";
+  font-family: "sfpro";
   color: #ffcc00;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationReserveBox button {
@@ -510,7 +499,7 @@
   background-color: #ffcc00;
   border-radius: 13px;
   color: black;
-  font-family: "sfpro-bold";
+  font-family: "sfpro";
   font-weight: 1000;
   font-size: 28px;
   padding: 14px 60px;
@@ -533,7 +522,8 @@
 .reservationsTitle {
   margin: 0 auto;
   color: #ffcc00;
-  font-family: "sfpro-bold";
+  font-family: "sfpro";
+  font-weight: 700;
   text-align: center;
   font-size: 42px;
 }
@@ -597,6 +587,21 @@
   animation-timing-function: linear;
 }
 
+@media (max-width: 1200px) {
+  .reservationsContainer {
+    animation-duration: 10s;
+  }
+}
+@media (max-width: 700px) {
+  .reservationsContainer {
+    animation-duration: 7s;
+  }
+}
+@media (max-width: 400px) {
+  .reservationsContainer {
+    animation-duration: 20s;
+  }
+}
 .reservationBorder {
   display: flex;
   text-transform: uppercase;
