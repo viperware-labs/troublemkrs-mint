@@ -307,8 +307,8 @@ const Home: NextPage = () => {
                 </a>
               </div>
               <div style={{
-                margin: "auto"
-              }}><ConnectButton /></div>
+                margin: "auto 0"
+              }}><ConnectButton showBalance={false}/></div>
               
             </div>
 

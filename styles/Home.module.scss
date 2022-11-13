@@ -194,7 +194,7 @@
   display: flex;
   width: 100%;
   font-size: 16px;
-  max-width: 450px;
+  max-width: 600px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -472,7 +472,25 @@
   }
 }
 
-@media (min-width: 715px) {
+@media (max-width: 1000px) {
+  .mintcontainer{
+    margin: 0;
+    .mint{
+      .reservationHolder{
+        .reservationHolderTexts{
+          p{
+            font-size: 20px;
+          }
+          h2{
+            font-size: 36px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 715px) {
   .mintcontainer{
     margin: 0;
     .mint{
@@ -481,13 +499,16 @@
           p{
             font-size: 16px;
           }
+          h2{
+            font-size: 24px;
+          }
         }
       }
     }
   }
 }
 
-@media (min-width: 820px) {
+@media (min-width: 1250px) {
   .mintcontainer{
     flex-direction: row;
     .pass{
@@ -501,11 +522,6 @@
     }
     .mint{
       .reservationHolder{
-        .reservationHolderTexts{
-          h2{
-            font-size: 42px;
-          }
-        }
         .reservationPhasesHolder{
           .reservationPhases{
             .reservationPhaseBox{
@@ -729,7 +745,7 @@
   border: none;
   background-color: #383838;
   font-size: 38px;
-  font-family: "outfit";
+  font-family: "sfpro";
   color: black;
   width: 20px;
   height: 20px;

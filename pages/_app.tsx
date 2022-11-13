@@ -15,7 +15,7 @@ const myTheme = merge(midnightTheme(), {
     actionButtonSecondaryBackground: '#ffcc00',
   },
   fonts: {
-    body: 'outfit',
+    body: 'sfpro',
   },
 } as Theme);
 
