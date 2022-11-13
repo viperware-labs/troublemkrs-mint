@@ -383,7 +383,7 @@
     width: 20px;
     height: 20px;
     border-bottom-left-radius: 100%;
-    background: #0c0c0c;
+    background: #111111;
   }
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases .reservationPhaseBox .cornerRight {
     position: absolute;
@@ -400,7 +400,7 @@
     width: 20px;
     height: 20px;
     border-bottom-right-radius: 100%;
-    background: #0c0c0c;
+    background: #111111;
   }
 }
 @media (max-width: 1000px) {
