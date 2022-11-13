@@ -535,6 +535,7 @@
   }
 }
 .reservationsContainerHolder {
+  font-family: "outfit";
   width: 90%;
   overflow: hidden;
   margin-bottom: 60px;
