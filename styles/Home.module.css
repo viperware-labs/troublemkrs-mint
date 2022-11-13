@@ -199,10 +199,10 @@
   margin: 0;
 }
 .mintcontainer .mint .reservationHolder .reservationHolderTexts p {
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
   color: #fff;
-  padding: 0 20%;
+  padding: 0 10%;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type {
   background: #1e1e1e;
