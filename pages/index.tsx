@@ -435,7 +435,7 @@ const Home: NextPage = () => {
               </div>
 
           <div className={styles.reservationsContainerHolder}>
-            <div className={styles.reservationsContainer}>
+            <div id="tickerbar" className={styles.reservationsContainer}>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp1">
                   <Image
@@ -684,9 +684,13 @@ const Home: NextPage = () => {
             }}>
               A place to <span style={{
                 color: "#ffcc00",
+                fontSize: "24px",
+                fontFamily: "marvin",
               }}>connect</span><br/>
               A space to <span style={{
-                color: "#ffcc00"
+                color: "#ffcc00",
+                fontSize: "24px",
+                fontFamily: "marvin",
               }}>empower</span>
             </div>
           </div>
