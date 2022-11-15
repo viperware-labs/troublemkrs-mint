@@ -177,6 +177,7 @@ async function getNames() {
 
         let pfp = document.getElementById("pfp" + i);
         let item = document.getElementById("item" + i);
+        let seconditem = document.getElementById("seconditem" + i);
 
         // let pfpUrl = "https://i.seadn.io/gae/tNnkm9SWrFFYdC9VczshcGIUPZv0An-gnPSqnv10AM1HlwN_JRbOzcJvr1-gGxXzWoHxPQzeFb6Z8ITK08P7fjjj_ChrtHMfdpo21w?w=500&auto=format";
         
@@ -192,19 +193,20 @@ async function getNames() {
 
         let setTo = await handleAddress(tx.from);
         
-        if (item != null) item.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '">' + setTo + '<br/>RESERVED 1X CREW PASS</a>';
+        item!.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '"><b>' + setTo + '</b><br/>Reserved 1x Founders Crew Pass</a>';
+        seconditem!.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '"><b>' + setTo + '</b><br/>Reserved 1x Founders Crew Pass</a>';
 
-        let tickerbar = document.getElementById("tickerbar");
-        console.log(tickerbar);
+        // let tickerbar = document.getElementById("tickerbar");
+        // console.log(tickerbar);
 
-        let tickeritem = document.createElement('a');
-        tickeritem.className = styles.tickeritem;
-        tickeritem.target = "_blank";
-        tickeritem.rel = "noopener noreferrer";
-        tickeritem.href = "https://opensea.io/" + tx.from;
-        tickeritem.innerHTML = setTo + " RESERVED 1X CREW PASS";
+        // let tickeritem = document.createElement('a');
+        // tickeritem.className = styles.tickeritem;
+        // tickeritem.target = "_blank";
+        // tickeritem.rel = "noopener noreferrer";
+        // tickeritem.href = "https://opensea.io/" + tx.from;
+        // tickeritem.innerHTML = setTo + " RESERVED 1X CREW PASS";
 
-        tickerbar?.appendChild(tickeritem);
+        // tickerbar?.appendChild(tickeritem);
       }
     })
 
@@ -217,7 +219,7 @@ async function handleAddress(address: string) {
   
   if (ensName != null) {
     console.log(ensName);
-    return ensName;
+    return ensName.toUpperCase();
   } else {
     console.log((address.slice(0, 6) + "...." + address.slice(address.length - 4, address.length)));
     return((address.slice(0, 6) + "...." + address.slice(address.length - 4, address.length)));
@@ -284,7 +286,7 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    // getNames();
+    getNames();
     // loaderListen();
 
     setTimeout( () => {
@@ -489,11 +491,6 @@ const Home: NextPage = () => {
             </div>
 
             </h1>
-              <div className={styles.reservationsTitleContainer}>
-                <h1 className={styles.reservationsTitle}>
-                  Recent Reservations
-                </h1>
-              </div>
 
           <div className={styles.reservationsContainerHolder}>
             <div id="tickerbar" className={styles.reservationsContainer}>
@@ -550,7 +547,7 @@ const Home: NextPage = () => {
                     src={pfp1}
                     />
                 </div>
-                    <div id="item1" className={styles.reservationName}>1 Loading...</div>
+                    <div id="seconditem1" className={styles.reservationName}>1 Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp2">
@@ -560,7 +557,7 @@ const Home: NextPage = () => {
                     src={pfp2}
                     />
                 </div>
-                    <div id="item2" className={styles.reservationName}>2 Loading...</div>
+                    <div id="seconditem2" className={styles.reservationName}>2 Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp3">
@@ -570,7 +567,7 @@ const Home: NextPage = () => {
                     src={pfp3}
                     />
                 </div>
-                    <div id="item3" className={styles.reservationName}>3 Loading...</div>
+                    <div id="seconditem3" className={styles.reservationName}>3 Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp4">
@@ -580,7 +577,7 @@ const Home: NextPage = () => {
                     src={pfp4}
                     />
                 </div>
-                    <div id="item4" className={styles.reservationName}>4 Loading...</div>
+                    <div id="seconditem4" className={styles.reservationName}>4 Loading...</div>
               </div>
               
             </div>
