@@ -30,6 +30,8 @@ import MerkleTree from 'merkletreejs';
 /* Merkle Root */
 
 const addresses = ["0xd6e67ce446dC04dcF3F3556B8150F370D4c52A62", "0x490EE2cE2DeDC3776c1A3935AE1FE3B93cb13025"]
+
+
 const getRemainingTime = (_deadline: Date) => {
   let now = new Date().getTime();
 
@@ -228,6 +230,8 @@ const Home: NextPage = () => {
 
   console.log("XXXXXXXXXXXXXXXXXXXX");
   console.log(address);
+
+  // Merkle Root
 
   const [loaded, setLoaded] = useState(false);
   const [mintAmount, setMintAmount] = useState(1);
@@ -536,7 +540,7 @@ const Home: NextPage = () => {
               </div>
 
               {/* LOOP */}
-              
+
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp1">
                   <Image

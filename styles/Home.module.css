@@ -614,8 +614,7 @@
 .reservationBorder {
   display: flex;
   text-transform: uppercase;
-  width: 25%;
-  min-width: 300px;
+  width: 100%;
   height: 65%;
   align-items: center;
   justify-content: center;
@@ -624,6 +623,20 @@
   border-right: 1px solid #afafaf;
 }
 
+/* Mobile Reservations Display */
+@media (max-width: 1000px) {
+  .reservationBorder {
+    width: 50%;
+  }
+  .reservationsContainer {
+    width: 400%;
+  }
+  @keyframes scrollLeft {
+    to {
+      margin-left: -200%;
+    }
+  }
+}
 .reservationName {
   font-size: 16px;
   margin: 0 10px 0 10px;
