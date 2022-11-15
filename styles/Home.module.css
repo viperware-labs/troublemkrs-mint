@@ -623,7 +623,7 @@
   border-right: 1px solid #afafaf;
 }
 
-/* Mobile Reservations Display */
+/* Tablet Reservations Display */
 @media (max-width: 1000px) {
   .reservationBorder {
     width: 50%;
@@ -634,6 +634,20 @@
   @keyframes scrollLeft {
     to {
       margin-left: -200%;
+    }
+  }
+}
+/* Mobile Reservations Display */
+@media (max-width: 600px) {
+  .reservationBorder {
+    width: 100%;
+  }
+  .reservationsContainer {
+    width: 800%;
+  }
+  @keyframes scrollLeft {
+    to {
+      margin-left: -400%;
     }
   }
 }
