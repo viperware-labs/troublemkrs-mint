@@ -7,6 +7,9 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import React, { useEffect, useState } from "react";
 import merge from 'lodash.merge';
+import { useConnect, useDisconnect, useAccount, useNetwork } from "wagmi";
+
+// const { accountData } = useAccount();
 
 const myTheme = merge(midnightTheme(), {
   colors: {
@@ -21,6 +24,7 @@ const myTheme = merge(midnightTheme(), {
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
+    chain.goerli,
     chain.mainnet,
     chain.polygon,
     chain.optimism,

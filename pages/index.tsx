@@ -19,7 +19,17 @@ import pfp2 from '../public/trbl2.png';
 import pfp3 from '../public/trbl3.png';
 import pfp4 from '../public/trbl4.png';
 import loading from '../public/LoadingNew.gif';
+import { useContractWrite, usePrepareContractWrite, usePrepareSendTransaction } from 'wagmi';
+import { keccak256, parseEther } from 'ethers/lib/utils';
+import error from 'next/error';
+import { useConnect, useDisconnect, useAccount, useNetwork } from "wagmi";
 
+import importedABI from '../public/config/abi.json'
+import MerkleTree from 'merkletreejs';
+
+/* Merkle Root */
+
+const addresses = ["0xd6e67ce446dC04dcF3F3556B8150F370D4c52A62", "0x490EE2cE2DeDC3776c1A3935AE1FE3B93cb13025"]
 const getRemainingTime = (_deadline: Date) => {
   let now = new Date().getTime();
 
@@ -214,10 +224,34 @@ async function handleAddress(address: string) {
 
 const Home: NextPage = () => {
 
+  const { address, isConnected } = useAccount();
+
+  console.log("XXXXXXXXXXXXXXXXXXXX");
+  console.log(address);
+
   const [loaded, setLoaded] = useState(false);
   const [mintAmount, setMintAmount] = useState(1);
 
   const [depositList, setDepositList] = useState<string[]>([]);
+
+  const leaves = addresses.map(x => keccak256(x))
+  const tree = new MerkleTree(leaves, keccak256, { sortPairs: true })
+  const buf2hex = (x: Buffer) => '0x' + x.toString('hex')
+
+  let leaf = "";
+  let proof = [""];
+  
+  console.log("root")
+  console.log(buf2hex(tree.getRoot()))
+  
+  if (address !== undefined) {
+    leaf = keccak256(address as string) // address from wallet using walletconnect/metamask
+    proof = tree.getProof(leaf).map(x => buf2hex(x.data))
+  }
+
+  console.log("proof")
+  console.log(proof)
+  console.log(address)
 
   // function loaderListen() {
   //   let loader = document.getElementById('loader');
@@ -246,7 +280,7 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    getNames();
+    // getNames();
     // loaderListen();
 
     setTimeout( () => {
@@ -255,8 +289,31 @@ const Home: NextPage = () => {
     }, 4500)
   }, []);
 
+  const { config, error } = usePrepareContractWrite({
+    address: '0x06FDa0d9866693b82aD185513603f501EdEa9dB3',
+    abi: importedABI,
+    functionName: 'chosenMint',
+    overrides: {
+      value: ethers.utils.parseEther('0.1'),
+    },
+    args: [1, proof],
+  })
+
+  //@ts-ignore
+  const { write } = useContractWrite(config);
+
   return (
     <>
+      {/* <button disabled={!write} onClick={() => write?.()}>
+        Feed
+      </button>
+      <button disabled={!write} onClick={() => proof}>
+        Merkle
+      </button>
+      {error && (
+        <div>An error occurred preparing the transaction: {error.message}</div>
+      )} */}
+
       <div
       style={ loaded ? { display:'none'} : {display : ''} }
       className={styles.loading}>
@@ -479,45 +536,45 @@ const Home: NextPage = () => {
               </div>
 
               {/* LOOP */}
-
+              
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp1">
-                  {/* <Image
+                  <Image
                     className={styles.reservePfp}
                     width="48"
                     height="48"
                     src={pfp1}
-                    /> */}
+                    />
                 </div>
                     <div id="item1" className={styles.reservationName}>1 Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp2">
-                  {/* <Image
+                  <Image
                     width="48"
                     height="48"
                     src={pfp2}
-                    /> */}
+                    />
                 </div>
                     <div id="item2" className={styles.reservationName}>2 Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp3">
-                  {/* <Image
+                  <Image
                     width="48"
                     height="48"
-                    src={pfp4}
-                    /> */}
+                    src={pfp3}
+                    />
                 </div>
                     <div id="item3" className={styles.reservationName}>3 Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp4">
-                  {/* <Image
+                  <Image
                     width="48"
                     height="48"
                     src={pfp4}
-                    /> */}
+                    />
                 </div>
                     <div id="item4" className={styles.reservationName}>4 Loading...</div>
               </div>

@@ -529,22 +529,46 @@
 }
 
 /* Reservations Container */
+.reservationsTitleContainer {
+  width: 90%;
+  margin: 100px 0 30px;
+  display: flex;
+}
+
+.reservationsTitle {
+  margin: 0 auto;
+  color: #ffcc00;
+  font-family: "outfit";
+  font-weight: 700;
+  text-align: center;
+  font-size: 42px;
+}
+
+/* Reservations Container */
 @keyframes scrollLeft {
   to {
     margin-left: -100%;
   }
 }
 .reservationsContainerHolder {
-  font-family: "outfit";
   width: 90%;
   overflow: hidden;
   margin-bottom: 60px;
+}
+
+.reservationsContainer {
+  overflow: hidden;
+  display: flex;
   background-color: #1a1a1a;
-  width: 90%;
+  width: 200%;
   height: 80px;
   border-radius: 15px;
   align-items: center;
-  margin-bottom: 60px;
+  animation-name: scrollLeft;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  animation-timing-function: linear;
 }
 
 @media (max-width: 800px) {
@@ -576,7 +600,6 @@
   overflow: hidden;
   display: flex;
   background-color: #1a1a1a;
-  padding: 0 20px;
   width: 200%;
   height: 80px;
   border-radius: 15px;
@@ -588,21 +611,6 @@
   animation-timing-function: linear;
 }
 
-@media (max-width: 1200px) {
-  .reservationsContainer {
-    animation-duration: 10s;
-  }
-}
-@media (max-width: 700px) {
-  .reservationsContainer {
-    animation-duration: 7s;
-  }
-}
-@media (max-width: 400px) {
-  .reservationsContainer {
-    animation-duration: 20s;
-  }
-}
 .reservationBorder {
   display: flex;
   text-transform: uppercase;
