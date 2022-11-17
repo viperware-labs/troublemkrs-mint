@@ -129,7 +129,7 @@
   margin: 0;
   padding: 10px 20px;
   background-color: #1e1e1e;
-  color: #ffcc00;
+  color: #fff;
   font-family: "outfit";
   font-weight: 300;
   position: relative;
@@ -229,7 +229,7 @@
                 }
               }
               .reservationDesc{
-                color: #ffcc00;
+                color: #fff;
               }
               .reservationEnd{
                 color: #33cc33;
@@ -259,7 +259,7 @@
                 }
               }
               .reservationDesc{
-                color: #ffcc00;
+                color: #fff;
               }
               .reservationEnd{
                 color: #33cc33;
@@ -289,7 +289,7 @@
                 }
               }
               .reservationDesc{
-                color: #ffcc00;
+                color: #fff;
               }
               .reservationEnd{
                 color: #33cc33;
@@ -601,6 +601,11 @@
   font-size: 28px;
   padding: 14px 60px;
   margin: 0 auto;
+}
+
+.mintButton:hover {
+  background-color: #ffcc00dd;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {

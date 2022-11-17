@@ -640,7 +640,7 @@ const Home: NextPage = () => {
               <div className={styles.faqContainerColumn}>
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>What is the Troublemakers Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>What is the Troublemakers Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                       The Troublemakers Founders Crew Pass is the key to the
                       <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
@@ -653,7 +653,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>What is the cost of the presale?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>What is the cost of the presale?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                       The cost to reserve a Troublemakers Founders Crew Pass is at 0.2E each.
                     </div>
@@ -662,7 +662,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>Why a presale instead of the standard minting process?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>Why a presale instead of the standard minting process?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                       Based on various considerations, this is a better way than the traditional minting process, where everyone who reserved their Crew Pass will be airdropped simultaneously. 
                     </div>
@@ -671,7 +671,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>How does Phase 1, 2 and 3 work?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>How does Phase 1, 2 and 3 work?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                     Phase 1 - All whitelisted (WL) members who are guaranteed to reserve their pass.<br/>
                     Phase 2 - All members who are keen to reserve additional passes, first-come-first-serve (FCFS).<br/>
@@ -686,7 +686,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>Is there a Discord?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>Is there a Discord?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                       Yes, the Discord is closed strictly for handpicked members only, and will be opened up for new pass holders after the presale.
                     </div>
@@ -695,7 +695,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>Who is eligible to reserve a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>Who is eligible to reserve a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                     The initial handpicked 200 who were invited to the Troublemakers Discord are eligible to reserve 1 Founders Crew Pass.
                     Another 100 will go to applicants who got accepted in the (Public Thread TBA)
@@ -705,7 +705,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>What are some of the perks of holding a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#ffcc00"/></g></svg></span></p>
+                    <p><span>What are some of the perks of holding a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
                     <div className={styles.faqBody}>
                     As a Troublemakers Founders Crew Pass holder, you are guaranteed:<br/>
                     <br/>

@@ -124,7 +124,7 @@
   margin: 0;
   padding: 10px 20px;
   background-color: #1e1e1e;
-  color: #ffcc00;
+  color: #fff;
   font-family: "outfit";
   font-weight: 300;
   position: relative;
@@ -214,7 +214,7 @@
   background: #33cc33;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type .reservationDesc {
-  color: #ffcc00;
+  color: #fff;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase1 .reservationPhases .reservationPhaseBox:first-of-type .reservationEnd {
   color: #33cc33;
@@ -232,7 +232,7 @@
   background: #33cc33;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationDesc {
-  color: #ffcc00;
+  color: #fff;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase2 .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationEnd {
   color: #33cc33;
@@ -250,7 +250,7 @@
   background: #33cc33;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationDesc {
-  color: #ffcc00;
+  color: #fff;
 }
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationEnd {
   color: #33cc33;
@@ -504,6 +504,11 @@
   font-size: 28px;
   padding: 14px 60px;
   margin: 0 auto;
+}
+
+.mintButton:hover {
+  background-color: rgba(255, 204, 0, 0.8666666667);
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
