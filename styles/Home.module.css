@@ -611,7 +611,7 @@
   justify-content: center;
   overflow-wrap: unset;
   overflow: hidden;
-  border-right: 1px solid #afafaf;
+  border-right: 2px solid #979797;
 }
 
 .reservationName {

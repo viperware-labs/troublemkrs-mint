@@ -13,7 +13,7 @@ import express from 'express';
 import logo from '../public/LOGO.png';
 // import pass from '/pass.png';
 import pass from '../public/PassNew2.gif';
-import twitter from '../public/twitterLogo.png';
+import twitter from '../public/Twitter_Logo.png';
 import pfp1 from '../public/trbl1.png';
 import pfp2 from '../public/trbl2.png';
 import pfp3 from '../public/trbl3.png';
