@@ -19,18 +19,17 @@ import pfp2 from '../public/trbl2.png';
 import pfp3 from '../public/trbl3.png';
 import pfp4 from '../public/trbl4.png';
 import loading from '../public/LoadingNew.gif';
-import { useContractWrite, usePrepareContractWrite, usePrepareSendTransaction } from 'wagmi';
+import { useContractRead, useContractWrite, usePrepareContractWrite, usePrepareSendTransaction } from 'wagmi';
 import { keccak256, parseEther } from 'ethers/lib/utils';
 import error from 'next/error';
 import { useConnect, useDisconnect, useAccount, useNetwork } from "wagmi";
 
-import importedABI from '../public/config/abi.json'
+import importedABI from '../public/config/abi.json';
 import MerkleTree from 'merkletreejs';
 
 /* Merkle Root */
 
-const addresses = ["0xd6e67ce446dC04dcF3F3556B8150F370D4c52A62", "0x490EE2cE2DeDC3776c1A3935AE1FE3B93cb13025"]
-
+const addresses = ["0xd6e67ce446dC04dcF3F3556B8150F370D4c52A62", "0x9d3F56186CE4bA86214AE9127e07491f2449D698"]
 
 const getRemainingTime = (_deadline: Date) => {
   let now = new Date().getTime();
@@ -38,10 +37,10 @@ const getRemainingTime = (_deadline: Date) => {
   let deadline = new Date(_deadline).getTime();
 
   let remainTime = (Number(deadline) - Number(now) + 1000) / 1000,
-  remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2),
-  remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2),
-  remainHours = ('0' + Math.floor(remainTime / 3600 % 24)).slice(-2),
-  remainDays = Math.floor(remainTime / (3600 * 24));
+    remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2),
+    remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2),
+    remainHours = ('0' + Math.floor(remainTime / 3600 % 24)).slice(-2),
+    remainDays = Math.floor(remainTime / (3600 * 24));
 
   return {
     remainSeconds,
@@ -56,53 +55,54 @@ const faqResponsive = () => {
   try {
     var questions = document.querySelectorAll(".Home_faqQuestionCorner__I7Qh4");
 
-    for(let i=0; i<questions.length; i++){
-        questions[i].addEventListener("click", function(){
+    for (let i = 0; i < questions.length; i++) {
+      questions[i].addEventListener("click", function () {
+        // @ts-ignore
+        if (this.id == "Home_faqQuestionActive__ejv6_") {
           // @ts-ignore
-            if(this.id=="Home_faqQuestionActive__ejv6_"){
-              // @ts-ignore
-                this.id="";
-                // @ts-ignore
-                this.style.paddingBottom="0px";
-                
-            } else{
-                if(document.querySelector(".Home_faqQuestionCorner__I7Qh4#Home_faqQuestionActive__ejv6_")) {
-                    let item = (document.querySelector(".Home_faqQuestionCorner__I7Qh4#Home_faqQuestionActive__ejv6_") as unknown as HTMLElement);
-                    item.style.paddingBottom = "0px";
-                    item.id="";
-                }
-                // @ts-ignore
-                this.id="Home_faqQuestionActive__ejv6_";
-                // @ts-ignore
-                this.style.paddingBottom = this.querySelector(".Home_faqBody__AYoUh").clientHeight + 15 +"px";
-            }
-        })
+          this.id = "";
+          // @ts-ignore
+          this.style.paddingBottom = "0px";
+
+        } else {
+          if (document.querySelector(".Home_faqQuestionCorner__I7Qh4#Home_faqQuestionActive__ejv6_")) {
+            let item = (document.querySelector(".Home_faqQuestionCorner__I7Qh4#Home_faqQuestionActive__ejv6_") as unknown as HTMLElement);
+            item.style.paddingBottom = "0px";
+            item.id = "";
+          }
+          // @ts-ignore
+          this.id = "Home_faqQuestionActive__ejv6_";
+          // @ts-ignore
+          this.style.paddingBottom = this.querySelector(".Home_faqBody__AYoUh").clientHeight + 15 + "px";
+        }
+      })
     }
   } catch (e) {
     console.log(e);
   }
 }
 
-const countdown = (deadline: any,elem: string,finalMessage: string) => {
+const countdown = (deadline: any, elem: string, finalMessage: string) => {
   let el: HTMLElement | null | undefined = undefined;
   try {
     el = document.getElementById(elem);
 
-    const timerUpdate = setInterval( () => {
+    const timerUpdate = setInterval(() => {
       let t = getRemainingTime(deadline);
       // if (el != null) el.innerHTML = `${t.remainDays}D ${t.remainDays}H ${t.remainMinutes}M`;
-  
-      if (el != null) el.innerHTML = 
-      `LIVE in <br/>`
-      + ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
-      + ((Number(t.remainHours) != 0) ? `${t.remainHours}H` : ``) + ` `
-      + ((Number(t.remainMinutes) != 0) ? `${t.remainMinutes}M` : ``) + ` `;
-  
-      if(t.remainTime <= 1) {
+
+      if (el != null) el.innerHTML =
+        // `LIVE in <br/>`
+        ``
+        + ((Number(t.remainDays) != 0) ? `${t.remainDays}D` : ``) + ` `
+        + ((Number(t.remainHours) != 0) ? `${t.remainHours}H` : ``) + ` `
+        + ((Number(t.remainMinutes) != 0) ? `${t.remainMinutes}M` : ``) + ` `;
+
+      if (t.remainTime <= 1) {
         clearInterval(timerUpdate);
         if (el != null) el.innerHTML = finalMessage;
       }
-  
+
     }, 1000)
   } catch (e) {
     console.log("error");
@@ -114,7 +114,7 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
 // function onGet(address: string) {
 //   const url = "http://localhost:8000/api/" + address + "/messages";
 //   var headers = {}
-  
+
 //   fetch(url, {
 //       method : "GET",
 //       mode: 'cors',
@@ -135,31 +135,31 @@ const countdown = (deadline: any,elem: string,finalMessage: string) => {
 // }
 
 const callAPI = async (address: string) => {
-	try {
-		const res = await fetch(`https://api.opensea.io/user/` + address, {
-      headers : {
+  try {
+    const res = await fetch(`https://api.opensea.io/user/` + address, {
+      headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': `https://api.opensea.io/user/${address}`,
         'Access-Control-Allow-Credentials': 'true',
         'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
         'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
-        
+
       }
     });
-		const data = await res.json();
-		console.log(data);
+    const data = await res.json();
+    console.log(data);
     return data;
-	} catch (err) {
-		console.log(err);
-	}
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 async function getNames() {
 
   // let tickerbar = document.getElementById("tickerbar");
   // tickerbar!.innerHTML = "";
-  let address = "0x05da517b1bf9999b7762eaefa8372341a1a47559";
+  let address = "0x77a72edabdf29e76102e9f9280d5fb55a4c1d0ce";
   let etherscanProvider = new ethers.providers.EtherscanProvider();
   let list: string[] = [];
 
@@ -180,7 +180,7 @@ async function getNames() {
         let seconditem = document.getElementById("seconditem" + i);
 
         // let pfpUrl = "https://i.seadn.io/gae/tNnkm9SWrFFYdC9VczshcGIUPZv0An-gnPSqnv10AM1HlwN_JRbOzcJvr1-gGxXzWoHxPQzeFb6Z8ITK08P7fjjj_ChrtHMfdpo21w?w=500&auto=format";
-        
+
         // let contents = await fs.readFile("https://api.opensea.io/user/0x844a4641a3fbf2235da99667568140370d72fd45", 'utf8');
 
         // let contents = await callAPI(tx.from);
@@ -192,7 +192,7 @@ async function getNames() {
         //     />`;
 
         let setTo = await handleAddress(tx.from);
-        
+
         item!.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '"><b>' + setTo + '</b><br/>Reserved 1x Founders Crew Pass</a>';
         seconditem!.innerHTML = '<a target="_blank" rel="noopener noreferrer" href="https://opensea.io/' + tx.from + '"><b>' + setTo + '</b><br/>Reserved 1x Founders Crew Pass</a>';
 
@@ -216,13 +216,13 @@ async function getNames() {
 async function handleAddress(address: string) {
   let provider = new ethers.providers.InfuraProvider();
   const ensName = await provider.lookupAddress(address);
-  
+
   if (ensName != null) {
     console.log(ensName);
     return ensName.toUpperCase();
   } else {
     console.log((address.slice(0, 6) + "...." + address.slice(address.length - 4, address.length)));
-    return((address.slice(0, 6) + "...." + address.slice(address.length - 4, address.length)));
+    return ((address.slice(0, 6) + "...." + address.slice(address.length - 4, address.length)));
   }
 }
 
@@ -235,6 +235,8 @@ const Home: NextPage = () => {
 
   // Merkle Root
 
+  const [mintError, setMintError] = useState("");
+
   const [loaded, setLoaded] = useState(false);
   const [mintAmount, setMintAmount] = useState(1);
 
@@ -246,10 +248,10 @@ const Home: NextPage = () => {
 
   let leaf = "";
   let proof = [""];
-  
+
   console.log("root")
   console.log(buf2hex(tree.getRoot()))
-  
+
   if (address !== undefined) {
     leaf = keccak256(address as string) // address from wallet using walletconnect/metamask
     proof = tree.getProof(leaf).map(x => buf2hex(x.data))
@@ -259,54 +261,66 @@ const Home: NextPage = () => {
   console.log(proof)
   console.log(address)
 
-  // function loaderListen() {
-  //   let loader = document.getElementById('loader');
-  
-  //   if (loader != null) loader.addEventListener('ended', handleLoader, false);
-  // }
-  
-  // function handleLoader() {
-  //   setLoaded(true);
-  // }
+  // const contractWrite = usePrepareContractWrite({
+  //   address: '0xdAb1d65D8C2Bba440B14d6dC40a16cd843c43e22', // Replace
+  //   abi: importedABI,
+  //   functionName: 'depositWhitelist',
+  //   overrides: {
+  //     value: ethers.utils.parseEther('0.169'),
+  //   },
+  //   // args: [proof],
+  //   onSuccess(data) {
+  //     console.log('Success', data)
+  //   },
+  // })
+
+  const depositConfig = usePrepareContractWrite({
+    address: '0x77a72edabdf29e76102e9f9280d5fb55a4c1d0ce',
+    abi: importedABI,
+    functionName: 'depositAllowlist',
+    overrides: {
+      value: ethers.utils.parseEther('0.01'),
+    },
+    args: [proof],
+  });
+
+  // @ts-ignore
+  const mintNFT = useContractWrite(depositConfig.config);
+
+  const handleMint = () => {
+    try {
+      // @ts-ignore
+      mintNFT?.write();
+    } catch (e) {
+      console.log(e)
+      setMintError("Unable to mint at this time");
+    }
+  };
 
   const decrementMintAmount = () => {
-      let newMintAmount = mintAmount - 1;
-      if (newMintAmount < 1) {
-          newMintAmount = 1;
-      }
-      setMintAmount(newMintAmount);
+    let newMintAmount = mintAmount - 1;
+    if (newMintAmount < 1) {
+      newMintAmount = 1;
+    }
+    setMintAmount(newMintAmount);
   };
 
   const incrementMintAmount = () => {
-      let newMintAmount = mintAmount + 1;
-      if (newMintAmount > 3) {
-          newMintAmount = 3;
-      }
-      setMintAmount(newMintAmount);
+    let newMintAmount = mintAmount + 1;
+    if (newMintAmount > 3) {
+      newMintAmount = 3;
+    }
+    setMintAmount(newMintAmount);
   };
 
   useEffect(() => {
     getNames();
-    // loaderListen();
 
-    setTimeout( () => {
+    setTimeout(() => {
       setLoaded(true);
       console.log("true");
     }, 4500)
   }, []);
-
-  const { config, error } = usePrepareContractWrite({
-    address: '0x06FDa0d9866693b82aD185513603f501EdEa9dB3',
-    abi: importedABI,
-    functionName: 'chosenMint',
-    overrides: {
-      value: ethers.utils.parseEther('0.1'),
-    },
-    args: [1, proof],
-  })
-
-  //@ts-ignore
-  const { write } = useContractWrite(config);
 
   return (
     <>
@@ -319,20 +333,22 @@ const Home: NextPage = () => {
       {error && (
         <div>An error occurred preparing the transaction: {error.message}</div>
       )} */}
+      {/* {contractRead?.data}
+      {contractRead?.error} */}
 
       <div
-      style={ loaded ? { display:'none'} : {display : ''} }
-      className={styles.loading}>
+        style={loaded ? { display: 'none' } : { display: '' }}
+        className={styles.loading}>
         {/* <video id="loader" autoPlay muted height="60%" width="60%">
           <source src="/Loading.mp4" type="video/mp4"/>
        </video> */}
-          <Image
-            src={loading}
-          />
+        <Image
+          src={loading}
+        />
       </div>
-      <div 
-      style={ loaded ? { display:''} : {display : 'none'} }
-      className={styles.container}>
+      <div
+        style={loaded ? { display: '' } : { display: 'none' }}
+        className={styles.container}>
         <Head>
           <title>Troublemkrs Mint</title>
           <meta
@@ -341,8 +357,8 @@ const Home: NextPage = () => {
           />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
         </Head>
 
@@ -372,8 +388,8 @@ const Home: NextPage = () => {
               </div>
               <div style={{
                 margin: "auto 0"
-              }}><ConnectButton showBalance={false}/></div>
-              
+              }}><ConnectButton showBalance={false} /></div>
+
             </div>
 
           </div>
@@ -400,12 +416,12 @@ const Home: NextPage = () => {
                   <div className={styles.live}><div id="clock"></div></div>
                 </div> */}
               </div>
-              
+
             </div>
 
             <div className={styles.mint}>
               <div>{/* <div className={styles.yellow}>Ahoy, been waiting for months to mint!</div> */}
-              {/* <div style={{
+                {/* <div style={{
                 color: "#eee",
                 textTransform: "uppercase",
                 display: "flex",
@@ -447,13 +463,13 @@ const Home: NextPage = () => {
               <br/>
               <br/> */}</div>
 
-              
+
               <div className={styles.reservationHolder}>
                 <div className={styles.reservationHolderTexts}>
-                  <h2>TROUBLEMAKERS<br/>FOUNDERS CREW PASS</h2>
+                  <h2>TROUBLEMAKERS<br />FOUNDERS CREW PASS</h2>
                   <p>Finally, it&apos;s officially time to join the Troublemakers! Come reserve your pass!</p>
                 </div>
-                <div className={styles.reservationPhasesHolder} id={styles.phase2}>
+                <div className={styles.reservationPhasesHolder} id={styles.phase1}>
                   <div className={styles.reservationPhases}>
                     <div className={styles.reservationPhaseBox}>
                       <div className={styles.cornerLeft}><div className={styles.cornerLeftInner}></div></div>
@@ -461,7 +477,7 @@ const Home: NextPage = () => {
                         <span className={styles.reservationPhase}>PHASE 1</span><span className={styles.reservationActive}></span>
                       </p>
                       <p className={styles.reservationDesc}>Guaranteed Mint</p>
-                      <p className={styles.reservationEnd}>Ended<span id={styles.phase1End}><span id="clock1"></span></span></p>
+                      <p className={styles.reservationEnd}><span id={styles.phase1End}><span id="clock1"></span></span></p>
                     </div>
                     <div className={styles.reservationPhaseBox}>
                       <div className={styles.cornerLeft}><div className={styles.cornerLeftInner}></div></div>
@@ -470,7 +486,7 @@ const Home: NextPage = () => {
                         <span className={styles.reservationPhase}>PHASE 2</span><span className={styles.reservationActive}></span>
                       </p>
                       <p className={styles.reservationDesc}>FCFS Mint</p>
-                      <p className={styles.reservationEnd}><span id={styles.phase1End}><span id="clock2"></span></span></p>
+                      <p className={styles.reservationEnd}>Not Started<span id={styles.phase1End}><span id="clock2"></span></span></p>
                     </div>
                     <div className={styles.reservationPhaseBox} id={styles.reservationActive}>
                       <div className={styles.cornerRight}><div className={styles.cornerRightInner}></div></div>
@@ -482,15 +498,20 @@ const Home: NextPage = () => {
                     </div>
                   </div>
                   <div className={styles.reservationReserveBox}>
-                    <p>Reserved Price: <span id={styles.reservedPrice}>0.2 ETH</span></p>
-                    <button className={styles.mintButton}>Reserve Pass</button>
+                    <p>Reserved Price: <span id={styles.reservedPrice}>0.169 ETH</span></p>
+                    <button onClick={handleMint} className={styles.mintButton}>Reserve Pass</button>
+                    <p style={{
+                      paddingTop: "10px",
+                      display: mintError == "" ? "none" : "",
+                    }}>
+                      {mintError}</p>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            </h1>
+          </h1>
 
           <div className={styles.reservationsContainerHolder}>
             <div id="tickerbar" className={styles.reservationsContainer}>
@@ -501,9 +522,9 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp1}
-                    />
+                  />
                 </div>
-                    <div id="item1" className={styles.reservationName}>1 Loading...</div>
+                <div id="item1" className={styles.reservationName}>Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp2">
@@ -511,9 +532,9 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp2}
-                    />
+                  />
                 </div>
-                    <div id="item2" className={styles.reservationName}>2 Loading...</div>
+                <div id="item2" className={styles.reservationName}>Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp3">
@@ -521,9 +542,9 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp3}
-                    />
+                  />
                 </div>
-                    <div id="item3" className={styles.reservationName}>3 Loading...</div>
+                <div id="item3" className={styles.reservationName}>Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp4">
@@ -531,9 +552,9 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp4}
-                    />
+                  />
                 </div>
-                    <div id="item4" className={styles.reservationName}>4 Loading...</div>
+                <div id="item4" className={styles.reservationName}>Loading...</div>
               </div>
 
               {/* LOOP */}
@@ -545,9 +566,9 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp1}
-                    />
+                  />
                 </div>
-                    <div id="seconditem1" className={styles.reservationName}>1 Loading...</div>
+                <div id="seconditem1" className={styles.reservationName}>Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp2">
@@ -555,9 +576,9 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp2}
-                    />
+                  />
                 </div>
-                    <div id="seconditem2" className={styles.reservationName}>2 Loading...</div>
+                <div id="seconditem2" className={styles.reservationName}>Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp3">
@@ -565,9 +586,9 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp3}
-                    />
+                  />
                 </div>
-                    <div id="seconditem3" className={styles.reservationName}>3 Loading...</div>
+                <div id="seconditem3" className={styles.reservationName}>Loading...</div>
               </div>
               <div className={styles.reservationBorder}>
                 <div className={styles.reservePfp} id="pfp4">
@@ -575,11 +596,11 @@ const Home: NextPage = () => {
                     width="48"
                     height="48"
                     src={pfp4}
-                    />
+                  />
                 </div>
-                    <div id="seconditem4" className={styles.reservationName}>4 Loading...</div>
+                <div id="seconditem4" className={styles.reservationName}>Loading...</div>
               </div>
-              
+
             </div>
           </div>
 
@@ -634,13 +655,13 @@ const Home: NextPage = () => {
             {/* <h2>
               FREQUENTLY ASKED QUESTIONS
             </h2> */}
-            
+
             <div className={styles.faqContainerQuestions}>
 
               <div className={styles.faqContainerColumn}>
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>What is the Troublemakers Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <p><span>What is the Troublemakers Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff" /></g></svg></span></p>
                     <div className={styles.faqBody}>
                       The Troublemakers Founders Crew Pass is the key to the
                       <a href="https://twitter.com/TroubleMkrsNFT" target="_blank" rel="noopener noreferrer" style={{
@@ -653,29 +674,29 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>What is the cost of the presale?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <p><span>What is the cost of the presale?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff" /></g></svg></span></p>
                     <div className={styles.faqBody}>
-                      The cost to reserve a Troublemakers Founders Crew Pass is at 0.2E each.
+                      The cost to reserve a Troublemakers Founders Crew Pass is at 0.169E each.
                     </div>
                   </div>
                 </div>
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>Why a presale instead of the standard minting process?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <p><span>Why a presale instead of the standard minting process?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff" /></g></svg></span></p>
                     <div className={styles.faqBody}>
-                      Based on various considerations, this is a better way than the traditional minting process, where everyone who reserved their Crew Pass will be airdropped simultaneously. 
+                      Based on various considerations, this is a better way than the traditional minting process, where everyone who reserved their Crew Pass will be airdropped simultaneously.
                     </div>
                   </div>
                 </div>
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>How does Phase 1, 2 and 3 work?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <p><span>How does Phase 1, 2 and 3 work?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff" /></g></svg></span></p>
                     <div className={styles.faqBody}>
-                    Phase 1 - All whitelisted (WL) members who are guaranteed to reserve their pass.<br/>
-                    Phase 2 - All members who are keen to reserve additional passes, first-come-first-serve (FCFS).<br/>
-                    Phase 3 - All accepted public applicants.<br/>
+                      Phase 1 - All whitelisted (WL) members who are guaranteed to reserve their pass.<br />
+                      Phase 2 - All members who are keen to reserve additional passes, first-come-first-serve (FCFS).<br />
+                      Phase 3 - All accepted public applicants.<br />
                     </div>
                   </div>
                 </div>
@@ -686,7 +707,7 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>Is there a Discord?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <p><span>Is there a Discord?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff" /></g></svg></span></p>
                     <div className={styles.faqBody}>
                       Yes, the Discord is closed strictly for handpicked members only, and will be opened up for new pass holders after the presale.
                     </div>
@@ -695,30 +716,30 @@ const Home: NextPage = () => {
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>Who is eligible to reserve a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <p><span>Who is eligible to reserve a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff" /></g></svg></span></p>
                     <div className={styles.faqBody}>
-                    The initial handpicked 200 who were invited to the Troublemakers Discord are eligible to reserve 1 Founders Crew Pass.
-                    Another 100 will go to applicants who got accepted in the (Public Thread TBA)
+                      The initial handpicked 200 who were invited to the Troublemakers Discord are eligible to reserve 1 Founders Crew Pass.
+                      Another 100 will go to applicants who got accepted in the (Public Thread TBA)
                     </div>
                   </div>
                 </div>
 
                 <div className={styles.faqQuestionCorner}>
                   <div className={styles.faqHeader}>
-                    <p><span>What are some of the perks of holding a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff"/></g></svg></span></p>
+                    <p><span>What are some of the perks of holding a Founders Crew Pass?</span> <span><svg xmlns="http://www.w3.org/2000/svg" width="17.15" height="11.055" viewBox="0 0 17.15 11.055"><g id="layer1" transform="translate(-291.965 13.031) rotate(-90)"><path id="path9429" d="M3.276,291.965a1.22,1.22,0,0,0-.8,2.161l7.464,6.395-7.464,6.392a1.22,1.22,0,1,0,1.584,1.846l8.546-7.312a1.22,1.22,0,0,0,0-1.856l-8.546-7.319a1.219,1.219,0,0,0-.781-.308Z" transform="translate(0 0)" fill="#fff" /></g></svg></span></p>
                     <div className={styles.faqBody}>
-                    As a Troublemakers Founders Crew Pass holder, you are guaranteed:<br/>
-                    <br/>
-                    ⦁ 2 x Free Troublemakers PFP (Airdrop)<br/>
-                    ⦁ WL Nomination for Troublemakers PFP<br/>
-                    ⦁ Top-tier NFT & Crypto Calls<br/>
-                    ⦁ Exclusive Educational Content & Community Events<br/>
-                    ⦁ Daily Market Updates (Everything you need in 1 post)<br/>
-                    ⦁ Daily Curated WL Raffles (Eg. Homa Games, MitsubishiNFT, Owange, etc)<br/>
-                    ⦁ Elite Networking Group (Connect with various founders, collab managers, etc)<br/>
-                    ⦁ Team/Job Opportunities<br/>
-                    <br/>
-                    For more information, please refer to the Troublemakers Discord.<br/>
+                      As a Troublemakers Founders Crew Pass holder, you are guaranteed:<br />
+                      <br />
+                      ⦁ 2 x Free Troublemakers PFP (Airdrop)<br />
+                      ⦁ WL Nomination for Troublemakers PFP<br />
+                      ⦁ Top-tier NFT & Crypto Calls<br />
+                      ⦁ Exclusive Educational Content & Community Events<br />
+                      ⦁ Daily Market Updates (Everything you need in 1 post)<br />
+                      ⦁ Daily Curated WL Raffles (Eg. Homa Games, MitsubishiNFT, Owange, etc)<br />
+                      ⦁ Elite Networking Group (Connect with various founders, collab managers, etc)<br />
+                      ⦁ Team/Job Opportunities<br />
+                      <br />
+                      For more information, please refer to the Troublemakers Discord.<br />
                     </div>
                   </div>
                 </div>
@@ -744,7 +765,7 @@ const Home: NextPage = () => {
                 color: "#ffcc00",
                 fontSize: "24px",
                 fontFamily: "marvin",
-              }}>connect</span><br/>
+              }}>connect</span><br />
               A space to <span style={{
                 color: "#ffcc00",
                 fontSize: "24px",
@@ -780,7 +801,7 @@ const Home: NextPage = () => {
   );
 };
 
-countdown('Nov 28 2022 00:59:59 GMT-0700', 'clock2', 'Presale is LIVE');
+countdown('Dec 28 2022 00:59:59 GMT-0700', 'clock1', 'Presale is LIVE');
 faqResponsive();
 
 export default Home;

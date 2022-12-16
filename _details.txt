@@ -1,1 +1,25 @@
 Contract 1:
+- ERC1155, Fixed XXX Supply
+- Fixed Price
+- Whitelist (?)
+- Any other details (?)
+
+Contract 2:
+- Staking Contract for ERC1155's
+- 1155's can be staked, and unstaked without any penalty/limitations by their rightful owners
+- Contract 3 watches this contract for payment dist data
+
+Contract 3:
+- Gamified Lottery Contract
+
+- Every X hours (settable) a new game can be put into motion via a "startLottery" function
+-- startNewLottery will 1) pay out existing winnings and 2) start the next lottery. Since it is required to claim funds, users
+will be incentivized to execute this function if they want to withdraw their winning/play in the next new lottery
+-- after startNewLottery is executed, XX% of the total funds will be paid out to the winner as their prize, and the remaining ETH will be transferred to Contract 2 for distribution to stakers
+-- Each lottery winner will be determined by generating a random numbered "ticket" via Chainlink VRF to select a winning address at a certain index of a "tickets" array
+-- With the requirement that a "lottery winner" has been picked, the "tickets" array will subsequently be cleared and new "tickets" can be created on it during the next round
+-- An unlimited amount of new "tickets" can be generated each round at a fixed price as set in the contract (0.05 for example). More than 1 ticket can be bought at once to save gas if the correct amount of ETH is supplied
+
+- Must use (moneypipe stream OR moneypipe buffer OR other custom written splitter method) (?)
+-- Splitter moves ETH deposited in from Contract 3 to the current stakers wallets
+-- Should be pull based to spread out gas fees for transfers among many users, instead of one large gas fee for one user
