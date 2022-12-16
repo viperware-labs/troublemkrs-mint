@@ -803,7 +803,7 @@ const Home: NextPage = () => {
   );
 };
 
-countdown('Dec 16 2022 7:00:00 GMT-0700', 'clock1', 'Presale is LIVE');
+countdown('Dec 16 2022 8:00:00 GMT-0700', 'clock1', 'Presale is LIVE');
 faqResponsive();
 
 export default Home;
