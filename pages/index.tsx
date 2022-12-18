@@ -491,7 +491,9 @@ const Home: NextPage = () => {
                   <h2>TROUBLEMAKERS<br />FOUNDERS CREW PASS</h2>
                   <p>Finally, it&apos;s officially time to join the Troublemakers! Come reserve your pass!</p>
                 </div>
-                <div className={styles.reservationPhasesHolder} id={styles.phase2}>
+                <div className={styles.reservationPhasesHolder}
+                id={styles.phase3waiting}
+                >
                   <div className={styles.reservationPhases}>
                     <div className={styles.reservationPhaseBox}>
                       <div className={styles.cornerLeft}><div className={styles.cornerLeftInner}></div></div>
@@ -508,7 +510,7 @@ const Home: NextPage = () => {
                         <span className={styles.reservationPhase}>PHASE 2</span><span className={styles.reservationActive}></span>
                       </p>
                       <p className={styles.reservationDesc}>FCFS Mint</p>
-                      <p className={styles.reservationEnd}><span id={styles.phase1End}><span id="clock2"></span></span></p>
+                      <p className={styles.reservationEnd}>Complete<span id={styles.phase1End}><span id="clock2"></span></span></p>
                     </div>
                     <div className={styles.reservationPhaseBox} id={styles.reservationActive}>
                       <div className={styles.cornerRight}><div className={styles.cornerRightInner}></div></div>
@@ -516,12 +518,14 @@ const Home: NextPage = () => {
                         <span className={styles.reservationPhase}>PHASE 3</span><span className={styles.reservationActive}></span>
                       </p>
                       <p className={styles.reservationDesc}>Acceptance Mint</p>
-                      <p className={styles.reservationEnd}>Not Started<span id={styles.phase1End}><span id="clock3"></span></span></p>
+                      <p className={styles.reservationEnd}>TBA<span id={styles.phase1End}><span id="clock3"></span></span></p>
                     </div>
                   </div>
                   <div className={styles.reservationReserveBox}>
                     <p>Reserved Price: <span id={styles.reservedPrice}>0.169 ETH</span></p>
-                    <button onClick={handleMint} className={styles.mintButton}>Reserve Pass</button>
+                    <button
+                    // onClick={handleMint}
+                    className={styles.mintButton}>Reserve Pass</button>
                     <p style={{
                       paddingTop: "10px",
                       display: mintError == "" ? "none" : "",
@@ -823,7 +827,7 @@ const Home: NextPage = () => {
   );
 };
 
-countdown('Dec 17 2022 7:00:00 GMT-0800', 'clock2', 'Presale is LIVE');
+countdown('Dec 17 2022 7:00:00 GMT-0800', 'clockX', 'Presale is LIVE');
 faqResponsive();
 
 export default Home;

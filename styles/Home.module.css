@@ -45,6 +45,7 @@
   display: flex;
   margin: 0 0 0 auto;
   text-transform: uppercase;
+  width: 100%;
 }
 
 @media (max-width: 900px) {
@@ -255,6 +256,24 @@
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationEnd {
   color: #33cc33;
 }
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(1) .reservationEnd, .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(2) .reservationEnd {
+  color: #1e1e1e;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(3) {
+  background: #1e1e1e;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationHeader span.reservationPhase {
+  color: #ffcc00;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationHeader span.reservationActive {
+  background: #e89c10;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationDesc {
+  color: #fff;
+}
+.mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(3) .reservationEnd {
+  color: #878787;
+}
 .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases {
   margin: 30px 0 0;
 }
@@ -325,6 +344,7 @@
   width: 100%;
   padding: 14px 0;
   margin: 10px 0 0;
+  background-color: #8c8c8c;
 }
 
 @media (min-width: 520px) {
@@ -344,6 +364,12 @@
     border-top-right-radius: 0;
   }
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3 .reservationPhases .reservationPhaseBox:nth-of-type(3) .cornerRight {
+    display: block;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationReserveBox {
+    border-top-right-radius: 0;
+  }
+  .mintcontainer .mint .reservationHolder .reservationPhasesHolder#phase3waiting .reservationPhases .reservationPhaseBox:nth-of-type(3) .cornerRight {
     display: block;
   }
   .mintcontainer .mint .reservationHolder .reservationPhasesHolder .reservationPhases {
